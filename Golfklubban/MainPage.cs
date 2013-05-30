@@ -54,5 +54,11 @@ namespace Golfklubban
             openPlayerChart.Show();
 
         }
+
+        private void visaLagToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CompetitionChart openPlayerChart = new CompetitionChart();
+            openPlayerChart.Show();
+        }
     }
 }

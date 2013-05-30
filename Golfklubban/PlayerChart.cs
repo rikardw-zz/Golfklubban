@@ -18,7 +18,8 @@ namespace Golfklubban
 
         private void btnRegistrera_Click(object sender, EventArgs e)
         {
-            this.Close();
+            MessageBox.Show("Medlemmen har registrerats!");
+            this.Close(); //stänger slutligen fönstret
         }
     }
 }
