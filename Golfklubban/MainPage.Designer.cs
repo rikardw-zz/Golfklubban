@@ -142,8 +142,9 @@
             // visaKommandeTävlingarToolStripMenuItem
             // 
             this.visaKommandeTävlingarToolStripMenuItem.Name = "visaKommandeTävlingarToolStripMenuItem";
-            this.visaKommandeTävlingarToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.visaKommandeTävlingarToolStripMenuItem.Text = "Visa kommande tävlingar";
+            this.visaKommandeTävlingarToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.visaKommandeTävlingarToolStripMenuItem.Text = "Visa tävlingar";
+            this.visaKommandeTävlingarToolStripMenuItem.Click += new System.EventHandler(this.visaKommandeTävlingarToolStripMenuItem_Click);
             // 
             // läggTillNyTävlingToolStripMenuItem
             // 
@@ -225,6 +226,7 @@
             this.informationToolStripMenuItem.Name = "informationToolStripMenuItem";
             this.informationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.informationToolStripMenuItem.Text = "Information";
+            this.informationToolStripMenuItem.Click += new System.EventHandler(this.informationToolStripMenuItem_Click);
             // 
             // MainPage
             // 

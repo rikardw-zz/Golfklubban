@@ -50,7 +50,7 @@
             // Label16
             // 
             this.Label16.AutoSize = true;
-            this.Label16.Location = new System.Drawing.Point(11, 106);
+            this.Label16.Location = new System.Drawing.Point(11, 98);
             this.Label16.Name = "Label16";
             this.Label16.Size = new System.Drawing.Size(46, 13);
             this.Label16.TabIndex = 329;
@@ -58,69 +58,73 @@
             // 
             // txtStopptid
             // 
-            this.txtStopptid.Location = new System.Drawing.Point(12, 121);
+            this.txtStopptid.Location = new System.Drawing.Point(12, 113);
             this.txtStopptid.Name = "txtStopptid";
             this.txtStopptid.Size = new System.Drawing.Size(146, 20);
             this.txtStopptid.TabIndex = 328;
+            this.txtStopptid.TextChanged += new System.EventHandler(this.txtStopptid_TextChanged);
             // 
             // btnSkapa_tävling
             // 
-            this.btnSkapa_tävling.Location = new System.Drawing.Point(174, 224);
+            this.btnSkapa_tävling.Location = new System.Drawing.Point(12, 250);
             this.btnSkapa_tävling.Name = "btnSkapa_tävling";
             this.btnSkapa_tävling.Size = new System.Drawing.Size(103, 23);
             this.btnSkapa_tävling.TabIndex = 327;
             this.btnSkapa_tävling.Text = "Skapa tävling";
             this.btnSkapa_tävling.UseVisualStyleBackColor = true;
+            this.btnSkapa_tävling.Click += new System.EventHandler(this.btnSkapa_tävling_Click);
             // 
             // Label13
             // 
             this.Label13.AutoSize = true;
             this.Label13.Location = new System.Drawing.Point(180, 84);
             this.Label13.Name = "Label13";
-            this.Label13.Size = new System.Drawing.Size(42, 13);
+            this.Label13.Size = new System.Drawing.Size(71, 13);
             this.Label13.TabIndex = 326;
-            this.Label13.Text = "Klass C";
+            this.Label13.Text = "Klass C gräns";
             // 
             // Label12
             // 
             this.Label12.AutoSize = true;
             this.Label12.Location = new System.Drawing.Point(180, 48);
             this.Label12.Name = "Label12";
-            this.Label12.Size = new System.Drawing.Size(42, 13);
+            this.Label12.Size = new System.Drawing.Size(71, 13);
             this.Label12.TabIndex = 325;
-            this.Label12.Text = "Klass B";
+            this.Label12.Text = "Klass B gräns";
             // 
             // Label11
             // 
             this.Label11.AutoSize = true;
             this.Label11.Location = new System.Drawing.Point(180, 7);
             this.Label11.Name = "Label11";
-            this.Label11.Size = new System.Drawing.Size(42, 13);
+            this.Label11.Size = new System.Drawing.Size(71, 13);
             this.Label11.TabIndex = 324;
-            this.Label11.Text = "Klass A";
+            this.Label11.Text = "Klass A gräns";
             // 
             // Label10
             // 
             this.Label10.AutoSize = true;
-            this.Label10.Location = new System.Drawing.Point(9, 211);
+            this.Label10.Location = new System.Drawing.Point(9, 189);
             this.Label10.Name = "Label10";
             this.Label10.Size = new System.Drawing.Size(117, 13);
             this.Label10.TabIndex = 323;
             this.Label10.Text = "Sista avbokningsdatum";
+            this.Label10.Click += new System.EventHandler(this.Label10_Click);
             // 
             // Label9
             // 
             this.Label9.AutoSize = true;
-            this.Label9.Location = new System.Drawing.Point(9, 160);
+            this.Label9.Location = new System.Drawing.Point(9, 142);
             this.Label9.Name = "Label9";
             this.Label9.Size = new System.Drawing.Size(115, 13);
             this.Label9.TabIndex = 322;
             this.Label9.Text = "Sista anmälningsdatum";
+            this.Label9.Click += new System.EventHandler(this.Label9_Click);
             // 
             // Label8
             // 
             this.Label8.AutoSize = true;
-            this.Label8.Location = new System.Drawing.Point(9, 60);
+            this.Label8.Location = new System.Drawing.Point(9, 52);
             this.Label8.Name = "Label8";
             this.Label8.Size = new System.Drawing.Size(40, 13);
             this.Label8.TabIndex = 321;
@@ -158,21 +162,23 @@
             // 
             // txtAvbokningsdatum
             // 
-            this.txtAvbokningsdatum.Location = new System.Drawing.Point(12, 227);
+            this.txtAvbokningsdatum.Location = new System.Drawing.Point(12, 205);
             this.txtAvbokningsdatum.Name = "txtAvbokningsdatum";
             this.txtAvbokningsdatum.Size = new System.Drawing.Size(146, 20);
             this.txtAvbokningsdatum.TabIndex = 316;
+            this.txtAvbokningsdatum.TextChanged += new System.EventHandler(this.txtAvbokningsdatum_TextChanged);
             // 
             // txtAnmälningsdatum
             // 
-            this.txtAnmälningsdatum.Location = new System.Drawing.Point(12, 176);
+            this.txtAnmälningsdatum.Location = new System.Drawing.Point(12, 158);
             this.txtAnmälningsdatum.Name = "txtAnmälningsdatum";
             this.txtAnmälningsdatum.Size = new System.Drawing.Size(146, 20);
             this.txtAnmälningsdatum.TabIndex = 315;
+            this.txtAnmälningsdatum.TextChanged += new System.EventHandler(this.txtAnmälningsdatum_TextChanged);
             // 
             // txtStarttid
             // 
-            this.txtStarttid.Location = new System.Drawing.Point(12, 76);
+            this.txtStarttid.Location = new System.Drawing.Point(12, 68);
             this.txtStarttid.Name = "txtStarttid";
             this.txtStarttid.Size = new System.Drawing.Size(146, 20);
             this.txtStarttid.TabIndex = 314;
@@ -188,7 +194,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 275);
+            this.ClientSize = new System.Drawing.Size(297, 285);
             this.Controls.Add(this.Label16);
             this.Controls.Add(this.txtStopptid);
             this.Controls.Add(this.btnSkapa_tävling);

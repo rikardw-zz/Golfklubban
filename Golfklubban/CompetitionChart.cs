@@ -15,5 +15,37 @@ namespace Golfklubban
         {
             InitializeComponent();
         }
+
+        
+        private void Label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAvbokningsdatum_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAnmälningsdatum_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtStopptid_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSkapa_tävling_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Tävlingen har skapats");
+            this.Close();
+        }
     }
 }

@@ -18,22 +18,6 @@ namespace Golfklubban
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //test
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-                                    
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
             
         }
 
@@ -52,13 +36,23 @@ namespace Golfklubban
         {
             PlayerChart openPlayerChart = new PlayerChart();
             openPlayerChart.Show();
-
         }
 
         private void visaLagToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Work in progress");
+        }
+
+        private void visaKommandeTävlingarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             CompetitionChart openPlayerChart = new CompetitionChart();
             openPlayerChart.Show();
+
+        }
+
+        private void informationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Golfklubban V0.1");
         }
     }
 }
