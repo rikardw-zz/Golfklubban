@@ -1,0 +1,342 @@
+﻿namespace Golfklubban
+{
+    partial class PlayerChart
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtPostnummer = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtGatunummer = new System.Windows.Forms.TextBox();
+            this.rdoEjklubbmedlem = new System.Windows.Forms.RadioButton();
+            this.cbMedlemsavgift = new System.Windows.Forms.CheckBox();
+            this.rdoGreenfee = new System.Windows.Forms.RadioButton();
+            this.rdoJunior = new System.Windows.Forms.RadioButton();
+            this.rdoVilande = new System.Windows.Forms.RadioButton();
+            this.rdoAktiv = new System.Windows.Forms.RadioButton();
+            this.btnRegistrera = new System.Windows.Forms.Button();
+            this.Label6 = new System.Windows.Forms.Label();
+            this.Label5 = new System.Windows.Forms.Label();
+            this.Label4 = new System.Windows.Forms.Label();
+            this.Label3 = new System.Windows.Forms.Label();
+            this.Label2 = new System.Windows.Forms.Label();
+            this.Label1 = new System.Windows.Forms.Label();
+            this.Förnamn = new System.Windows.Forms.Label();
+            this.txtHandicap = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtMobil = new System.Windows.Forms.TextBox();
+            this.txtGatuadress = new System.Windows.Forms.TextBox();
+            this.txtPersonnr = new System.Windows.Forms.TextBox();
+            this.txtEfternamn = new System.Windows.Forms.TextBox();
+            this.txtFornamn = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(19, 161);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(65, 13);
+            this.label22.TabIndex = 352;
+            this.label22.Text = "Postnummer";
+            // 
+            // txtPostnummer
+            // 
+            this.txtPostnummer.Location = new System.Drawing.Point(22, 177);
+            this.txtPostnummer.Name = "txtPostnummer";
+            this.txtPostnummer.Size = new System.Drawing.Size(100, 20);
+            this.txtPostnummer.TabIndex = 332;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(161, 118);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(67, 13);
+            this.label21.TabIndex = 351;
+            this.label21.Text = "Gatunummer";
+            // 
+            // txtGatunummer
+            // 
+            this.txtGatunummer.Location = new System.Drawing.Point(164, 134);
+            this.txtGatunummer.Name = "txtGatunummer";
+            this.txtGatunummer.Size = new System.Drawing.Size(100, 20);
+            this.txtGatunummer.TabIndex = 331;
+            // 
+            // rdoEjklubbmedlem
+            // 
+            this.rdoEjklubbmedlem.AutoSize = true;
+            this.rdoEjklubbmedlem.Location = new System.Drawing.Point(286, 157);
+            this.rdoEjklubbmedlem.Name = "rdoEjklubbmedlem";
+            this.rdoEjklubbmedlem.Size = new System.Drawing.Size(99, 17);
+            this.rdoEjklubbmedlem.TabIndex = 339;
+            this.rdoEjklubbmedlem.TabStop = true;
+            this.rdoEjklubbmedlem.Text = "Ej klubbmedlem";
+            this.rdoEjklubbmedlem.UseVisualStyleBackColor = true;
+            // 
+            // cbMedlemsavgift
+            // 
+            this.cbMedlemsavgift.AutoSize = true;
+            this.cbMedlemsavgift.Location = new System.Drawing.Point(286, 192);
+            this.cbMedlemsavgift.Name = "cbMedlemsavgift";
+            this.cbMedlemsavgift.Size = new System.Drawing.Size(94, 17);
+            this.cbMedlemsavgift.TabIndex = 340;
+            this.cbMedlemsavgift.Text = "Medlemsavgift";
+            this.cbMedlemsavgift.UseVisualStyleBackColor = true;
+            // 
+            // rdoGreenfee
+            // 
+            this.rdoGreenfee.AutoSize = true;
+            this.rdoGreenfee.Location = new System.Drawing.Point(286, 122);
+            this.rdoGreenfee.Name = "rdoGreenfee";
+            this.rdoGreenfee.Size = new System.Drawing.Size(69, 17);
+            this.rdoGreenfee.TabIndex = 338;
+            this.rdoGreenfee.TabStop = true;
+            this.rdoGreenfee.Text = "Greenfee";
+            this.rdoGreenfee.UseVisualStyleBackColor = true;
+            // 
+            // rdoJunior
+            // 
+            this.rdoJunior.AutoSize = true;
+            this.rdoJunior.Location = new System.Drawing.Point(286, 92);
+            this.rdoJunior.Name = "rdoJunior";
+            this.rdoJunior.Size = new System.Drawing.Size(53, 17);
+            this.rdoJunior.TabIndex = 337;
+            this.rdoJunior.TabStop = true;
+            this.rdoJunior.Text = "Junior";
+            this.rdoJunior.UseVisualStyleBackColor = true;
+            // 
+            // rdoVilande
+            // 
+            this.rdoVilande.AutoSize = true;
+            this.rdoVilande.Location = new System.Drawing.Point(286, 57);
+            this.rdoVilande.Name = "rdoVilande";
+            this.rdoVilande.Size = new System.Drawing.Size(60, 17);
+            this.rdoVilande.TabIndex = 336;
+            this.rdoVilande.TabStop = true;
+            this.rdoVilande.Text = "Vilande";
+            this.rdoVilande.UseVisualStyleBackColor = true;
+            // 
+            // rdoAktiv
+            // 
+            this.rdoAktiv.AutoSize = true;
+            this.rdoAktiv.Location = new System.Drawing.Point(286, 29);
+            this.rdoAktiv.Name = "rdoAktiv";
+            this.rdoAktiv.Size = new System.Drawing.Size(49, 17);
+            this.rdoAktiv.TabIndex = 335;
+            this.rdoAktiv.TabStop = true;
+            this.rdoAktiv.Text = "Aktiv";
+            this.rdoAktiv.UseVisualStyleBackColor = true;
+            // 
+            // btnRegistrera
+            // 
+            this.btnRegistrera.Location = new System.Drawing.Point(164, 226);
+            this.btnRegistrera.Name = "btnRegistrera";
+            this.btnRegistrera.Size = new System.Drawing.Size(75, 23);
+            this.btnRegistrera.TabIndex = 341;
+            this.btnRegistrera.Text = "Registrera";
+            this.btnRegistrera.UseVisualStyleBackColor = true;
+            this.btnRegistrera.Click += new System.EventHandler(this.btnRegistrera_Click);
+            // 
+            // Label6
+            // 
+            this.Label6.AutoSize = true;
+            this.Label6.Location = new System.Drawing.Point(19, 213);
+            this.Label6.Name = "Label6";
+            this.Label6.Size = new System.Drawing.Size(53, 13);
+            this.Label6.TabIndex = 348;
+            this.Label6.Text = "Handicap";
+            // 
+            // Label5
+            // 
+            this.Label5.AutoSize = true;
+            this.Label5.Location = new System.Drawing.Point(161, 161);
+            this.Label5.Name = "Label5";
+            this.Label5.Size = new System.Drawing.Size(32, 13);
+            this.Label5.TabIndex = 347;
+            this.Label5.Text = "Email";
+            // 
+            // Label4
+            // 
+            this.Label4.AutoSize = true;
+            this.Label4.Location = new System.Drawing.Point(161, 65);
+            this.Label4.Name = "Label4";
+            this.Label4.Size = new System.Drawing.Size(32, 13);
+            this.Label4.TabIndex = 346;
+            this.Label4.Text = "Mobil";
+            // 
+            // Label3
+            // 
+            this.Label3.AutoSize = true;
+            this.Label3.Location = new System.Drawing.Point(19, 118);
+            this.Label3.Name = "Label3";
+            this.Label3.Size = new System.Drawing.Size(61, 13);
+            this.Label3.TabIndex = 345;
+            this.Label3.Text = "Gatuadress";
+            // 
+            // Label2
+            // 
+            this.Label2.AutoSize = true;
+            this.Label2.Location = new System.Drawing.Point(19, 65);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new System.Drawing.Size(134, 13);
+            this.Label2.TabIndex = 344;
+            this.Label2.Text = "Personnummer (YYMMDD)";
+            // 
+            // Label1
+            // 
+            this.Label1.AutoSize = true;
+            this.Label1.Location = new System.Drawing.Point(161, 14);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new System.Drawing.Size(55, 13);
+            this.Label1.TabIndex = 343;
+            this.Label1.Text = "Efternamn";
+            // 
+            // Förnamn
+            // 
+            this.Förnamn.AutoSize = true;
+            this.Förnamn.Location = new System.Drawing.Point(19, 11);
+            this.Förnamn.Name = "Förnamn";
+            this.Förnamn.Size = new System.Drawing.Size(48, 13);
+            this.Förnamn.TabIndex = 342;
+            this.Förnamn.Text = "Förnamn";
+            // 
+            // txtHandicap
+            // 
+            this.txtHandicap.Location = new System.Drawing.Point(22, 229);
+            this.txtHandicap.Name = "txtHandicap";
+            this.txtHandicap.Size = new System.Drawing.Size(100, 20);
+            this.txtHandicap.TabIndex = 334;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(164, 177);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtEmail.TabIndex = 333;
+            // 
+            // txtMobil
+            // 
+            this.txtMobil.Location = new System.Drawing.Point(164, 81);
+            this.txtMobil.Name = "txtMobil";
+            this.txtMobil.Size = new System.Drawing.Size(100, 20);
+            this.txtMobil.TabIndex = 329;
+            // 
+            // txtGatuadress
+            // 
+            this.txtGatuadress.Location = new System.Drawing.Point(22, 134);
+            this.txtGatuadress.Name = "txtGatuadress";
+            this.txtGatuadress.Size = new System.Drawing.Size(100, 20);
+            this.txtGatuadress.TabIndex = 330;
+            // 
+            // txtPersonnr
+            // 
+            this.txtPersonnr.Location = new System.Drawing.Point(22, 81);
+            this.txtPersonnr.Name = "txtPersonnr";
+            this.txtPersonnr.Size = new System.Drawing.Size(100, 20);
+            this.txtPersonnr.TabIndex = 328;
+            // 
+            // txtEfternamn
+            // 
+            this.txtEfternamn.Location = new System.Drawing.Point(164, 30);
+            this.txtEfternamn.Name = "txtEfternamn";
+            this.txtEfternamn.Size = new System.Drawing.Size(100, 20);
+            this.txtEfternamn.TabIndex = 327;
+            // 
+            // txtFornamn
+            // 
+            this.txtFornamn.Location = new System.Drawing.Point(22, 27);
+            this.txtFornamn.Name = "txtFornamn";
+            this.txtFornamn.Size = new System.Drawing.Size(100, 20);
+            this.txtFornamn.TabIndex = 326;
+            // 
+            // PlayerChart
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(389, 274);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.txtPostnummer);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.txtGatunummer);
+            this.Controls.Add(this.rdoEjklubbmedlem);
+            this.Controls.Add(this.cbMedlemsavgift);
+            this.Controls.Add(this.rdoGreenfee);
+            this.Controls.Add(this.rdoJunior);
+            this.Controls.Add(this.rdoVilande);
+            this.Controls.Add(this.rdoAktiv);
+            this.Controls.Add(this.btnRegistrera);
+            this.Controls.Add(this.Label6);
+            this.Controls.Add(this.Label5);
+            this.Controls.Add(this.Label4);
+            this.Controls.Add(this.Label3);
+            this.Controls.Add(this.Label2);
+            this.Controls.Add(this.Label1);
+            this.Controls.Add(this.Förnamn);
+            this.Controls.Add(this.txtHandicap);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtMobil);
+            this.Controls.Add(this.txtGatuadress);
+            this.Controls.Add(this.txtPersonnr);
+            this.Controls.Add(this.txtEfternamn);
+            this.Controls.Add(this.txtFornamn);
+            this.Name = "PlayerChart";
+            this.Text = "PlayerChart";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        internal System.Windows.Forms.Label label22;
+        internal System.Windows.Forms.TextBox txtPostnummer;
+        internal System.Windows.Forms.Label label21;
+        internal System.Windows.Forms.TextBox txtGatunummer;
+        internal System.Windows.Forms.RadioButton rdoEjklubbmedlem;
+        internal System.Windows.Forms.CheckBox cbMedlemsavgift;
+        internal System.Windows.Forms.RadioButton rdoGreenfee;
+        internal System.Windows.Forms.RadioButton rdoJunior;
+        internal System.Windows.Forms.RadioButton rdoVilande;
+        internal System.Windows.Forms.RadioButton rdoAktiv;
+        internal System.Windows.Forms.Button btnRegistrera;
+        internal System.Windows.Forms.Label Label6;
+        internal System.Windows.Forms.Label Label5;
+        internal System.Windows.Forms.Label Label4;
+        internal System.Windows.Forms.Label Label3;
+        internal System.Windows.Forms.Label Label2;
+        internal System.Windows.Forms.Label Label1;
+        internal System.Windows.Forms.Label Förnamn;
+        internal System.Windows.Forms.TextBox txtHandicap;
+        internal System.Windows.Forms.TextBox txtEmail;
+        internal System.Windows.Forms.TextBox txtMobil;
+        internal System.Windows.Forms.TextBox txtGatuadress;
+        internal System.Windows.Forms.TextBox txtPersonnr;
+        internal System.Windows.Forms.TextBox txtEfternamn;
+        internal System.Windows.Forms.TextBox txtFornamn;
+    }
+}

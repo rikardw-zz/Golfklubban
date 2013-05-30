@@ -9,16 +9,11 @@ using System.Windows.Forms;
 
 namespace Golfklubban
 {
-    public partial class Form1 : Form
+    public partial class CompetitionChart : Form
     {
-        public Form1()
+        public CompetitionChart()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //test
         }
     }
 }
