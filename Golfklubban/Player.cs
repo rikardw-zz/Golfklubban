@@ -8,7 +8,7 @@ namespace Golfklubban
     class Player
     {
         public int golfId { get; set; }
-        public string foreName { get; set; }
+        public string firstName { get; set; }
         public string lastName { get; set; }
         public bool sex { get; set; }
         public string adress { get; set; }

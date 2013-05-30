@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace Golfklubban
 {
     public partial class CompetitionChart : Form
-    {
+    {        
         public CompetitionChart()
         {
             InitializeComponent();
