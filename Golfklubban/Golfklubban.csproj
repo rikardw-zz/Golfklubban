@@ -36,6 +36,7 @@
       <HintPath>..\..\..\..\..\..\..\Program Files\PostgreSQL\Npgsql2.0.12.0-bin-ms.net4.0\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,11 +49,41 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Competition.cs" />
-    <Compile Include="CompetitionChart.cs">
+    <Compile Include="CompetitionAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CompetitionChart.Designer.cs">
-      <DependentUpon>CompetitionChart.cs</DependentUpon>
+    <Compile Include="CompetitionAdd.Designer.cs">
+      <DependentUpon>CompetitionAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompetitionAddPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompetitionAddPlayer.Designer.cs">
+      <DependentUpon>CompetitionAddPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompetitionDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompetitionDelete.Designer.cs">
+      <DependentUpon>CompetitionDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoupleAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoupleAdd.Designer.cs">
+      <DependentUpon>CoupleAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoupleDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoupleDelete.Designer.cs">
+      <DependentUpon>CoupleDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoupleView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoupleView.Designer.cs">
+      <DependentUpon>CoupleView.cs</DependentUpon>
     </Compile>
     <Compile Include="MainPage.cs">
       <SubType>Form</SubType>
@@ -60,23 +91,54 @@
     <Compile Include="MainPage.Designer.cs">
       <DependentUpon>MainPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Methods.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="PlayerChart.cs">
+    <Compile Include="PlayerAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PlayerChart.Designer.cs">
-      <DependentUpon>PlayerChart.cs</DependentUpon>
+    <Compile Include="PlayerAdd.Designer.cs">
+      <DependentUpon>PlayerAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlayerDelete.Designer.cs">
+      <DependentUpon>PlayerDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlayerChange.Designer.cs">
+      <DependentUpon>PlayerChange.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CompetitionChart.resx">
-      <DependentUpon>CompetitionChart.cs</DependentUpon>
+    <Compile Include="TeamAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamAdd.Designer.cs">
+      <DependentUpon>TeamAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeamDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamDelete.Designer.cs">
+      <DependentUpon>TeamDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeamView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamView.Designer.cs">
+      <DependentUpon>TeamView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CompetitionAddPlayer.resx">
+      <DependentUpon>CompetitionAddPlayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PlayerChart.resx">
-      <DependentUpon>PlayerChart.cs</DependentUpon>
+    <EmbeddedResource Include="PlayerChange.resx">
+      <DependentUpon>PlayerChange.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -87,7 +149,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

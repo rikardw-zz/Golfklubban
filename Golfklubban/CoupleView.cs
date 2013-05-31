@@ -9,17 +9,11 @@ using System.Windows.Forms;
 
 namespace Golfklubban
 {
-    public partial class PlayerChart : Form
+    public partial class CoupleView : Form
     {
-        public PlayerChart()
+        public CoupleView()
         {
             InitializeComponent();
-        }
-
-        private void btnRegistrera_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Medlemmen har registrerats!");
-            this.Close(); //stänger slutligen fönstret
         }
     }
 }

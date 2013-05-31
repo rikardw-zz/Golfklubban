@@ -1,6 +1,6 @@
 ﻿namespace Golfklubban
 {
-    partial class CompetitionChart
+    partial class CompetitionAddPlayer
     {
         /// <summary>
         /// Required designer variable.

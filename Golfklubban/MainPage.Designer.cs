@@ -33,17 +33,16 @@
             this.informationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stängToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.medlemmarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.visaMedlemmarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.läggTillMedlemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.taBortMedlemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmPlayerChange = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmPlayerAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmPlayerDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.lagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.visaLagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.läggTillLagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.taBortMedlemToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmTeamView = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmTeamAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmTeamDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.tävlingarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.visaKommandeTävlingarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.läggTillNyTävlingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.taBortTävlingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCompetitionAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCompetitionDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.lbMainPagePlayers = new System.Windows.Forms.ListBox();
             this.lbAvailibleTimes = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,9 +53,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.parToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.visaParToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.läggTillParToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.taBortParToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCoupleView = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCoupleAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCoupleDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCompetitionAddPlayer = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,9 +65,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.programToolStripMenuItem,
             this.medlemmarToolStripMenuItem,
+            this.parToolStripMenuItem,
             this.lagToolStripMenuItem,
-            this.tävlingarToolStripMenuItem,
-            this.parToolStripMenuItem});
+            this.tävlingarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(459, 24);
@@ -86,104 +86,97 @@
             // informationToolStripMenuItem
             // 
             this.informationToolStripMenuItem.Name = "informationToolStripMenuItem";
-            this.informationToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.informationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.informationToolStripMenuItem.Text = "Information";
             this.informationToolStripMenuItem.Click += new System.EventHandler(this.informationToolStripMenuItem_Click);
             // 
             // stängToolStripMenuItem
             // 
             this.stängToolStripMenuItem.Name = "stängToolStripMenuItem";
-            this.stängToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.stängToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.stängToolStripMenuItem.Text = "Stäng";
             this.stängToolStripMenuItem.Click += new System.EventHandler(this.stängToolStripMenuItem_Click);
             // 
             // medlemmarToolStripMenuItem
             // 
             this.medlemmarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.visaMedlemmarToolStripMenuItem,
-            this.läggTillMedlemToolStripMenuItem,
-            this.taBortMedlemToolStripMenuItem});
+            this.tsmPlayerChange,
+            this.tsmPlayerAdd,
+            this.tsmPlayerDelete});
             this.medlemmarToolStripMenuItem.Name = "medlemmarToolStripMenuItem";
             this.medlemmarToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.medlemmarToolStripMenuItem.Text = "Medlemmar";
             // 
-            // visaMedlemmarToolStripMenuItem
+            // tsmPlayerChange
             // 
-            this.visaMedlemmarToolStripMenuItem.Name = "visaMedlemmarToolStripMenuItem";
-            this.visaMedlemmarToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.visaMedlemmarToolStripMenuItem.Text = "Visa/Ändra medlemmsinfo";
-            this.visaMedlemmarToolStripMenuItem.Click += new System.EventHandler(this.visaMedlemmarToolStripMenuItem_Click);
+            this.tsmPlayerChange.Name = "tsmPlayerChange";
+            this.tsmPlayerChange.Size = new System.Drawing.Size(216, 22);
+            this.tsmPlayerChange.Text = "Visa/Ändra medlemmsinfo";
+            this.tsmPlayerChange.Click += new System.EventHandler(this.visaMedlemmarToolStripMenuItem_Click);
             // 
-            // läggTillMedlemToolStripMenuItem
+            // tsmPlayerAdd
             // 
-            this.läggTillMedlemToolStripMenuItem.Name = "läggTillMedlemToolStripMenuItem";
-            this.läggTillMedlemToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.läggTillMedlemToolStripMenuItem.Text = "Lägg till ny medlem";
-            this.läggTillMedlemToolStripMenuItem.Click += new System.EventHandler(this.läggTillMedlemToolStripMenuItem_Click);
+            this.tsmPlayerAdd.Name = "tsmPlayerAdd";
+            this.tsmPlayerAdd.Size = new System.Drawing.Size(216, 22);
+            this.tsmPlayerAdd.Text = "Lägg till ny medlem";
+            this.tsmPlayerAdd.Click += new System.EventHandler(this.läggTillMedlemToolStripMenuItem_Click);
             // 
-            // taBortMedlemToolStripMenuItem
+            // tsmPlayerDelete
             // 
-            this.taBortMedlemToolStripMenuItem.Name = "taBortMedlemToolStripMenuItem";
-            this.taBortMedlemToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.taBortMedlemToolStripMenuItem.Text = "Ta bort medlem";
+            this.tsmPlayerDelete.Name = "tsmPlayerDelete";
+            this.tsmPlayerDelete.Size = new System.Drawing.Size(216, 22);
+            this.tsmPlayerDelete.Text = "Ta bort medlem";
             // 
             // lagToolStripMenuItem
             // 
             this.lagToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.visaLagToolStripMenuItem,
-            this.läggTillLagToolStripMenuItem,
-            this.taBortMedlemToolStripMenuItem1});
+            this.tsmTeamView,
+            this.tsmTeamAdd,
+            this.tsmTeamDelete});
             this.lagToolStripMenuItem.Name = "lagToolStripMenuItem";
             this.lagToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.lagToolStripMenuItem.Text = "Lag";
             // 
-            // visaLagToolStripMenuItem
+            // tsmTeamView
             // 
-            this.visaLagToolStripMenuItem.Name = "visaLagToolStripMenuItem";
-            this.visaLagToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.visaLagToolStripMenuItem.Text = "Visa lag";
-            this.visaLagToolStripMenuItem.Click += new System.EventHandler(this.visaLagToolStripMenuItem_Click);
+            this.tsmTeamView.Name = "tsmTeamView";
+            this.tsmTeamView.Size = new System.Drawing.Size(159, 22);
+            this.tsmTeamView.Text = "Visa lag";
+            this.tsmTeamView.Click += new System.EventHandler(this.visaLagToolStripMenuItem_Click);
             // 
-            // läggTillLagToolStripMenuItem
+            // tsmTeamAdd
             // 
-            this.läggTillLagToolStripMenuItem.Name = "läggTillLagToolStripMenuItem";
-            this.läggTillLagToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.läggTillLagToolStripMenuItem.Text = "Lägg till nytt lag";
+            this.tsmTeamAdd.Name = "tsmTeamAdd";
+            this.tsmTeamAdd.Size = new System.Drawing.Size(159, 22);
+            this.tsmTeamAdd.Text = "Lägg till nytt lag";
             // 
-            // taBortMedlemToolStripMenuItem1
+            // tsmTeamDelete
             // 
-            this.taBortMedlemToolStripMenuItem1.Name = "taBortMedlemToolStripMenuItem1";
-            this.taBortMedlemToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
-            this.taBortMedlemToolStripMenuItem1.Text = "Ta bort medlem";
+            this.tsmTeamDelete.Name = "tsmTeamDelete";
+            this.tsmTeamDelete.Size = new System.Drawing.Size(159, 22);
+            this.tsmTeamDelete.Text = "Ta bort lag";
             // 
             // tävlingarToolStripMenuItem
             // 
             this.tävlingarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.visaKommandeTävlingarToolStripMenuItem,
-            this.läggTillNyTävlingToolStripMenuItem,
-            this.taBortTävlingToolStripMenuItem});
+            this.tsmCompetitionAddPlayer,
+            this.tsmCompetitionAdd,
+            this.tsmCompetitionDelete});
             this.tävlingarToolStripMenuItem.Name = "tävlingarToolStripMenuItem";
             this.tävlingarToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.tävlingarToolStripMenuItem.Text = "Tävling";
             // 
-            // visaKommandeTävlingarToolStripMenuItem
+            // tsmCompetitionAdd
             // 
-            this.visaKommandeTävlingarToolStripMenuItem.Name = "visaKommandeTävlingarToolStripMenuItem";
-            this.visaKommandeTävlingarToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.visaKommandeTävlingarToolStripMenuItem.Text = "Visa tävlingar";
-            this.visaKommandeTävlingarToolStripMenuItem.Click += new System.EventHandler(this.visaKommandeTävlingarToolStripMenuItem_Click);
+            this.tsmCompetitionAdd.Name = "tsmCompetitionAdd";
+            this.tsmCompetitionAdd.Size = new System.Drawing.Size(171, 22);
+            this.tsmCompetitionAdd.Text = "Lägg till ny tävling";
             // 
-            // läggTillNyTävlingToolStripMenuItem
+            // tsmCompetitionDelete
             // 
-            this.läggTillNyTävlingToolStripMenuItem.Name = "läggTillNyTävlingToolStripMenuItem";
-            this.läggTillNyTävlingToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.läggTillNyTävlingToolStripMenuItem.Text = "Lägg till ny tävling";
-            // 
-            // taBortTävlingToolStripMenuItem
-            // 
-            this.taBortTävlingToolStripMenuItem.Name = "taBortTävlingToolStripMenuItem";
-            this.taBortTävlingToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.taBortTävlingToolStripMenuItem.Text = "Ta bort tävling";
+            this.tsmCompetitionDelete.Name = "tsmCompetitionDelete";
+            this.tsmCompetitionDelete.Size = new System.Drawing.Size(171, 22);
+            this.tsmCompetitionDelete.Text = "Ta bort tävling";
             // 
             // lbMainPagePlayers
             // 
@@ -267,30 +260,37 @@
             // parToolStripMenuItem
             // 
             this.parToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.visaParToolStripMenuItem,
-            this.läggTillParToolStripMenuItem,
-            this.taBortParToolStripMenuItem});
+            this.tsmCoupleView,
+            this.tsmCoupleAdd,
+            this.tsmCoupleDelete});
             this.parToolStripMenuItem.Name = "parToolStripMenuItem";
             this.parToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
             this.parToolStripMenuItem.Text = "Par";
             // 
-            // visaParToolStripMenuItem
+            // tsmCoupleView
             // 
-            this.visaParToolStripMenuItem.Name = "visaParToolStripMenuItem";
-            this.visaParToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.visaParToolStripMenuItem.Text = "Visa par";
+            this.tsmCoupleView.Name = "tsmCoupleView";
+            this.tsmCoupleView.Size = new System.Drawing.Size(152, 22);
+            this.tsmCoupleView.Text = "Visa par";
             // 
-            // läggTillParToolStripMenuItem
+            // tsmCoupleAdd
             // 
-            this.läggTillParToolStripMenuItem.Name = "läggTillParToolStripMenuItem";
-            this.läggTillParToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.läggTillParToolStripMenuItem.Text = "Lägg till par";
+            this.tsmCoupleAdd.Name = "tsmCoupleAdd";
+            this.tsmCoupleAdd.Size = new System.Drawing.Size(152, 22);
+            this.tsmCoupleAdd.Text = "Lägg till par";
             // 
-            // taBortParToolStripMenuItem
+            // tsmCoupleDelete
             // 
-            this.taBortParToolStripMenuItem.Name = "taBortParToolStripMenuItem";
-            this.taBortParToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.taBortParToolStripMenuItem.Text = "Ta bort par";
+            this.tsmCoupleDelete.Name = "tsmCoupleDelete";
+            this.tsmCoupleDelete.Size = new System.Drawing.Size(152, 22);
+            this.tsmCoupleDelete.Text = "Ta bort par";
+            // 
+            // tsmCompetitionAddPlayer
+            // 
+            this.tsmCompetitionAddPlayer.Name = "tsmCompetitionAddPlayer";
+            this.tsmCompetitionAddPlayer.Size = new System.Drawing.Size(171, 22);
+            this.tsmCompetitionAddPlayer.Text = "Boka inför tävling";
+            this.tsmCompetitionAddPlayer.Click += new System.EventHandler(this.bokaInförTävlingToolStripMenuItem_Click);
             // 
             // MainPage
             // 
@@ -324,31 +324,31 @@
         private System.Windows.Forms.ToolStripMenuItem programToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stängToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem medlemmarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem visaMedlemmarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem läggTillMedlemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmPlayerChange;
+        private System.Windows.Forms.ToolStripMenuItem tsmPlayerAdd;
         private System.Windows.Forms.ToolStripMenuItem lagToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tävlingarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem visaLagToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem läggTillLagToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem visaKommandeTävlingarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem läggTillNyTävlingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmTeamView;
+        private System.Windows.Forms.ToolStripMenuItem tsmTeamAdd;
+        private System.Windows.Forms.ToolStripMenuItem tsmCompetitionAdd;
         private System.Windows.Forms.ListBox lbMainPagePlayers;
         private System.Windows.Forms.ListBox lbAvailibleTimes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolStripMenuItem taBortMedlemToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem taBortMedlemToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tsmPlayerDelete;
+        private System.Windows.Forms.ToolStripMenuItem tsmTeamDelete;
         private System.Windows.Forms.ToolStripMenuItem informationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem taBortTävlingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmCompetitionDelete;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem parToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem visaParToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem läggTillParToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem taBortParToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmCoupleView;
+        private System.Windows.Forms.ToolStripMenuItem tsmCoupleAdd;
+        private System.Windows.Forms.ToolStripMenuItem tsmCoupleDelete;
+        private System.Windows.Forms.ToolStripMenuItem tsmCompetitionAddPlayer;
 
 
     }

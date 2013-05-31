@@ -1,6 +1,6 @@
 ﻿namespace Golfklubban
 {
-    partial class PlayerChart
+    partial class PlayerChange
     {
         /// <summary>
         /// Required designer variable.

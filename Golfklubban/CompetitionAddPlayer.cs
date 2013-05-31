@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Golfklubban
 {
-    public partial class CompetitionChart : Form
+    public partial class CompetitionAddPlayer : Form
     {        
-        public CompetitionChart()
+        public CompetitionAddPlayer()
         {
             InitializeComponent();
         }

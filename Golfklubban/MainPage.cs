@@ -20,8 +20,7 @@ namespace Golfklubban
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            getTeams();
-            
+            lbMainPagePlayers.DataSource = Methods.GetPlayers();            
         }
 
         private void stängToolStripMenuItem_Click(object sender, EventArgs e)
@@ -31,13 +30,13 @@ namespace Golfklubban
 
         private void visaMedlemmarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PlayerChart openPlayerChart = new PlayerChart();
+            PlayerChange openPlayerChart = new PlayerChange();
             openPlayerChart.Show();
         }
 
         private void läggTillMedlemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PlayerChart openPlayerChart = new PlayerChart();
+            PlayerChange openPlayerChart = new PlayerChange();
             openPlayerChart.Show();
         }
 
@@ -48,7 +47,7 @@ namespace Golfklubban
 
         private void visaKommandeTävlingarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CompetitionChart openPlayerChart = new CompetitionChart();
+            CompetitionAddPlayer openPlayerChart = new CompetitionAddPlayer();
             openPlayerChart.Show();
 
         }
@@ -63,41 +62,17 @@ namespace Golfklubban
 
         }
 
-        private void getTeams()
-        {
-            selectedPlayer = (Player)lbMainPagePlayers.SelectedItem;
-            lbMainPagePlayers.Items.Clear();
-            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t; SSL=true");
-            try
-            {
-                conn.Open();
-
-                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM player ORDER BY firstname", conn);
-                NpgsqlDataReader dr = command.ExecuteReader();
-                while (dr.Read())
-                {
-                    lbMainPagePlayers.Items.Add(dr["firstname"] + " " + dr["lastname"]);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                conn.Close();
-
-            }
-
-        }
-
         private void label3_Click(object sender, EventArgs e)
         {
 
         }
 
         private void label3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bokaInförTävlingToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
