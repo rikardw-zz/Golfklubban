@@ -185,7 +185,7 @@
             this.lbMainPagePlayers.Name = "lbMainPagePlayers";
             this.lbMainPagePlayers.Size = new System.Drawing.Size(214, 316);
             this.lbMainPagePlayers.TabIndex = 2;
-            this.lbMainPagePlayers.SelectedIndexChanged += new System.EventHandler(this.lbMainPagePlayers_SelectedIndexChanged);
+            
             // 
             // lbAvailibleTimes
             // 
