@@ -49,7 +49,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.parToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.visaParToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.läggTillParToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.taBortParToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,10 +66,11 @@
             this.programToolStripMenuItem,
             this.medlemmarToolStripMenuItem,
             this.lagToolStripMenuItem,
-            this.tävlingarToolStripMenuItem});
+            this.tävlingarToolStripMenuItem,
+            this.parToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(686, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(459, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -189,9 +197,9 @@
             // lbAvailibleTimes
             // 
             this.lbAvailibleTimes.FormattingEnabled = true;
-            this.lbAvailibleTimes.Location = new System.Drawing.Point(292, 55);
+            this.lbAvailibleTimes.Location = new System.Drawing.Point(292, 120);
             this.lbAvailibleTimes.Name = "lbAvailibleTimes";
-            this.lbAvailibleTimes.Size = new System.Drawing.Size(148, 316);
+            this.lbAvailibleTimes.Size = new System.Drawing.Size(148, 251);
             this.lbAvailibleTimes.TabIndex = 2;
             // 
             // label1
@@ -214,30 +222,88 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(337, 377);
+            this.button1.Location = new System.Drawing.Point(334, 377);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 23);
             this.button1.TabIndex = 4;
             this.button1.Text = "Genomför bokning";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // listBox3
+            // comboBox1
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(514, 55);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(148, 316);
-            this.listBox3.TabIndex = 2;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(292, 53);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(148, 21);
+            this.comboBox1.TabIndex = 5;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(292, 80);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(148, 21);
+            this.comboBox2.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(251, 83);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Timme:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(251, 56);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Datum:";
+            this.label3.Click += new System.EventHandler(this.label3_Click_1);
+            // 
+            // parToolStripMenuItem
+            // 
+            this.parToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.visaParToolStripMenuItem,
+            this.läggTillParToolStripMenuItem,
+            this.taBortParToolStripMenuItem});
+            this.parToolStripMenuItem.Name = "parToolStripMenuItem";
+            this.parToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
+            this.parToolStripMenuItem.Text = "Par";
+            // 
+            // visaParToolStripMenuItem
+            // 
+            this.visaParToolStripMenuItem.Name = "visaParToolStripMenuItem";
+            this.visaParToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.visaParToolStripMenuItem.Text = "Visa par";
+            // 
+            // läggTillParToolStripMenuItem
+            // 
+            this.läggTillParToolStripMenuItem.Name = "läggTillParToolStripMenuItem";
+            this.läggTillParToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.läggTillParToolStripMenuItem.Text = "Lägg till par";
+            // 
+            // taBortParToolStripMenuItem
+            // 
+            this.taBortParToolStripMenuItem.Name = "taBortParToolStripMenuItem";
+            this.taBortParToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.taBortParToolStripMenuItem.Text = "Ta bort par";
             // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 409);
+            this.ClientSize = new System.Drawing.Size(459, 409);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox3);
             this.Controls.Add(this.lbAvailibleTimes);
             this.Controls.Add(this.lbMainPagePlayers);
             this.Controls.Add(this.menuStrip1);
@@ -273,9 +339,16 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem taBortMedlemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem taBortMedlemToolStripMenuItem1;
-        private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.ToolStripMenuItem informationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem taBortTävlingToolStripMenuItem;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripMenuItem parToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem visaParToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem läggTillParToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem taBortParToolStripMenuItem;
 
 
     }
