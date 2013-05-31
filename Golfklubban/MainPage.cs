@@ -30,13 +30,13 @@ namespace Golfklubban
 
         private void visaMedlemmarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PlayerChange openPlayerChart = new PlayerChange();
+            PlayerChart openPlayerChart = new PlayerChart();
             openPlayerChart.Show();
         }
 
         private void läggTillMedlemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PlayerChange openPlayerChart = new PlayerChange();
+            PlayerChart openPlayerChart = new PlayerChart();
             openPlayerChart.Show();
         }
 
@@ -47,7 +47,7 @@ namespace Golfklubban
 
         private void visaKommandeTävlingarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CompetitionAddPlayer openPlayerChart = new CompetitionAddPlayer();
+            CompetitionChart openPlayerChart = new CompetitionChart();
             openPlayerChart.Show();
 
         }

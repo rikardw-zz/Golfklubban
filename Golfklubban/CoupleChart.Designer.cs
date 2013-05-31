@@ -1,6 +1,6 @@
 ﻿namespace Golfklubban
 {
-    partial class TeamView
+    partial class CoupleChart
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "TeamView";
+            this.Text = "CoupleAdd";
         }
 
         #endregion

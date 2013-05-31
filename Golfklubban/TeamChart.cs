@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Golfklubban
 {
-    public partial class CoupleAdd : Form
+    public partial class TeamChart : Form
     {
-        public CoupleAdd()
+        public TeamChart()
         {
             InitializeComponent();
         }
