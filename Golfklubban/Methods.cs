@@ -146,5 +146,26 @@ namespace Golfklubban
             conn.Close();
             return playerInTeamList;
         }
+
+        public static List<Team> GetTeams()
+        {
+            List<Team> teamList = new List<Team>();
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
+            NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
+            conn.Open();
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM team ORDER BY name", conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+            while (dr.Read())
+            {
+                Team teams = new Team
+                {
+                    teamId = (int)dr["id"],
+                    teamName = (string)dr["name"],
+                };
+                teamList.Add(teams);
+            }
+            conn.Close();
+            return teamList;
+        }
     } 
 }
