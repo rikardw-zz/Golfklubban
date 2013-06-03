@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace Golfklubban
 {
@@ -15,6 +16,7 @@ namespace Golfklubban
         {
             InitializeComponent();
         }
+        private Player selectedPlayer;
 
         private void btnRegistrera_Click(object sender, EventArgs e)
         {
