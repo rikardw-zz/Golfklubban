@@ -16,5 +16,10 @@ namespace Golfklubban
         public double classA { get; set; }
         public double classB { get; set; }
         public double classC { get; set; }
+
+        public override string ToString()
+        {
+            return competitionName;
+        }
     }
 }

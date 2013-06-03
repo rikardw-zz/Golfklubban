@@ -56,6 +56,7 @@
             this.btnRegisterCompetition.TabIndex = 9;
             this.btnRegisterCompetition.Text = "Registrera";
             this.btnRegisterCompetition.UseVisualStyleBackColor = true;
+            this.btnRegisterCompetition.Click += new System.EventHandler(this.btnRegisterCompetition_Click);
             // 
             // lbCompetitionChart
             // 
@@ -218,6 +219,7 @@
             this.Controls.Add(this.btnRegisterCompetition);
             this.Name = "CompetitionChart";
             this.Text = "CompetitionAdd";
+            this.Load += new System.EventHandler(this.CompetitionChart_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
