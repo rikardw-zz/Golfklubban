@@ -61,6 +61,23 @@ namespace Golfklubban
             }
             lbTeamChart.DataSource = Methods.GetTeams();
          }
+
+        private void TeamChart_Load(object sender, EventArgs e)
+        {
+            lbPlayer.DataSource = Methods.GetPlayers();
+            lbTeamChart.DataSource = Methods.GetTeams();
+        }
+
+        private void lbPlayer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedPlayer = (Player)lbPlayer.SelectedItem;
+        }
+
+        private void lbTeamChart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedTeam = (Team)lbTeamChart.SelectedItem;
+            lbPlayerInTeam.DataSource = Methods.GetPlayerInTeam(selectedTeam.teamId);
+        }
         }
     }
 

@@ -118,6 +118,7 @@
             this.lbTeamChart.Name = "lbTeamChart";
             this.lbTeamChart.Size = new System.Drawing.Size(186, 238);
             this.lbTeamChart.TabIndex = 4;
+            this.lbTeamChart.SelectedIndexChanged += new System.EventHandler(this.lbTeamChart_SelectedIndexChanged);
             // 
             // lbPlayer
             // 
@@ -126,6 +127,7 @@
             this.lbPlayer.Name = "lbPlayer";
             this.lbPlayer.Size = new System.Drawing.Size(178, 277);
             this.lbPlayer.TabIndex = 4;
+            this.lbPlayer.SelectedIndexChanged += new System.EventHandler(this.lbPlayer_SelectedIndexChanged);
             // 
             // btnAddPlayer
             // 
@@ -157,6 +159,7 @@
             this.Controls.Add(this.groupBox2);
             this.Name = "TeamChart";
             this.Text = "Lag";
+            this.Load += new System.EventHandler(this.TeamChart_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
