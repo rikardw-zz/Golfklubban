@@ -43,9 +43,9 @@
             this.Förnamn = new System.Windows.Forms.Label();
             this.txtHandicap = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtMobilePhone = new System.Windows.Forms.TextBox();
+            this.txtMobile = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtPersonnr = new System.Windows.Forms.TextBox();
+            this.txtGolfID = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.cbSex = new System.Windows.Forms.ComboBox();
@@ -72,7 +72,7 @@
             this.txtZipCode.Location = new System.Drawing.Point(12, 177);
             this.txtZipCode.Name = "txtZipCode";
             this.txtZipCode.Size = new System.Drawing.Size(100, 20);
-            this.txtZipCode.TabIndex = 332;
+            this.txtZipCode.TabIndex = 7;
             // 
             // label21
             // 
@@ -88,11 +88,11 @@
             this.txtStreetNumber.Location = new System.Drawing.Point(154, 177);
             this.txtStreetNumber.Name = "txtStreetNumber";
             this.txtStreetNumber.Size = new System.Drawing.Size(100, 20);
-            this.txtStreetNumber.TabIndex = 331;
+            this.txtStreetNumber.TabIndex = 8;
             // 
             // btnDeletePlayer
             // 
-            this.btnDeletePlayer.Location = new System.Drawing.Point(364, 323);
+            this.btnDeletePlayer.Location = new System.Drawing.Point(364, 336);
             this.btnDeletePlayer.Name = "btnDeletePlayer";
             this.btnDeletePlayer.Size = new System.Drawing.Size(100, 23);
             this.btnDeletePlayer.TabIndex = 350;
@@ -105,9 +105,10 @@
             this.btnRegister.Location = new System.Drawing.Point(12, 336);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(100, 23);
-            this.btnRegister.TabIndex = 341;
+            this.btnRegister.TabIndex = 13;
             this.btnRegister.Text = "Registrera";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // Label6
             // 
@@ -177,49 +178,49 @@
             this.txtHandicap.Location = new System.Drawing.Point(12, 229);
             this.txtHandicap.Name = "txtHandicap";
             this.txtHandicap.Size = new System.Drawing.Size(100, 20);
-            this.txtHandicap.TabIndex = 334;
+            this.txtHandicap.TabIndex = 9;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(154, 227);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(100, 20);
-            this.txtEmail.TabIndex = 333;
+            this.txtEmail.TabIndex = 10;
             // 
-            // txtMobilePhone
+            // txtMobile
             // 
-            this.txtMobilePhone.Location = new System.Drawing.Point(154, 134);
-            this.txtMobilePhone.Name = "txtMobilePhone";
-            this.txtMobilePhone.Size = new System.Drawing.Size(100, 20);
-            this.txtMobilePhone.TabIndex = 329;
+            this.txtMobile.Location = new System.Drawing.Point(154, 134);
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.Size = new System.Drawing.Size(100, 20);
+            this.txtMobile.TabIndex = 6;
             // 
             // txtAddress
             // 
             this.txtAddress.Location = new System.Drawing.Point(12, 134);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(100, 20);
-            this.txtAddress.TabIndex = 330;
+            this.txtAddress.TabIndex = 5;
             // 
-            // txtPersonnr
+            // txtGolfID
             // 
-            this.txtPersonnr.Location = new System.Drawing.Point(12, 81);
-            this.txtPersonnr.Name = "txtPersonnr";
-            this.txtPersonnr.Size = new System.Drawing.Size(100, 20);
-            this.txtPersonnr.TabIndex = 328;
+            this.txtGolfID.Location = new System.Drawing.Point(12, 81);
+            this.txtGolfID.Name = "txtGolfID";
+            this.txtGolfID.Size = new System.Drawing.Size(100, 20);
+            this.txtGolfID.TabIndex = 3;
             // 
             // txtLastName
             // 
             this.txtLastName.Location = new System.Drawing.Point(154, 27);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(100, 20);
-            this.txtLastName.TabIndex = 327;
+            this.txtLastName.TabIndex = 2;
             // 
             // txtFirstName
             // 
             this.txtFirstName.Location = new System.Drawing.Point(12, 27);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(100, 20);
-            this.txtFirstName.TabIndex = 326;
+            this.txtFirstName.TabIndex = 1;
             // 
             // cbSex
             // 
@@ -231,7 +232,7 @@
             this.cbSex.Location = new System.Drawing.Point(154, 80);
             this.cbSex.Name = "cbSex";
             this.cbSex.Size = new System.Drawing.Size(100, 21);
-            this.cbSex.TabIndex = 355;
+            this.cbSex.TabIndex = 4;
             // 
             // label7
             // 
@@ -255,7 +256,7 @@
             this.cbMembershipStatus.Location = new System.Drawing.Point(12, 284);
             this.cbMembershipStatus.Name = "cbMembershipStatus";
             this.cbMembershipStatus.Size = new System.Drawing.Size(100, 21);
-            this.cbMembershipStatus.TabIndex = 355;
+            this.cbMembershipStatus.TabIndex = 11;
             // 
             // cbMembershipFee
             // 
@@ -267,7 +268,7 @@
             this.cbMembershipFee.Location = new System.Drawing.Point(154, 284);
             this.cbMembershipFee.Name = "cbMembershipFee";
             this.cbMembershipFee.Size = new System.Drawing.Size(100, 21);
-            this.cbMembershipFee.TabIndex = 355;
+            this.cbMembershipFee.TabIndex = 12;
             // 
             // label8
             // 
@@ -334,9 +335,9 @@
             this.Controls.Add(this.Förnamn);
             this.Controls.Add(this.txtHandicap);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtMobilePhone);
+            this.Controls.Add(this.txtMobile);
             this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.txtPersonnr);
+            this.Controls.Add(this.txtGolfID);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.txtFirstName);
             this.Name = "PlayerChart";
@@ -364,9 +365,9 @@
         internal System.Windows.Forms.Label Förnamn;
         internal System.Windows.Forms.TextBox txtHandicap;
         internal System.Windows.Forms.TextBox txtEmail;
-        internal System.Windows.Forms.TextBox txtMobilePhone;
+        internal System.Windows.Forms.TextBox txtMobile;
         internal System.Windows.Forms.TextBox txtAddress;
-        internal System.Windows.Forms.TextBox txtPersonnr;
+        internal System.Windows.Forms.TextBox txtGolfID;
         internal System.Windows.Forms.TextBox txtLastName;
         internal System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.ComboBox cbSex;

@@ -33,7 +33,7 @@ namespace Golfklubban
                     mobilePhone = (string)dr["mobile"],
                     address = (string)dr["address"],
                     eMail = (string)dr["email"],
-                    postalNumber = (int)dr["zipcode"],
+                    zipCode = (int)dr["zipcode"],
                     handicap = (double)dr["handicap"],
                     //  membershipFee = (bool)dr["membershipfee"]
                     //  sex = (bool)dr["sex"],
@@ -73,11 +73,11 @@ namespace Golfklubban
             return competitionList;
         }
 
-        //***Uppdaterar spelare***
-        public static void UpdatePlayer(int golfId, string newFirstName, string newLastName, string newAddress, string newStreetnumber,
+        //***Gammal uppdaterar spelare***
+       /* public static void UpdatePlayer(int golfId, string newFirstName, string newLastName, string newAddress, string newStreetnumber,
           int newZipCode, string newMobile, string newEmail, double newHandicap, int newMembershipStatus, bool newmembershipFee)
         {
-            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
+           ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
             NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
             conn.Open();
             NpgsqlCommand command = new NpgsqlCommand(@"UPDATE player
@@ -117,6 +117,6 @@ namespace Golfklubban
 
             int numberOfRowsAffected = command.ExecuteNonQuery();
             conn.Close();
-        }
+        }*/
     } 
 }

@@ -13,7 +13,7 @@ namespace Golfklubban
         public bool sex { get; set; }
         public string address { get; set; }
         public string streetNumber { get; set; }
-        public int postalNumber { get; set; }
+        public int zipCode { get; set; }
         public string eMail { get; set; }
         public string mobilePhone { get; set; }        
         public int membershipStatus { get; set; }
