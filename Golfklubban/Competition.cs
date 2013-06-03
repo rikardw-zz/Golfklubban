@@ -7,7 +7,7 @@ namespace Golfklubban
 {
     class Competition
     {
-        public int competitionId { get; set; }
+        public int Id { get; set; }
         public string competitionName { get; set; }
         public DateTime startDate { get; set; }
         public DateTime endDate { get; set; }

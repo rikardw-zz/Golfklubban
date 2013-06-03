@@ -13,17 +13,17 @@ namespace Golfklubban
 {
     public partial class CompetitionChart : Form
     {
+        Competition selectedCompetition = new Competition();
+
         public CompetitionChart()
         {
             InitializeComponent();
             
         }
-
         private void btnRegisterCompetition_Click(object sender, EventArgs e)
         {
-            addCompetition();
+            addCompetition();            
         }
-
         private void addCompetition()
         {
             string name = txtCompetitionName.Text;
@@ -63,9 +63,36 @@ namespace Golfklubban
             txtClassC.Clear();
         }
 
+        private void DeleteCompetition()
+        {
+            selectedCompetition = (Competition)lbCompetitionChart.SelectedItem;
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true;");
+            try
+            {                
+                conn.Open();                
+                NpgsqlCommand command = new NpgsqlCommand(("DELETE FROM competition WHERE competition.id = " + selectedCompetition.Id + ""), conn);
+                
+                int numberOfAffectedRows = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                lbCompetitionChart.DataSource = Methods.GetCompetitions();
+                conn.Close();
+            }
+        }
+
         private void CompetitionChart_Load(object sender, EventArgs e)
         {
             lbCompetitionChart.DataSource = Methods.GetCompetitions();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DeleteCompetition();
         }
     }
 }

@@ -57,7 +57,7 @@ namespace Golfklubban
             {
                 Competition competitions = new Competition
                 {
-                    competitionId = (int)dr["id"],
+                    Id = (int)dr["id"],
                     competitionName = (string)dr["name"],
                     startDate = (DateTime)dr["startdate"],
                     endDate = (DateTime)dr["enddate"],
