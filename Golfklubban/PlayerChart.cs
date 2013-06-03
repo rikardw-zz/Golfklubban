@@ -75,6 +75,28 @@ namespace Golfklubban
             txtHandicap.Text = selectedPlayer.handicap.ToString();
         }
 
+        private void btnDeletePlayer_Click(object sender, EventArgs e)
+        {
+            selectedPlayer = (Player)lbPlayerChart.SelectedItem;
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            try
+            {
+                string sql = "DELETE FROM player WHERE golfid = '" + selectedPlayer.golfId + "'";
+                conn.Open();
+                NpgsqlCommand command = new NpgsqlCommand(sql, conn);
+                int antal = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            lbPlayerChart.DataSource = Methods.GetPlayers();
+        }
+
        
     }
 }

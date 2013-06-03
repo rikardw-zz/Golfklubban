@@ -98,6 +98,7 @@
             this.btnDeletePlayer.TabIndex = 350;
             this.btnDeletePlayer.Text = "Ta bort spelare";
             this.btnDeletePlayer.UseVisualStyleBackColor = true;
+            this.btnDeletePlayer.Click += new System.EventHandler(this.btnDeletePlayer_Click);
             // 
             // btnRegister
             // 
