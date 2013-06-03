@@ -54,7 +54,7 @@
             this.cbMembershipFee = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbPlayerChart = new System.Windows.Forms.ListBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -107,7 +107,6 @@
             this.btnRegister.TabIndex = 341;
             this.btnRegister.Text = "Registrera";
             this.btnRegister.UseVisualStyleBackColor = true;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegistrera_Click);
             // 
             // Label6
             // 
@@ -287,13 +286,13 @@
             this.label9.TabIndex = 347;
             this.label9.Text = "Status";
             // 
-            // listBox1
+            // lbPlayerChart
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(287, 26);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(177, 277);
-            this.listBox1.TabIndex = 356;
+            this.lbPlayerChart.FormattingEnabled = true;
+            this.lbPlayerChart.Location = new System.Drawing.Point(287, 26);
+            this.lbPlayerChart.Name = "lbPlayerChart";
+            this.lbPlayerChart.Size = new System.Drawing.Size(177, 277);
+            this.lbPlayerChart.TabIndex = 356;
             // 
             // btnUpdate
             // 
@@ -303,14 +302,14 @@
             this.btnUpdate.TabIndex = 341;
             this.btnUpdate.Text = "Uppdatera";
             this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnRegistrera_Click);
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // PlayerChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 394);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lbPlayerChart);
             this.Controls.Add(this.cbMembershipFee);
             this.Controls.Add(this.cbMembershipStatus);
             this.Controls.Add(this.cbSex);
@@ -340,6 +339,7 @@
             this.Controls.Add(this.txtFirstName);
             this.Name = "PlayerChart";
             this.Text = "Hantera Spelare";
+            this.Load += new System.EventHandler(this.PlayerChart_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,7 +373,7 @@
         private System.Windows.Forms.ComboBox cbMembershipFee;
         internal System.Windows.Forms.Label label8;
         internal System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbPlayerChart;
         internal System.Windows.Forms.Button btnUpdate;
     }
 }

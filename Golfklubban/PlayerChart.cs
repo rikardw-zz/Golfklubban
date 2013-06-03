@@ -18,9 +18,49 @@ namespace Golfklubban
         }
         private Player selectedPlayer;
 
-        private void btnRegistrera_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
+            //kod för att hämta värdet ifrån combobox. Efter det så jämför den detta värde mot orden inom " ". tilldelar därefter playerstatus en siffra som 
+            //går att lägga in i databasen
 
+            string status = cbMembershipStatus.GetItemText(cbMembershipStatus.SelectedItem);
+            int playerStatus = selectedPlayer.membershipStatus;
+            if (status.Equals("Aktiv"))
+            { playerStatus = 1; }
+            else if (status.Equals("Vilande"))
+            { playerStatus = 2; }
+            else if (status.Equals("Junior"))
+            { playerStatus = 3; }
+            else if (status.Equals("Greenfee"))
+            { playerStatus = 4; }
+            else if (status.Equals("Gäst"))
+            { playerStatus = 5; }
+            //      else if(status.Equals(null))
+            //      { playerStatus = selectedPlayer.membershipStatus; }
+
+
+            //liknande kod för att registrera om spelaren betalt avgift
+            string fee = cbMembershipFee.GetItemText(cbMembershipFee.SelectedItem);
+            bool memberfee = selectedPlayer.membershipFee;
+            if (fee.Equals("Betald"))
+            { memberfee = true; }
+            else
+            {
+                memberfee = false;
+            }
+
+
+
+            Methods.UpdatePlayer(selectedPlayer.golfId, txtFirstName.Text, txtLastName.Text, txtAddress.Text, txtStreetNumber.Text,
+            Convert.ToInt32(txtZipCode.Text), txtMobilePhone.Text, txtEmail.Text, Convert.ToDouble(txtHandicap.Text), playerStatus, memberfee);
+            lbPlayerChart.DataSource = Methods.GetPlayers();
         }
+
+        private void PlayerChart_Load(object sender, EventArgs e)
+        {
+            lbPlayerChart.DataSource = Methods.GetPlayers();
+        }
+
+       
     }
 }
