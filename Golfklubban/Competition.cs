@@ -10,7 +10,7 @@ namespace Golfklubban
         public int competitionId { get; set; }
         public string competitionName { get; set; }
         public DateTime startDate { get; set; }
-        public DateTime slutDate { get; set; }
+        public DateTime endDate { get; set; }
         public DateTime lastBookingDate { get; set; }
         public DateTime lastUnbookingDate { get; set; }
         public double classA { get; set; }
