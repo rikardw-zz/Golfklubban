@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Npgsql;
-//Rikard
+//Rikardärbäst
+
 namespace Golfklubban
 {
     public partial class CompetitionChart : Form
