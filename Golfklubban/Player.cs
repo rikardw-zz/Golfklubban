@@ -19,6 +19,8 @@ namespace Golfklubban
         public int membershipStatus { get; set; }
         public double handicap { get; set; }
         public bool membershipFee { get; set; }
+        public int teamId { get; set; }
+
         public override string ToString()
         {
             return firstName + " " + lastName;            
