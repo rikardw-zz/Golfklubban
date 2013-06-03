@@ -83,6 +83,9 @@
     <Compile Include="TeamChart.Designer.cs">
       <DependentUpon>TeamChart.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CompetitionChart.resx">
+      <DependentUpon>CompetitionChart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>

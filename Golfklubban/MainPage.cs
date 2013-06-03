@@ -74,7 +74,8 @@ namespace Golfklubban
 
         private void bokaInförTävlingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            CompetitionChart openCompetitionChart = new CompetitionChart();
+            openCompetitionChart.Show();
         }
     }
 }
