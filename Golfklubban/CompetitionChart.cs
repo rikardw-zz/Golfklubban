@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Npgsql;
-
+//Rikard
 namespace Golfklubban
 {
     public partial class CompetitionChart : Form
@@ -15,6 +15,7 @@ namespace Golfklubban
         public CompetitionChart()
         {
             InitializeComponent();
+            
         }
 
         private void btnRegisterCompetition_Click(object sender, EventArgs e)
