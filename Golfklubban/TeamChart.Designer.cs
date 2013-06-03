@@ -135,6 +135,7 @@
             this.btnAddPlayer.TabIndex = 9;
             this.btnAddPlayer.Text = "Lägg till spelare";
             this.btnAddPlayer.UseVisualStyleBackColor = true;
+            this.btnAddPlayer.Click += new System.EventHandler(this.btnAddPlayer_Click);
             // 
             // groupBox2
             // 

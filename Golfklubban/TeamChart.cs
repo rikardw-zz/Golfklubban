@@ -16,6 +16,8 @@ namespace Golfklubban
         {
             InitializeComponent();
         }
+        private Player selectedPlayer;
+        private Team selectedTeam;
 
         private void btnCreateTeam_Click(object sender, EventArgs e)
         {
@@ -36,6 +38,29 @@ namespace Golfklubban
             }
             lbTeamChart.DataSource = Methods.GetTeams();
         }
+
+        private void btnAddPlayer_Click(object sender, EventArgs e)
+        {
+            selectedPlayer = (Player)lbPlayer.SelectedItem;
+            selectedTeam = (Team)lbTeamChart.SelectedItem;
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            try
+            {
+                conn.Open();
+                NpgsqlCommand command = new NpgsqlCommand("UPDATE player SET team_id = "+ selectedTeam.teamId +" WHERE golfid = (" +selectedPlayer.golfId + " )", conn);
+                int antal = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            lbTeamChart.DataSource = Methods.GetTeams();
+         }
         }
     }
-}
+
