@@ -93,6 +93,7 @@
             this.btnCreateTeam.TabIndex = 9;
             this.btnCreateTeam.Text = "Skapa lagnamn";
             this.btnCreateTeam.UseVisualStyleBackColor = true;
+            this.btnCreateTeam.Click += new System.EventHandler(this.btnCreateTeam_Click);
             // 
             // txtTeamName
             // 
