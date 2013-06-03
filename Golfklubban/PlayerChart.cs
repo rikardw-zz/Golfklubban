@@ -61,6 +61,20 @@ namespace Golfklubban
             lbPlayerChart.DataSource = Methods.GetPlayers();
         }
 
+        private void lbPlayerChart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedPlayer = (Player)lbPlayerChart.SelectedItem;
+            txtFirstName.Text = selectedPlayer.firstName;
+            txtLastName.Text = selectedPlayer.lastName;
+            txtPersonnr.Text = selectedPlayer.golfId.ToString();
+            txtMobilePhone.Text = selectedPlayer.mobilePhone;
+            txtStreetNumber.Text = selectedPlayer.streetNumber;
+            txtZipCode.Text = selectedPlayer.postalNumber.ToString();
+            txtEmail.Text = selectedPlayer.eMail;
+            txtAddress.Text = selectedPlayer.address;
+            txtHandicap.Text = selectedPlayer.handicap.ToString();
+        }
+
        
     }
 }

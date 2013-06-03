@@ -293,6 +293,7 @@
             this.lbPlayerChart.Name = "lbPlayerChart";
             this.lbPlayerChart.Size = new System.Drawing.Size(177, 277);
             this.lbPlayerChart.TabIndex = 356;
+            this.lbPlayerChart.SelectedIndexChanged += new System.EventHandler(this.lbPlayerChart_SelectedIndexChanged);
             // 
             // btnUpdate
             // 
