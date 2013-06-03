@@ -78,6 +78,16 @@ namespace Golfklubban
             selectedTeam = (Team)lbTeamChart.SelectedItem;
             lbPlayerInTeam.DataSource = Methods.GetPlayerInTeam(selectedTeam.teamId);
         }
+
+        private void btnDeletePlayerFromTeam_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteTeam_Click(object sender, EventArgs e)
+        {
+
+        }
         }
     }
 

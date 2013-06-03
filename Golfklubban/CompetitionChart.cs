@@ -13,11 +13,15 @@ namespace Golfklubban
 {
     public partial class CompetitionChart : Form
     {
+        Team selectedTeam = new Team();
+        Player selectedPlayer = new Player();
         Competition selectedCompetition = new Competition();
 
         public CompetitionChart()
         {
             InitializeComponent();
+            lbPlayers.DataSource = Methods.GetPlayers();
+            lbTeamChart.DataSource = Methods.GetTeams();
             
         }
         private void btnRegisterCompetition_Click(object sender, EventArgs e)
@@ -87,12 +91,66 @@ namespace Golfklubban
 
         private void CompetitionChart_Load(object sender, EventArgs e)
         {
-            lbCompetitionChart.DataSource = Methods.GetCompetitions();
+            lbCompetitionChart.DataSource = Methods.GetCompetitions();            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             DeleteCompetition();
+        }
+        private void btnCreateTeam_Click(object sender, EventArgs e)
+        {
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            try
+            {
+                conn.Open();
+                NpgsqlCommand command = new NpgsqlCommand("INSERT INTO team (name) VALUES ('" + txtTeamName.Text + "')", conn);
+                int antal = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            lbTeamChart.DataSource = Methods.GetTeams();
+        }
+
+        private void lbTeamChart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label12.Text = Convert.ToString(lbTeamChart.SelectedItem.ToString()) + "";
+            selectedTeam = (Team)lbTeamChart.SelectedItem;
+            lbPlayerInTeam.DataSource = Methods.GetPlayerInTeam(selectedTeam.teamId);
+        }
+
+        private void btnAddPlayer_Click(object sender, EventArgs e)
+        {
+            selectedPlayer = (Player)lbPlayers.SelectedItem;
+            selectedTeam = (Team)lbTeamChart.SelectedItem;
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            try
+            {
+                conn.Open();
+                NpgsqlCommand command = new NpgsqlCommand("UPDATE player SET team_id = " + selectedTeam.teamId + " WHERE golfid = (" + selectedPlayer.golfId + " )", conn);
+                int antal = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }         
+            lbPlayerInTeam.DataSource = Methods.GetPlayerInTeam(selectedTeam.teamId);
+        }
+
+        private void btnDeletePlayerFromTeam_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

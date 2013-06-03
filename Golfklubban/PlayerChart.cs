@@ -98,7 +98,7 @@ namespace Golfklubban
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
-        {
+        {            
             string chosenStatus = cbMembershipStatus.GetItemText(cbMembershipStatus.SelectedItem); //hämtar info av valt item i comboboxen
             int playerStatus = selectedPlayer.membershipStatus;
             if (chosenStatus.Equals("Aktiv"))

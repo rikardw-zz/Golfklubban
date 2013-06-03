@@ -38,8 +38,6 @@
             this.tsmCompetitionAddPlayer = new System.Windows.Forms.ToolStripMenuItem();
             this.lagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTeamView = new System.Windows.Forms.ToolStripMenuItem();
-            this.parToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmCoupleView = new System.Windows.Forms.ToolStripMenuItem();
             this.lbMainPagePlayers = new System.Windows.Forms.ListBox();
             this.lbAvailibleTimes = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,8 +54,7 @@
             this.programToolStripMenuItem,
             this.medlemmarToolStripMenuItem,
             this.tävlingarToolStripMenuItem,
-            this.lagToolStripMenuItem,
-            this.parToolStripMenuItem});
+            this.lagToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(658, 24);
@@ -76,14 +73,14 @@
             // informationToolStripMenuItem
             // 
             this.informationToolStripMenuItem.Name = "informationToolStripMenuItem";
-            this.informationToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.informationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.informationToolStripMenuItem.Text = "Information";
             this.informationToolStripMenuItem.Click += new System.EventHandler(this.informationToolStripMenuItem_Click);
             // 
             // stängToolStripMenuItem
             // 
             this.stängToolStripMenuItem.Name = "stängToolStripMenuItem";
-            this.stängToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.stängToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.stängToolStripMenuItem.Text = "Stäng";
             this.stängToolStripMenuItem.Click += new System.EventHandler(this.stängToolStripMenuItem_Click);
             // 
@@ -131,21 +128,6 @@
             this.tsmTeamView.Size = new System.Drawing.Size(114, 22);
             this.tsmTeamView.Text = "Visa lag";
             this.tsmTeamView.Click += new System.EventHandler(this.visaLagToolStripMenuItem_Click);
-            // 
-            // parToolStripMenuItem
-            // 
-            this.parToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmCoupleView});
-            this.parToolStripMenuItem.Name = "parToolStripMenuItem";
-            this.parToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
-            this.parToolStripMenuItem.Text = "Par";
-            // 
-            // tsmCoupleView
-            // 
-            this.tsmCoupleView.Name = "tsmCoupleView";
-            this.tsmCoupleView.Size = new System.Drawing.Size(152, 22);
-            this.tsmCoupleView.Text = "Hantera par";
-            this.tsmCoupleView.Click += new System.EventHandler(this.tsmCoupleView_Click);
             // 
             // lbMainPagePlayers
             // 
@@ -250,8 +232,6 @@
         private System.Windows.Forms.ToolStripMenuItem informationToolStripMenuItem;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ToolStripMenuItem parToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tsmCoupleView;
         private System.Windows.Forms.ToolStripMenuItem tsmCompetitionAddPlayer;
 
 
