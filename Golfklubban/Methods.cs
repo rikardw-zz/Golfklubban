@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using Npgsql;
 using System.Configuration;
-using System.Data; //lägger till denna så det går att använda DBType
+using System.Data;
 
 namespace Golfklubban
 {
     class Methods
-    {
-       //NYA VERSIONEN
+    {       
         public const string conString = "MIUN";
         
         //***Hämtar spelare***
@@ -44,6 +43,8 @@ namespace Golfklubban
             conn.Close();
             return playerList;        
         }
+
+        //***Hämtar Tävlingar***
         public static List<Competition> GetCompetitions()
         {
             List<Competition> competitionList = new List<Competition>();
@@ -71,6 +72,8 @@ namespace Golfklubban
             conn.Close();
             return competitionList;
         }
+
+        //***Uppdaterar spelare***
         public static void UpdatePlayer(int golfId, string newFirstName, string newLastName, string newAddress, string newStreetnumber,
           int newZipCode, string newMobile, string newEmail, double newHandicap, int newMembershipStatus, bool newmembershipFee)
         {
