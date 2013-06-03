@@ -198,7 +198,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(615, 398);
+            this.ClientSize = new System.Drawing.Size(508, 235);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -218,7 +218,7 @@
             this.Controls.Add(this.lbCompetitionChart);
             this.Controls.Add(this.btnRegisterCompetition);
             this.Name = "CompetitionChart";
-            this.Text = "CompetitionAdd";
+            this.Text = "Tävlingar";
             this.Load += new System.EventHandler(this.CompetitionChart_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

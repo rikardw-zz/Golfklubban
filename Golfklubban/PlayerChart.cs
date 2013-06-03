@@ -146,7 +146,7 @@ namespace Golfklubban
             {
                 conn.Close();
             }
-            lbPlayerChart.DataSource = Methods.GetPlayers();
+            lbPlayerChart.DataSource = Methods.GetPlayers();            
         }       
     }
 }

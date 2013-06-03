@@ -143,8 +143,9 @@
             // tsmCoupleView
             // 
             this.tsmCoupleView.Name = "tsmCoupleView";
-            this.tsmCoupleView.Size = new System.Drawing.Size(136, 22);
+            this.tsmCoupleView.Size = new System.Drawing.Size(152, 22);
             this.tsmCoupleView.Text = "Hantera par";
+            this.tsmCoupleView.Click += new System.EventHandler(this.tsmCoupleView_Click);
             // 
             // lbMainPagePlayers
             // 
@@ -153,7 +154,6 @@
             this.lbMainPagePlayers.Name = "lbMainPagePlayers";
             this.lbMainPagePlayers.Size = new System.Drawing.Size(230, 394);
             this.lbMainPagePlayers.TabIndex = 2;
-            
             // 
             // lbAvailibleTimes
             // 
@@ -223,7 +223,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainPage";
-            this.Text = "Golfklubban";
+            this.Text = "s";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

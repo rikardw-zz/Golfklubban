@@ -86,6 +86,9 @@
     <EmbeddedResource Include="CompetitionChart.resx">
       <DependentUpon>CompetitionChart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CoupleChart.resx">
+      <DependentUpon>CoupleChart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +104,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TeamChart.resx">
+      <DependentUpon>TeamChart.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
