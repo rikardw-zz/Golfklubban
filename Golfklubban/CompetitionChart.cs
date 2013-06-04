@@ -20,7 +20,7 @@ namespace Golfklubban
         public CompetitionChart()
         {
             InitializeComponent();
-            lbPlayers.DataSource = Methods.GetPlayers();
+            lbPlayers.DataSource = Methods.GetAvailablePlayers();
             lbTeamChart.DataSource = Methods.GetTeams();
             
         }
@@ -150,11 +150,14 @@ namespace Golfklubban
                 conn.Close();
             }         
             lbPlayerInTeam.DataSource = Methods.GetPlayerInTeam(selectedTeam.teamId);
+            lbPlayers.DataSource = Methods.GetAvailablePlayers();
         }
 
         private void btnDeletePlayerFromTeam_Click(object sender, EventArgs e)
         {
-
+            lbPlayers.DataSource = Methods.GetAvailablePlayers();
         }
+
+        
     }
 }

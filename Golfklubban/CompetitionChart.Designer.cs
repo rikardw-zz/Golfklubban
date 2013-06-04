@@ -50,18 +50,18 @@
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnDeletePlayerFromTeam = new System.Windows.Forms.Button();
+            this.lbPlayerInTeam = new System.Windows.Forms.ListBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.lbPlayers = new System.Windows.Forms.ListBox();
             this.btnAddPlayer = new System.Windows.Forms.Button();
             this.btnDeleteTeam = new System.Windows.Forms.Button();
             this.btnCreateTeam = new System.Windows.Forms.Button();
             this.txtTeamName = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lbTeamChart = new System.Windows.Forms.ListBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.btnDeletePlayerFromTeam = new System.Windows.Forms.Button();
-            this.lbPlayerInTeam = new System.Windows.Forms.ListBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -281,6 +281,42 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Skapa nytt lag";
             // 
+            // btnDeletePlayerFromTeam
+            // 
+            this.btnDeletePlayerFromTeam.Location = new System.Drawing.Point(21, 464);
+            this.btnDeletePlayerFromTeam.Name = "btnDeletePlayerFromTeam";
+            this.btnDeletePlayerFromTeam.Size = new System.Drawing.Size(134, 23);
+            this.btnDeletePlayerFromTeam.TabIndex = 18;
+            this.btnDeletePlayerFromTeam.Text = "Ta bort vald spelare";
+            this.btnDeletePlayerFromTeam.UseVisualStyleBackColor = true;
+            this.btnDeletePlayerFromTeam.Click += new System.EventHandler(this.btnDeletePlayerFromTeam_Click);
+            // 
+            // lbPlayerInTeam
+            // 
+            this.lbPlayerInTeam.FormattingEnabled = true;
+            this.lbPlayerInTeam.Location = new System.Drawing.Point(21, 247);
+            this.lbPlayerInTeam.Name = "lbPlayerInTeam";
+            this.lbPlayerInTeam.Size = new System.Drawing.Size(134, 199);
+            this.lbPlayerInTeam.TabIndex = 17;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(63, 231);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(10, 13);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "-";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(18, 231);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(48, 13);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "Spelare i";
+            // 
             // lbPlayers
             // 
             this.lbPlayers.FormattingEnabled = true;
@@ -326,6 +362,15 @@
             this.txtTeamName.Size = new System.Drawing.Size(134, 20);
             this.txtTeamName.TabIndex = 8;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(180, 232);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(97, 13);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "Tillgängliga spelare";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -344,50 +389,6 @@
             this.lbTeamChart.TabIndex = 4;
             this.lbTeamChart.Tag = "";
             this.lbTeamChart.SelectedIndexChanged += new System.EventHandler(this.lbTeamChart_SelectedIndexChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(180, 232);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(97, 13);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "Tillgängliga spelare";
-            // 
-            // btnDeletePlayerFromTeam
-            // 
-            this.btnDeletePlayerFromTeam.Location = new System.Drawing.Point(21, 464);
-            this.btnDeletePlayerFromTeam.Name = "btnDeletePlayerFromTeam";
-            this.btnDeletePlayerFromTeam.Size = new System.Drawing.Size(134, 23);
-            this.btnDeletePlayerFromTeam.TabIndex = 18;
-            this.btnDeletePlayerFromTeam.Text = "Ta bort vald spelare";
-            this.btnDeletePlayerFromTeam.UseVisualStyleBackColor = true;
-            // 
-            // lbPlayerInTeam
-            // 
-            this.lbPlayerInTeam.FormattingEnabled = true;
-            this.lbPlayerInTeam.Location = new System.Drawing.Point(21, 247);
-            this.lbPlayerInTeam.Name = "lbPlayerInTeam";
-            this.lbPlayerInTeam.Size = new System.Drawing.Size(134, 199);
-            this.lbPlayerInTeam.TabIndex = 17;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(63, 231);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(10, 13);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "-";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(18, 231);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 13);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "Spelare i";
             // 
             // CompetitionChart
             // 
