@@ -155,6 +155,26 @@ namespace Golfklubban
 
         private void btnDeletePlayerFromTeam_Click(object sender, EventArgs e)
         {
+            selectedPlayer = (Player)lbPlayerInTeam.SelectedItem;
+            selectedTeam = (Team)lbTeamChart.SelectedItem;
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            try
+            {
+                string sql = "UPDATE player SET team_id = null WHERE team_id = " + selectedTeam.teamId + " AND golfid = " + selectedPlayer.golfId + "";
+                //UPDATE player SET team_id = " + selectedTeam.teamId + " WHERE golfid = (" + selectedPlayer.golfId + " )
+                conn.Open();
+                NpgsqlCommand command = new NpgsqlCommand(sql, conn);
+                int antal = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            lbPlayerInTeam.DataSource = Methods.GetPlayerInTeam(selectedTeam.teamId);
             lbPlayers.DataSource = Methods.GetAvailablePlayers();
         }
 
