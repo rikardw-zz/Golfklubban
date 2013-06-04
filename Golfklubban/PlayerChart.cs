@@ -137,20 +137,15 @@ namespace Golfklubban
             string stringGolfId = txtGolfId.Text + "001"; //Här har du golfID + 001           
             int golfId = Convert.ToInt32(stringGolfId); //här får du ut det som int = 851217001 
             conn.Open();
-            NpgsqlCommand command1 = new NpgsqlCommand("SELECT max(golfid) FROM player WHERE golfid >= " + golfId + " + 001 AND <= "+ golfId + " + 999", conn);
+            string query = "SELECT max(golfid) FROM player WHERE golfid >= " + txtGolfId.Text + "001" + "AND golfid <= " + txtGolfId.Text + "999";
+            NpgsqlCommand command1 = new NpgsqlCommand(query, conn);
             //golfid = 851212001 + 001
             //ska vara 851212 + 001
-            NpgsqlDataReader dr = command1.ExecuteReader();
-            int highestGolfId = Convert.ToInt32(dr["golfid"]);
-            
-
-            int antal = command1.ExecuteNonQuery();
-            if (golfId < highestGolfId)
+            int highestGolfId = Convert.ToInt32(command1.ExecuteScalar());
+    
+            while (golfId <= highestGolfId)
             {
                 golfId++;
-            }
-            else {
-            
             }
                                   
             try
