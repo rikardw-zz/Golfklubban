@@ -134,11 +134,14 @@ namespace Golfklubban
             NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
             selectedPlayer = (Player)lbPlayerChart.SelectedItem;            
             
-            string stringGolfId = txtGolfId.Text + "001"; //Här har du golfID + 001
+            string stringGolfId = txtGolfId.Text + "001"; //Här har du golfID + 001           
             int golfId = Convert.ToInt32(stringGolfId); //här får du ut det som int = 851217001 
             conn.Open();
             NpgsqlCommand command1 = new NpgsqlCommand("SELECT max(golfid) FROM player WHERE golfid >= " + golfId + " + 001 AND <= "+ golfId + " + 999", conn);
-            int highestGolfId = Convert.ToInt32(command1.ExecuteScalar());
+            //golfid = 851212001 + 001
+            //ska vara 851212 + 001
+            NpgsqlDataReader dr = command1.ExecuteReader();
+            int highestGolfId = Convert.ToInt32(dr["golfid"]);
             
 
             int antal = command1.ExecuteNonQuery();
