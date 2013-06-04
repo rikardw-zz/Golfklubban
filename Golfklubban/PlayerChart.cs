@@ -66,7 +66,7 @@ namespace Golfklubban
             selectedPlayer = (Player)lbPlayerChart.SelectedItem;
             txtFirstName.Text = selectedPlayer.firstName;
             txtLastName.Text = selectedPlayer.lastName;
-            txtGolfID.Text = selectedPlayer.golfId.ToString();
+            txtGolfId.Text = selectedPlayer.golfId.ToString();
             txtMobile.Text = selectedPlayer.mobilePhone;
             txtStreetNumber.Text = selectedPlayer.streetNumber;
             txtZipCode.Text = selectedPlayer.zipCode.ToString();
@@ -130,13 +130,30 @@ namespace Golfklubban
                 memberFee = false;
             }
 
-            selectedPlayer = (Player)lbPlayerChart.SelectedItem;
+            //***********Skapar GolfID**************
             NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            selectedPlayer = (Player)lbPlayerChart.SelectedItem;            
+            
+            string stringGolfId = txtGolfId.Text + "001"; //Här har du golfID + 001
+            int golfId = Convert.ToInt32(stringGolfId); //här får du ut det som int = 851217001 
+            conn.Open();
+            NpgsqlCommand command1 = new NpgsqlCommand("SELECT max(golfid) FROM player WHERE golfid >= " + golfId + " + 001 AND <= "+ golfId + " + 999", conn);
+            int highestGolfId = Convert.ToInt32(command1.ExecuteScalar());
+            
+
+            int antal = command1.ExecuteNonQuery();
+            if (golfId < highestGolfId)
+            {
+                golfId++;
+            }
+            else {
+            
+            }
+                                  
             try
-            {                
-                conn.Open();
-                NpgsqlCommand command = new NpgsqlCommand("INSERT INTO player (golfid, playerstatus_id, firstname, lastname, address, streetnumber, zipcode, mobile, email, membershipfee, handicap, sex) VALUES (" + Convert.ToInt32(txtGolfID.Text) + " , " + playerStatus + " , '" + txtFirstName.Text + "' , '" + txtLastName.Text + "' , '" + txtAddress.Text + "' , '" + txtStreetNumber.Text + "' , " + Convert.ToInt32(txtZipCode.Text) + " , '" + txtMobile.Text + "' , '" + txtEmail.Text + "' , '" + memberFee + "' ," + Convert.ToDouble(txtHandicap.Text) + " , " + sex + " )", conn);
-                int antal = command.ExecuteNonQuery();
+            {                                
+                NpgsqlCommand command2 = new NpgsqlCommand("INSERT INTO player (golfid, playerstatus_id, firstname, lastname, address, streetnumber, zipcode, mobile, email, membershipfee, handicap, sex) VALUES (" + golfId + " , " + playerStatus + " , '" + txtFirstName.Text + "' , '" + txtLastName.Text + "' , '" + txtAddress.Text + "' , '" + txtStreetNumber.Text + "' , " + Convert.ToInt32(txtZipCode.Text) + " , '" + txtMobile.Text + "' , '" + txtEmail.Text + "' , '" + memberFee + "' ," + Convert.ToDouble(txtHandicap.Text) + " , " + sex + " )", conn);
+                int antal2 = command2.ExecuteNonQuery();
             }
             catch (Exception ex)
             {

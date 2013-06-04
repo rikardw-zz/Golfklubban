@@ -45,7 +45,7 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtMobile = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtGolfID = new System.Windows.Forms.TextBox();
+            this.txtGolfId = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.cbSex = new System.Windows.Forms.ComboBox();
@@ -201,12 +201,12 @@
             this.txtAddress.Size = new System.Drawing.Size(100, 20);
             this.txtAddress.TabIndex = 5;
             // 
-            // txtGolfID
+            // txtGolfId
             // 
-            this.txtGolfID.Location = new System.Drawing.Point(12, 81);
-            this.txtGolfID.Name = "txtGolfID";
-            this.txtGolfID.Size = new System.Drawing.Size(100, 20);
-            this.txtGolfID.TabIndex = 3;
+            this.txtGolfId.Location = new System.Drawing.Point(12, 81);
+            this.txtGolfId.Name = "txtGolfId";
+            this.txtGolfId.Size = new System.Drawing.Size(100, 20);
+            this.txtGolfId.TabIndex = 3;
             // 
             // txtLastName
             // 
@@ -337,7 +337,7 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtMobile);
             this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.txtGolfID);
+            this.Controls.Add(this.txtGolfId);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.txtFirstName);
             this.Name = "PlayerChart";
@@ -367,7 +367,7 @@
         internal System.Windows.Forms.TextBox txtEmail;
         internal System.Windows.Forms.TextBox txtMobile;
         internal System.Windows.Forms.TextBox txtAddress;
-        internal System.Windows.Forms.TextBox txtGolfID;
+        internal System.Windows.Forms.TextBox txtGolfId;
         internal System.Windows.Forms.TextBox txtLastName;
         internal System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.ComboBox cbSex;
