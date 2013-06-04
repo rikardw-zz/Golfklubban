@@ -167,5 +167,34 @@ namespace Golfklubban
             conn.Close();
             return teamList;
         }
+
+        public static List<Player> GetPlayerInCouple(int coupleID) //hämtar spelare från markerat par
+        {
+            List<Player> playerInCoupleList = new List<Player>();
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
+            NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
+            conn.Open();
+            NpgsqlCommand command = new NpgsqlCommand(@"SELECT * 
+                                                        FROM player 
+                                                        WHERE couple_id =:coupleID ORDER BY lastname", conn);
+
+            command.Parameters.Add(new NpgsqlParameter("coupleID", DbType.Int32));
+            command.Parameters[0].Value = Convert.ToInt32(coupleID);
+            NpgsqlDataReader dr = command.ExecuteReader();
+            while (dr.Read())
+            {
+                Player players = new Player
+                {
+                    golfId = (int)dr["golfid"],
+                    firstName = (string)dr["firstname"],
+                    lastName = (string)dr["lastname"],
+                    coupleId = (int)dr["couple_id"]
+                };
+                playerInCoupleList.Add(players);
+            }
+            conn.Close();
+            return playerInCoupleList;
+        }
     } 
+
 }
