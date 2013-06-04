@@ -55,6 +55,7 @@
     <Compile Include="CompetitionChart.Designer.cs">
       <DependentUpon>CompetitionChart.cs</DependentUpon>
     </Compile>
+    <Compile Include="Couple.cs" />
     <Compile Include="CoupleChart.cs">
       <SubType>Form</SubType>
     </Compile>
