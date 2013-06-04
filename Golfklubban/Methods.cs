@@ -195,6 +195,37 @@ namespace Golfklubban
             conn.Close();
             return playerInCoupleList;
         }
+
+        public static List<Player> GetAvailablePlayers() //hämtar endast spelare som inte har något team
+        {
+            List<Player> playerList = new List<Player>();
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
+            NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
+            conn.Open();
+            NpgsqlCommand command1 = new NpgsqlCommand("SELECT * FROM player WHERE team_id IS null ORDER BY firstname", conn);
+            NpgsqlDataReader dr = command1.ExecuteReader();
+            while (dr.Read())
+            {
+                Player tempPlayer = new Player
+                {
+                    golfId = (int)dr["golfId"],
+                    membershipStatus = (int)dr["playerstatus_id"],
+                    firstName = (string)dr["firstname"],
+                    lastName = (string)dr["lastname"],
+                    streetNumber = (string)dr["streetnumber"],
+                    mobilePhone = (string)dr["mobile"],
+                    address = (string)dr["address"],
+                    eMail = (string)dr["email"],
+                    zipCode = (int)dr["zipcode"],
+                    handicap = (double)dr["handicap"],
+                    //  membershipFee = (bool)dr["membershipfee"]
+                    //  sex = (bool)dr["sex"],
+                };
+                playerList.Add(tempPlayer);
+            }
+            conn.Close();
+            return playerList;
+        }
     } 
 
 }
