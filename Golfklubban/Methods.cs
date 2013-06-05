@@ -35,8 +35,8 @@ namespace Golfklubban
                     eMail = (string)dr["email"],
                     zipCode = (int)dr["zipcode"],
                     handicap = (double)dr["handicap"],
-                    //  membershipFee = (bool)dr["membershipfee"]
-                    //  sex = (bool)dr["sex"],
+                    membershipFee = (bool)dr["membershipfee"],
+                    sex = (bool)dr["sex"]
                 };
                 playerList.Add(tempPlayer);
             }

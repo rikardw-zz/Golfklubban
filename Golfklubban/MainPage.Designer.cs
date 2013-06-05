@@ -73,14 +73,14 @@
             // informationToolStripMenuItem
             // 
             this.informationToolStripMenuItem.Name = "informationToolStripMenuItem";
-            this.informationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.informationToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.informationToolStripMenuItem.Text = "Information";
             this.informationToolStripMenuItem.Click += new System.EventHandler(this.informationToolStripMenuItem_Click);
             // 
             // stängToolStripMenuItem
             // 
             this.stängToolStripMenuItem.Name = "stängToolStripMenuItem";
-            this.stängToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stängToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.stängToolStripMenuItem.Text = "Stäng";
             this.stängToolStripMenuItem.Click += new System.EventHandler(this.stängToolStripMenuItem_Click);
             // 
@@ -205,7 +205,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainPage";
-            this.Text = "s";
+            this.Text = "Golfklubban";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

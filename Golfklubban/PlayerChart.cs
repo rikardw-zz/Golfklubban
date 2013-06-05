@@ -14,17 +14,18 @@ namespace Golfklubban
     public partial class PlayerChart : Form
     {
         public const string conString = "MIUN";
+        private Player selectedPlayer;
         public PlayerChart()
         {
             InitializeComponent();
         }
-        private Player selectedPlayer;
+        private void PlayerChart_Load(object sender, EventArgs e)
+        {
+            populateList();            
+        }        
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            //kod för att hämta värdet ifrån combobox. Efter det så jämför den detta värde mot orden inom " ". tilldelar därefter playerstatus en siffra som 
-            //går att lägga in i databasen
-
             string status = cbMembershipStatus.GetItemText(cbMembershipStatus.SelectedItem);
             int playerStatus = selectedPlayer.membershipStatus;
             if (status.Equals("Aktiv"))
@@ -37,9 +38,6 @@ namespace Golfklubban
             { playerStatus = 4; }
             else if (status.Equals("Gäst"))
             { playerStatus = 5; }
-            //      else if(status.Equals(null))
-            //      { playerStatus = selectedPlayer.membershipStatus; }
-
 
             //liknande kod för att registrera om spelaren betalt avgift
             string fee = cbMembershipFee.GetItemText(cbMembershipFee.SelectedItem);
@@ -91,11 +89,6 @@ namespace Golfklubban
             int numberOfRowsAffected = command.ExecuteNonQuery();
             lbPlayerChart.DataSource = Methods.GetPlayers();
             conn.Close();
-        }
-
-        private void PlayerChart_Load(object sender, EventArgs e)
-        {
-            lbPlayerChart.DataSource = Methods.GetPlayers();
         }
 
         private void lbPlayerChart_SelectedIndexChanged(object sender, EventArgs e)
@@ -196,6 +189,20 @@ namespace Golfklubban
                 conn.Close();
             }
             lbPlayerChart.DataSource = Methods.GetPlayers();            
-        }       
+        }
+
+        public void populateList() {
+            lbPlayerChart.DataSource = Methods.GetPlayers();
+            if (selectedPlayer.sex == true)
+            {
+                cbSex.SelectedItem = "Man";
+            }
+            else 
+            {
+                cbSex.SelectedItem = "Kvinna";            
+            }
+        
+        
+        }
     }
 }
