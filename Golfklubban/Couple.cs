@@ -7,12 +7,12 @@ namespace Golfklubban
 {
     class Couple
     {
-        public int Id { get; set; }
-        public string name { get; set; }
+        public int coupleId { get; set; }
+        public string coupleName { get; set; }
 
-     /*   public override string toString()
+        public override string toString()
         {
-            return name;
-        }*/
+            return coupleName;
+        }
     }
 }
