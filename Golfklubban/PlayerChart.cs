@@ -197,7 +197,6 @@ namespace Golfklubban
             {
                 memberFee = false;
             }
-
             //***********Skapar GolfID**************
             NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
             selectedPlayer = (Player)lbPlayerChart.SelectedItem;                        
@@ -207,8 +206,15 @@ namespace Golfklubban
             conn.Open();
             string query = "SELECT max(golfid) FROM player WHERE golfid >= " + txtGolfId.Text + "001" + "AND golfid <= " + txtGolfId.Text + "999";
             NpgsqlCommand command1 = new NpgsqlCommand(query, conn);
-            int highestGolfId = Convert.ToInt32(command1.ExecuteScalar());
-    
+            int highestGolfId = 0;
+            if (Convert.ToInt32(command1.ExecuteScalar()) == null)
+            {
+                highestGolfId = golfId;
+            }
+            else 
+            {
+                highestGolfId = Convert.ToInt32(command1.ExecuteScalar());            
+            }            
             while (golfId <= highestGolfId)
             {
                 golfId++;
