@@ -81,9 +81,8 @@ namespace Golfklubban
 
         private void btnDeletePlayerFromTeam_Click(object sender, EventArgs e)
         {
-
-        }
-
-        }
+        
+        }        
     }
+}
 

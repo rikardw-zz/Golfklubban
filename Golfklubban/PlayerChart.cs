@@ -102,7 +102,45 @@ namespace Golfklubban
             txtZipCode.Text = selectedPlayer.zipCode.ToString();
             txtEmail.Text = selectedPlayer.eMail;
             txtAddress.Text = selectedPlayer.address;
-            txtHandicap.Text = selectedPlayer.handicap.ToString();
+            txtHandicap.Text = selectedPlayer.handicap.ToString();           
+            //Kön
+            if (Convert.ToString(selectedPlayer.sex) == "True"){
+                cbSex.Text = "Man";
+            }
+            else
+            {
+                cbSex.Text = "Kvinna";               
+            }
+            //Medlemasavgift
+            if (Convert.ToString(selectedPlayer.membershipFee) == "True")
+            {
+                cbMembershipFee.Text = "Betald";
+            }
+            else
+            {
+                cbMembershipFee.Text = "Ej betald";
+            }
+            //Medlemstatus           
+            if (Convert.ToString(selectedPlayer.membershipStatus) == "1")
+            {
+                cbMembershipStatus.Text = "Aktiv";
+            }
+            else if (Convert.ToString(selectedPlayer.membershipStatus) == "2")
+            {
+                cbMembershipStatus.Text = "Vilande";
+            }
+            else if (Convert.ToString(selectedPlayer.membershipStatus) == "3")
+            {
+                cbMembershipStatus.Text = "Junior";
+            }
+            else if (Convert.ToString(selectedPlayer.membershipStatus) == "4")
+            {
+                cbMembershipStatus.Text = "Greenfee";
+            }
+            else if (Convert.ToString(selectedPlayer.membershipStatus) == "5")
+            {
+                cbMembershipStatus.Text = "Gäst";
+            }
         }
 
         private void btnDeletePlayer_Click(object sender, EventArgs e)
@@ -192,17 +230,9 @@ namespace Golfklubban
         }
 
         public void populateList() {
+            //hämtar spelarinformation
             lbPlayerChart.DataSource = Methods.GetPlayers();
-            if (selectedPlayer.sex == true)
-            {
-                cbSex.SelectedItem = "Man";
-            }
-            else 
-            {
-                cbSex.SelectedItem = "Kvinna";            
-            }
-        
-        
+            //Populerar sedan dropboxarna             
         }
     }
 }

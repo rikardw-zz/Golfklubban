@@ -37,5 +37,10 @@ namespace Golfklubban
             lbCoupleChart.DataSource = Methods.GetCouples();
         }
 
+        private void btnDeleteCoup_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
