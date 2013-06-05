@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Npgsql;
+using System.Configuration;
 
 namespace Golfklubban
 {
     public partial class PlayerChart : Form
     {
+        public const string conString = "MIUN";
         public PlayerChart()
         {
             InitializeComponent();
@@ -20,7 +22,7 @@ namespace Golfklubban
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            /*//kod för att hämta värdet ifrån combobox. Efter det så jämför den detta värde mot orden inom " ". tilldelar därefter playerstatus en siffra som 
+            //kod för att hämta värdet ifrån combobox. Efter det så jämför den detta värde mot orden inom " ". tilldelar därefter playerstatus en siffra som 
             //går att lägga in i databasen
 
             string status = cbMembershipStatus.GetItemText(cbMembershipStatus.SelectedItem);
@@ -41,19 +43,54 @@ namespace Golfklubban
 
             //liknande kod för att registrera om spelaren betalt avgift
             string fee = cbMembershipFee.GetItemText(cbMembershipFee.SelectedItem);
-            bool memberfee = selectedPlayer.membershipFee;
+            bool membershipFee = selectedPlayer.membershipFee;
             if (fee.Equals("Betald"))
-            { memberfee = true; }
+            { membershipFee = true; }
             else
             {
-                memberfee = false;
+                membershipFee = false;
             }
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
+            NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
+            conn.Open();
+            NpgsqlCommand command = new NpgsqlCommand(@"UPDATE player
+                                                        SET firstname =:firstName,
+                                                            lastname =:lastName,
+                                                            playerstatus_id =:membershipStatus,
+                                                            address =:address,
+                                                            streetnumber =:streetNumber,
+                                                            zipcode =:zipCode,
+                                                            mobile =:mobilePhone,
+                                                            email =:eMail,
+                                                            handicap =:handicap,
+                                                            membershipfee =:membershipFee
+                                                            WHERE golfid = :golfId", conn);
+            command.Parameters.Add(new NpgsqlParameter("firstName", DbType.String));
+            command.Parameters[0].Value = txtFirstName.Text;
+            command.Parameters.Add(new NpgsqlParameter("lastName", DbType.String));
+            command.Parameters[1].Value = txtLastName.Text;
+            command.Parameters.Add(new NpgsqlParameter("address", DbType.String));
+            command.Parameters[2].Value = txtAddress.Text;
+            command.Parameters.Add(new NpgsqlParameter("streetNumber", DbType.String));
+            command.Parameters[3].Value = txtStreetNumber.Text;
+            command.Parameters.Add(new NpgsqlParameter("zipCode", DbType.Int32));
+            command.Parameters[4].Value = Convert.ToInt32(txtZipCode.Text);
+            command.Parameters.Add(new NpgsqlParameter("mobilePhone", DbType.String));
+            command.Parameters[5].Value = txtMobile.Text;
+            command.Parameters.Add(new NpgsqlParameter("eMail", DbType.String));
+            command.Parameters[6].Value = txtEmail.Text;
+            command.Parameters.Add(new NpgsqlParameter("handicap", DbType.Double));
+            command.Parameters[7].Value = Convert.ToDouble(txtHandicap.Text);
+            command.Parameters.Add(new NpgsqlParameter("golfId", DbType.Int32));
+            command.Parameters[8].Value = Convert.ToInt32(txtGolfId.Text); //Ska GolfID gå att ändra?
+            command.Parameters.Add(new NpgsqlParameter("membershipStatus", DbType.Int32));
+            command.Parameters[9].Value = playerStatus;
+            command.Parameters.Add(new NpgsqlParameter("membershipFee", DbType.Boolean));
+            command.Parameters[10].Value = membershipFee;
 
-
-
-            Methods.UpdatePlayer(selectedPlayer.golfId, txtFirstName.Text, txtLastName.Text, txtAddress.Text, txtStreetNumber.Text,
-            Convert.ToInt32(txtZipCode.Text), txtMobile.Text, txtEmail.Text, Convert.ToDouble(txtHandicap.Text), playerStatus, memberfee);
-            lbPlayerChart.DataSource = Methods.GetPlayers();*/
+            int numberOfRowsAffected = command.ExecuteNonQuery();
+            lbPlayerChart.DataSource = Methods.GetPlayers();
+            conn.Close();
         }
 
         private void PlayerChart_Load(object sender, EventArgs e)
