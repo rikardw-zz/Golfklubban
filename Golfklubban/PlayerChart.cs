@@ -52,7 +52,7 @@ namespace Golfklubban
 
 
             Methods.UpdatePlayer(selectedPlayer.golfId, txtFirstName.Text, txtLastName.Text, txtAddress.Text, txtStreetNumber.Text,
-            Convert.ToInt32(txtZipCode.Text), txtMobilePhone.Text, txtEmail.Text, Convert.ToDouble(txtHandicap.Text), playerStatus, memberfee);
+            Convert.ToInt32(txtZipCode.Text), txtMobile.Text, txtEmail.Text, Convert.ToDouble(txtHandicap.Text), playerStatus, memberfee);
             lbPlayerChart.DataSource = Methods.GetPlayers();*/
         }
 
@@ -132,22 +132,19 @@ namespace Golfklubban
 
             //***********Skapar GolfID**************
             NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
-            selectedPlayer = (Player)lbPlayerChart.SelectedItem;            
-            
+            selectedPlayer = (Player)lbPlayerChart.SelectedItem;                        
             string stringGolfId = txtGolfId.Text + "001"; //Här har du golfID + 001           
             int golfId = Convert.ToInt32(stringGolfId); //här får du ut det som int = 851217001 
+            
             conn.Open();
             string query = "SELECT max(golfid) FROM player WHERE golfid >= " + txtGolfId.Text + "001" + "AND golfid <= " + txtGolfId.Text + "999";
             NpgsqlCommand command1 = new NpgsqlCommand(query, conn);
-            //golfid = 851212001 + 001
-            //ska vara 851212 + 001
             int highestGolfId = Convert.ToInt32(command1.ExecuteScalar());
     
             while (golfId <= highestGolfId)
             {
                 golfId++;
-            }
-                                  
+            }                                  
             try
             {                                
                 NpgsqlCommand command2 = new NpgsqlCommand("INSERT INTO player (golfid, playerstatus_id, firstname, lastname, address, streetnumber, zipcode, mobile, email, membershipfee, handicap, sex) VALUES (" + golfId + " , " + playerStatus + " , '" + txtFirstName.Text + "' , '" + txtLastName.Text + "' , '" + txtAddress.Text + "' , '" + txtStreetNumber.Text + "' , " + Convert.ToInt32(txtZipCode.Text) + " , '" + txtMobile.Text + "' , '" + txtEmail.Text + "' , '" + memberFee + "' ," + Convert.ToDouble(txtHandicap.Text) + " , " + sex + " )", conn);
