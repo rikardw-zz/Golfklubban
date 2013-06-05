@@ -21,7 +21,7 @@ namespace Golfklubban
         }
         private void PlayerChart_Load(object sender, EventArgs e)
         {
-            populateList();            
+            lbPlayerChart.DataSource = Methods.GetPlayers();           
         }        
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -197,7 +197,7 @@ namespace Golfklubban
             {
                 memberFee = false;
             }
-            //***********Skapar GolfID**************
+            //Skapa GolfID
             NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
             selectedPlayer = (Player)lbPlayerChart.SelectedItem;                        
             string stringGolfId = txtGolfId.Text + "001"; //Här har du golfID + 001           
@@ -206,19 +206,16 @@ namespace Golfklubban
             conn.Open();
             string query = "SELECT max(golfid) FROM player WHERE golfid >= " + txtGolfId.Text + "001" + "AND golfid <= " + txtGolfId.Text + "999";
             NpgsqlCommand command1 = new NpgsqlCommand(query, conn);
-            int highestGolfId = 0;
-            if (Convert.ToInt32(command1.ExecuteScalar()) == null)
+            object objHighestGolfId = command1.ExecuteScalar(); //Tar ut högsta värdet i [valtpersonummer] + [xxx]
+            if (!string.IsNullOrEmpty("" + objHighestGolfId)) //Om värdet inte är null, utför detta:
             {
-                highestGolfId = golfId;
-            }
-            else 
-            {
-                highestGolfId = Convert.ToInt32(command1.ExecuteScalar());            
+                int highestGolfId = Convert.ToInt32(objHighestGolfId); //gör om object till typ int 851212003
+                while (golfId <= highestGolfId) //medan [personummer] + [xxx] är under valt värde:
+                {
+                    golfId++; //lägg till ett nummer till på slutet
+                }    
             }            
-            while (golfId <= highestGolfId)
-            {
-                golfId++;
-            }                                  
+                              
             try
             {                                
                 NpgsqlCommand command2 = new NpgsqlCommand("INSERT INTO player (golfid, playerstatus_id, firstname, lastname, address, streetnumber, zipcode, mobile, email, membershipfee, handicap, sex) VALUES (" + golfId + " , " + playerStatus + " , '" + txtFirstName.Text + "' , '" + txtLastName.Text + "' , '" + txtAddress.Text + "' , '" + txtStreetNumber.Text + "' , " + Convert.ToInt32(txtZipCode.Text) + " , '" + txtMobile.Text + "' , '" + txtEmail.Text + "' , '" + memberFee + "' ," + Convert.ToDouble(txtHandicap.Text) + " , " + sex + " )", conn);
@@ -232,13 +229,8 @@ namespace Golfklubban
             {
                 conn.Close();
             }
-            lbPlayerChart.DataSource = Methods.GetPlayers();            
-        }
-
-        public void populateList() {
-            //hämtar spelarinformation
-            lbPlayerChart.DataSource = Methods.GetPlayers();
-            //Populerar sedan dropboxarna             
+            lbPlayerChart.DataSource = Methods.GetPlayers();   
+            //Här bör även kod för att uppdatera mainsidan läggas in
         }
     }
 }
