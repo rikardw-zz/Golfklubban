@@ -84,10 +84,6 @@ namespace Golfklubban
 
         }
 
-        private void btnDeleteTeam_Click(object sender, EventArgs e)
-        {
-
-        }
         }
     }
 

@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnAddPlayer = new System.Windows.Forms.Button();
             this.lbPlayer = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnCreateCoupleName = new System.Windows.Forms.Button();
+            this.btnDeleteCoup = new System.Windows.Forms.Button();
+            this.btnCreateCouple = new System.Windows.Forms.Button();
             this.btnDeletePlayerFromCouple = new System.Windows.Forms.Button();
-            this.btnDeleteCouple = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCoupleName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbPlayerInCouple = new System.Windows.Forms.ListBox();
             this.lbCoupleChart = new System.Windows.Forms.ListBox();
-            this.btnAddPlayer = new System.Windows.Forms.Button();
-            this.btnDeleteCoup = new System.Windows.Forms.Button();
+            this.btnDeleteCouple = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +56,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Spelare";
             // 
+            // btnAddPlayer
+            // 
+            this.btnAddPlayer.Location = new System.Drawing.Point(83, 292);
+            this.btnAddPlayer.Name = "btnAddPlayer";
+            this.btnAddPlayer.Size = new System.Drawing.Size(113, 23);
+            this.btnAddPlayer.TabIndex = 5;
+            this.btnAddPlayer.Text = "Lägg till spelare";
+            this.btnAddPlayer.UseVisualStyleBackColor = true;
+            // 
             // lbPlayer
             // 
             this.lbPlayer.FormattingEnabled = true;
@@ -67,9 +76,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnDeleteCoup);
-            this.groupBox1.Controls.Add(this.btnCreateCoupleName);
+            this.groupBox1.Controls.Add(this.btnCreateCouple);
             this.groupBox1.Controls.Add(this.btnDeletePlayerFromCouple);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtCoupleName);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lbPlayerInCouple);
@@ -81,14 +90,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Skapa nytt par";
             // 
-            // btnCreateCoupleName
+            // btnDeleteCoup
             // 
-            this.btnCreateCoupleName.Location = new System.Drawing.Point(225, 35);
-            this.btnCreateCoupleName.Name = "btnCreateCoupleName";
-            this.btnCreateCoupleName.Size = new System.Drawing.Size(108, 23);
-            this.btnCreateCoupleName.TabIndex = 10;
-            this.btnCreateCoupleName.Text = "Skapa parnamn";
-            this.btnCreateCoupleName.UseVisualStyleBackColor = true;
+            this.btnDeleteCoup.Location = new System.Drawing.Point(225, 97);
+            this.btnDeleteCoup.Name = "btnDeleteCoup";
+            this.btnDeleteCoup.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteCoup.TabIndex = 11;
+            this.btnDeleteCoup.Text = "Ta bort par";
+            this.btnDeleteCoup.UseVisualStyleBackColor = true;
+            // 
+            // btnCreateCouple
+            // 
+            this.btnCreateCouple.Location = new System.Drawing.Point(225, 35);
+            this.btnCreateCouple.Name = "btnCreateCouple";
+            this.btnCreateCouple.Size = new System.Drawing.Size(108, 23);
+            this.btnCreateCouple.TabIndex = 10;
+            this.btnCreateCouple.Text = "Skapa parnamn";
+            this.btnCreateCouple.UseVisualStyleBackColor = true;
+            this.btnCreateCouple.Click += new System.EventHandler(this.btnCreateCouple_Click);
             // 
             // btnDeletePlayerFromCouple
             // 
@@ -99,21 +118,12 @@
             this.btnDeletePlayerFromCouple.Text = "Ta bort spelare";
             this.btnDeletePlayerFromCouple.UseVisualStyleBackColor = true;
             // 
-            // btnDeleteCouple
+            // txtCoupleName
             // 
-            this.btnDeleteCouple.Location = new System.Drawing.Point(92, 366);
-            this.btnDeleteCouple.Name = "btnDeleteCouple";
-            this.btnDeleteCouple.Size = new System.Drawing.Size(111, 23);
-            this.btnDeleteCouple.TabIndex = 9;
-            this.btnDeleteCouple.Text = "Ta bort par";
-            this.btnDeleteCouple.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(21, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 20);
-            this.textBox1.TabIndex = 8;
+            this.txtCoupleName.Location = new System.Drawing.Point(21, 37);
+            this.txtCoupleName.Name = "txtCoupleName";
+            this.txtCoupleName.Size = new System.Drawing.Size(170, 20);
+            this.txtCoupleName.TabIndex = 8;
             // 
             // label3
             // 
@@ -149,23 +159,14 @@
             this.lbCoupleChart.Size = new System.Drawing.Size(186, 238);
             this.lbCoupleChart.TabIndex = 4;
             // 
-            // btnAddPlayer
+            // btnDeleteCouple
             // 
-            this.btnAddPlayer.Location = new System.Drawing.Point(83, 292);
-            this.btnAddPlayer.Name = "btnAddPlayer";
-            this.btnAddPlayer.Size = new System.Drawing.Size(113, 23);
-            this.btnAddPlayer.TabIndex = 5;
-            this.btnAddPlayer.Text = "Lägg till spelare";
-            this.btnAddPlayer.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteCoup
-            // 
-            this.btnDeleteCoup.Location = new System.Drawing.Point(225, 97);
-            this.btnDeleteCoup.Name = "btnDeleteCoup";
-            this.btnDeleteCoup.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteCoup.TabIndex = 11;
-            this.btnDeleteCoup.Text = "Ta bort par";
-            this.btnDeleteCoup.UseVisualStyleBackColor = true;
+            this.btnDeleteCouple.Location = new System.Drawing.Point(92, 366);
+            this.btnDeleteCouple.Name = "btnDeleteCouple";
+            this.btnDeleteCouple.Size = new System.Drawing.Size(111, 23);
+            this.btnDeleteCouple.TabIndex = 9;
+            this.btnDeleteCouple.Text = "Ta bort par";
+            this.btnDeleteCouple.UseVisualStyleBackColor = true;
             // 
             // CoupleChart
             // 
@@ -177,7 +178,6 @@
             this.Controls.Add(this.btnDeleteCouple);
             this.Name = "CoupleChart";
             this.Text = "CoupleAdd";
-            this.Load += new System.EventHandler(this.CoupleChart_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -192,12 +192,12 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnDeletePlayerFromCouple;
         private System.Windows.Forms.Button btnDeleteCouple;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCoupleName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lbPlayerInCouple;
         private System.Windows.Forms.ListBox lbCoupleChart;
-        private System.Windows.Forms.Button btnCreateCoupleName;
+        private System.Windows.Forms.Button btnCreateCouple;
         private System.Windows.Forms.Button btnAddPlayer;
         private System.Windows.Forms.Button btnDeleteCoup;
 
