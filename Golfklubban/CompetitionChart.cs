@@ -178,6 +178,35 @@ namespace Golfklubban
             lbPlayers.DataSource = Methods.GetAvailablePlayers();
         }
 
+        private void btnDeleteTeam_Click(object sender, EventArgs e)
+        {
+            DialogResult taBortLag = MessageBox.Show("Vill du verkligen ta bort det markerade laget?", "Ta bort lag", MessageBoxButtons.OKCancel);
+            if (taBortLag == DialogResult.OK)
+            {
+                selectedTeam = (Team)lbTeamChart.SelectedItem;
+                NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+                try
+                {
+                    string sql = "DELETE FROM team WHERE id = " + selectedTeam.teamId + "";
+                    conn.Open();
+                    NpgsqlCommand command = new NpgsqlCommand(sql, conn);
+                    int antal = command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                lbTeamChart.DataSource = Methods.GetTeams();
+                lbPlayers.DataSource = Methods.GetAvailablePlayers();
+            }
+            else if (taBortLag == DialogResult.Cancel)
+            { }
+        }
+
         
     }
 }

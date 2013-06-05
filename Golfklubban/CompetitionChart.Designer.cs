@@ -344,6 +344,7 @@
             this.btnDeleteTeam.TabIndex = 12;
             this.btnDeleteTeam.Text = "Ta bort lag";
             this.btnDeleteTeam.UseVisualStyleBackColor = true;
+            this.btnDeleteTeam.Click += new System.EventHandler(this.btnDeleteTeam_Click);
             // 
             // btnCreateTeam
             // 
