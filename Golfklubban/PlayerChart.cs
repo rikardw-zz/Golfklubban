@@ -145,26 +145,32 @@ namespace Golfklubban
 
         private void btnDeletePlayer_Click(object sender, EventArgs e)
         {
-            selectedPlayer = (Player)lbPlayerChart.SelectedItem;
-            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
-            try
-            {
-                string sql = "DELETE FROM player WHERE golfid = '" + selectedPlayer.golfId + "'";
-                conn.Open();
-                NpgsqlCommand command = new NpgsqlCommand(sql, conn);
-                int antal = command.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                conn.Close();
-            }
-            lbPlayerChart.DataSource = Methods.GetPlayers();
-        }
-
+          DialogResult dr = MessageBox.Show(("Är du säker på att du vill ta bort spelare " + selectedPlayer.firstName + " " + selectedPlayer.lastName + "?"), "Ta bort medlem?", MessageBoxButtons.YesNo);
+          if (dr == DialogResult.Yes)
+          {
+              selectedPlayer = (Player)lbPlayerChart.SelectedItem;
+              NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+              try
+              {
+                  string sql = "DELETE FROM player WHERE golfid = '" + selectedPlayer.golfId + "'";
+                  conn.Open();
+                  NpgsqlCommand command = new NpgsqlCommand(sql, conn);
+                  int antal = command.ExecuteNonQuery();
+              }
+              catch (Exception ex)
+              {
+                  MessageBox.Show(ex.ToString());
+              }
+              finally
+              {
+                  conn.Close();
+              }
+              lbPlayerChart.DataSource = Methods.GetPlayers();
+          }
+          else if (dr == DialogResult.No)
+          {
+          }  
+        }           
         private void btnRegister_Click(object sender, EventArgs e)
         {            
             string chosenStatus = cbMembershipStatus.GetItemText(cbMembershipStatus.SelectedItem); //hämtar info av valt item i comboboxen
@@ -223,14 +229,22 @@ namespace Golfklubban
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Vänligen fyll i samtliga fält korrekt");
                 MessageBox.Show(ex.ToString());
             }
             finally
             {
                 conn.Close();
             }
-            lbPlayerChart.DataSource = Methods.GetPlayers();   
+            lbPlayerChart.DataSource = Methods.GetPlayers();
+           // lbMainPagePlayers.DataSource = Methods.GetPlayers();
+
+          //  label1.Text = ((Form1)frm1).textBox1.Text;
+  
+
             //Här bör även kod för att uppdatera mainsidan läggas in
+           // MainPage.lbMainPagePlayers.DataSource = l
+
         }
     }
 }

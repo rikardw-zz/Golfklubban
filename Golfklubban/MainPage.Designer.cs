@@ -135,7 +135,7 @@
             this.lbMainPagePlayers.Location = new System.Drawing.Point(15, 56);
             this.lbMainPagePlayers.Name = "lbMainPagePlayers";
             this.lbMainPagePlayers.Size = new System.Drawing.Size(230, 394);
-            this.lbMainPagePlayers.TabIndex = 2;
+            this.lbMainPagePlayers.TabIndex = 2;            
             // 
             // lbAvailibleTimes
             // 
@@ -187,8 +187,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Datum:";
-            this.label3.Click += new System.EventHandler(this.label3_Click_1);
+            this.label3.Text = "Datum:";           
             // 
             // MainPage
             // 
@@ -205,8 +204,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainPage";
-            this.Text = "Golfklubban";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "Golfklubban";            
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -224,7 +222,7 @@
         private System.Windows.Forms.ToolStripMenuItem lagToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tävlingarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmTeamView;
-        private System.Windows.Forms.ListBox lbMainPagePlayers;
+        public  System.Windows.Forms.ListBox lbMainPagePlayers;
         private System.Windows.Forms.ListBox lbAvailibleTimes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
