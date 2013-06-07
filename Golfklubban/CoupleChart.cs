@@ -63,6 +63,22 @@ namespace Golfklubban
             lbCoupleChart.DataSource = Methods.GetCouples();
         }
 
+        private void CoupleChart_Load(object sender, EventArgs e)
+        {
+            lbPlayer.DataSource = Methods.GetPlayers();
+            lbCoupleChart.DataSource = Methods.GetCouples();
+        }
+
+        private void lbPlayer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedPlayer = (Player)lbPlayer.SelectedItem;
+        }
+
+        private void lbCoupleChart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedCouple = (Couple)lbCoupleChart.SelectedItem;
+            lbPlayerInCouple.DataSource = Methods.GetPlayerInCouple(selectedCouple.coupleId);
+        }
 
     }
 }
