@@ -17,6 +17,9 @@ namespace Golfklubban
             InitializeComponent();
         }
 
+        private Player selectedPlayer;
+        private Couple selectedCouple;
+
         private void btnCreateCouple_Click(object sender, EventArgs e)
         {
             NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
@@ -37,10 +40,29 @@ namespace Golfklubban
             lbCoupleChart.DataSource = Methods.GetCouples();
         }
 
-        private void btnDeleteCoup_Click(object sender, EventArgs e)
+        private void btnAddPlayer_Click(object sender, EventArgs e)
         {
+            selectedPlayer = (Player)lbPlayer.SelectedItem;
+            selectedCouple = (Couple)lbCoupleChart.SelectedItem;
 
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            try
+            {
+                conn.Open();
+                NpgsqlCommand command = new NpgsqlCommand("UPDATE player SET team_id = " + selectedCouple.coupleId + " WHERE golfid = (" + selectedPlayer.golfId + " )", conn);
+                int antal = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            lbCoupleChart.DataSource = Methods.GetCouples();
         }
+
 
     }
 }

@@ -64,6 +64,7 @@
             this.btnAddPlayer.TabIndex = 5;
             this.btnAddPlayer.Text = "Lägg till spelare";
             this.btnAddPlayer.UseVisualStyleBackColor = true;
+            this.btnAddPlayer.Click += new System.EventHandler(this.btnAddPlayer_Click);
             // 
             // lbPlayer
             // 
@@ -98,7 +99,6 @@
             this.btnDeleteCoup.TabIndex = 11;
             this.btnDeleteCoup.Text = "Ta bort par";
             this.btnDeleteCoup.UseVisualStyleBackColor = true;
-            this.btnDeleteCoup.Click += new System.EventHandler(this.btnDeleteCoup_Click);
             // 
             // btnCreateCouple
             // 
