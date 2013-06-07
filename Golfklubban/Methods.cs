@@ -202,7 +202,7 @@ namespace Golfklubban
             return playerList;
         }
 
-        public static List<Player> GetAvailablePlayers() //hämtar endast spelare som inte har något par
+        /*public static List<Player> GetAvailablePlayers() //hämtar endast spelare som inte har något par
         {
             List<Player> playerList = new List<Player>();
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
@@ -231,7 +231,7 @@ namespace Golfklubban
             }
             conn.Close();
             return playerList;
-        }
+        }*/
     } 
 
 }
