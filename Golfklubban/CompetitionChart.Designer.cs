@@ -63,17 +63,17 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lbTeamChart = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lbCoupleChart = new System.Windows.Forms.ListBox();
-            this.btnDeleteCouple = new System.Windows.Forms.Button();
-            this.btnCreateCouple = new System.Windows.Forms.Button();
-            this.lbPlayerInCouple = new System.Windows.Forms.ListBox();
-            this.lbPlayers2 = new System.Windows.Forms.ListBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.btnDeletePlayerFromCouple = new System.Windows.Forms.Button();
             this.btnAddPlayer2 = new System.Windows.Forms.Button();
+            this.btnDeletePlayerFromCouple = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lbPlayers2 = new System.Windows.Forms.ListBox();
+            this.lbPlayerInCouple = new System.Windows.Forms.ListBox();
+            this.btnCreateCouple = new System.Windows.Forms.Button();
+            this.btnDeleteCouple = new System.Windows.Forms.Button();
+            this.lbCoupleChart = new System.Windows.Forms.ListBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtCoupleName = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -416,7 +416,7 @@
             this.groupBox3.Controls.Add(this.btnDeleteCouple);
             this.groupBox3.Controls.Add(this.lbCoupleChart);
             this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.txtCoupleName);
             this.groupBox3.Location = new System.Drawing.Point(833, 18);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(332, 490);
@@ -424,81 +424,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Skapa nytt par";
             // 
-            // textBox1
+            // btnAddPlayer2
             // 
-            this.textBox1.Location = new System.Drawing.Point(17, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(131, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(14, 20);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(49, 13);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "Parnamn";
-            // 
-            // lbCoupleChart
-            // 
-            this.lbCoupleChart.FormattingEnabled = true;
-            this.lbCoupleChart.Location = new System.Drawing.Point(17, 64);
-            this.lbCoupleChart.Name = "lbCoupleChart";
-            this.lbCoupleChart.Size = new System.Drawing.Size(299, 95);
-            this.lbCoupleChart.TabIndex = 2;
-            // 
-            // btnDeleteCouple
-            // 
-            this.btnDeleteCouple.Location = new System.Drawing.Point(223, 167);
-            this.btnDeleteCouple.Name = "btnDeleteCouple";
-            this.btnDeleteCouple.Size = new System.Drawing.Size(93, 23);
-            this.btnDeleteCouple.TabIndex = 3;
-            this.btnDeleteCouple.Text = "Ta bort par";
-            this.btnDeleteCouple.UseVisualStyleBackColor = true;
-            // 
-            // btnCreateCouple
-            // 
-            this.btnCreateCouple.Location = new System.Drawing.Point(142, 167);
-            this.btnCreateCouple.Name = "btnCreateCouple";
-            this.btnCreateCouple.Size = new System.Drawing.Size(75, 23);
-            this.btnCreateCouple.TabIndex = 4;
-            this.btnCreateCouple.Text = "Skapa par";
-            this.btnCreateCouple.UseVisualStyleBackColor = true;
-            // 
-            // lbPlayerInCouple
-            // 
-            this.lbPlayerInCouple.FormattingEnabled = true;
-            this.lbPlayerInCouple.Location = new System.Drawing.Point(17, 239);
-            this.lbPlayerInCouple.Name = "lbPlayerInCouple";
-            this.lbPlayerInCouple.Size = new System.Drawing.Size(131, 199);
-            this.lbPlayerInCouple.TabIndex = 5;
-            // 
-            // lbPlayers2
-            // 
-            this.lbPlayers2.FormattingEnabled = true;
-            this.lbPlayers2.Location = new System.Drawing.Point(182, 239);
-            this.lbPlayers2.Name = "lbPlayers2";
-            this.lbPlayers2.Size = new System.Drawing.Size(134, 199);
-            this.lbPlayers2.TabIndex = 6;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(17, 220);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(54, 13);
-            this.label15.TabIndex = 7;
-            this.label15.Text = "Spelare i -";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(179, 220);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(97, 13);
-            this.label16.TabIndex = 8;
-            this.label16.Text = "Tillgängliga spelare";
+            this.btnAddPlayer2.Location = new System.Drawing.Point(182, 459);
+            this.btnAddPlayer2.Name = "btnAddPlayer2";
+            this.btnAddPlayer2.Size = new System.Drawing.Size(134, 23);
+            this.btnAddPlayer2.TabIndex = 10;
+            this.btnAddPlayer2.Text = "Lägg till vald spelare";
+            this.btnAddPlayer2.UseVisualStyleBackColor = true;
             // 
             // btnDeletePlayerFromCouple
             // 
@@ -509,14 +442,82 @@
             this.btnDeletePlayerFromCouple.Text = "Ta bort vald spelare";
             this.btnDeletePlayerFromCouple.UseVisualStyleBackColor = true;
             // 
-            // btnAddPlayer2
+            // label16
             // 
-            this.btnAddPlayer2.Location = new System.Drawing.Point(182, 459);
-            this.btnAddPlayer2.Name = "btnAddPlayer2";
-            this.btnAddPlayer2.Size = new System.Drawing.Size(134, 23);
-            this.btnAddPlayer2.TabIndex = 10;
-            this.btnAddPlayer2.Text = "Lägg till vald spelare";
-            this.btnAddPlayer2.UseVisualStyleBackColor = true;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(179, 220);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(97, 13);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "Tillgängliga spelare";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(17, 220);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(54, 13);
+            this.label15.TabIndex = 7;
+            this.label15.Text = "Spelare i -";
+            // 
+            // lbPlayers2
+            // 
+            this.lbPlayers2.FormattingEnabled = true;
+            this.lbPlayers2.Location = new System.Drawing.Point(182, 239);
+            this.lbPlayers2.Name = "lbPlayers2";
+            this.lbPlayers2.Size = new System.Drawing.Size(134, 199);
+            this.lbPlayers2.TabIndex = 6;
+            // 
+            // lbPlayerInCouple
+            // 
+            this.lbPlayerInCouple.FormattingEnabled = true;
+            this.lbPlayerInCouple.Location = new System.Drawing.Point(17, 239);
+            this.lbPlayerInCouple.Name = "lbPlayerInCouple";
+            this.lbPlayerInCouple.Size = new System.Drawing.Size(131, 199);
+            this.lbPlayerInCouple.TabIndex = 5;
+            // 
+            // btnCreateCouple
+            // 
+            this.btnCreateCouple.Location = new System.Drawing.Point(142, 167);
+            this.btnCreateCouple.Name = "btnCreateCouple";
+            this.btnCreateCouple.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateCouple.TabIndex = 4;
+            this.btnCreateCouple.Text = "Skapa par";
+            this.btnCreateCouple.UseVisualStyleBackColor = true;
+            this.btnCreateCouple.Click += new System.EventHandler(this.btnCreateCouple_Click);
+            // 
+            // btnDeleteCouple
+            // 
+            this.btnDeleteCouple.Location = new System.Drawing.Point(223, 167);
+            this.btnDeleteCouple.Name = "btnDeleteCouple";
+            this.btnDeleteCouple.Size = new System.Drawing.Size(93, 23);
+            this.btnDeleteCouple.TabIndex = 3;
+            this.btnDeleteCouple.Text = "Ta bort par";
+            this.btnDeleteCouple.UseVisualStyleBackColor = true;
+            // 
+            // lbCoupleChart
+            // 
+            this.lbCoupleChart.FormattingEnabled = true;
+            this.lbCoupleChart.Location = new System.Drawing.Point(17, 64);
+            this.lbCoupleChart.Name = "lbCoupleChart";
+            this.lbCoupleChart.Size = new System.Drawing.Size(299, 95);
+            this.lbCoupleChart.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(14, 20);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(49, 13);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Parnamn";
+            // 
+            // txtCoupleName
+            // 
+            this.txtCoupleName.Location = new System.Drawing.Point(17, 33);
+            this.txtCoupleName.Name = "txtCoupleName";
+            this.txtCoupleName.Size = new System.Drawing.Size(131, 20);
+            this.txtCoupleName.TabIndex = 0;
             // 
             // CompetitionChart
             // 
@@ -586,6 +587,6 @@
         private System.Windows.Forms.Button btnDeleteCouple;
         private System.Windows.Forms.ListBox lbCoupleChart;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCoupleName;
     }
 }

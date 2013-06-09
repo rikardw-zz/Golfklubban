@@ -207,6 +207,30 @@ namespace Golfklubban
             { }
         }
 
-        
+        private void btnCreateCouple_Click(object sender, EventArgs e)
+        {
+            if ((txtCoupleName.Text.Trim().Length == 0)) //kod som undersöker om det finns någon text i textbox
+            { MessageBox.Show("Du måste välja ett namn på paret!"); }
+            else
+            {
+                NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+                try
+                {
+                    conn.Open();
+                    NpgsqlCommand command = new NpgsqlCommand("INSERT INTO couple (name) VALUES ('" + txtCoupleName.Text + "')", conn);
+                    int antal = command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                lbCoupleChart.DataSource = Methods.GetCouples();
+            }
+
+        }
     }
 }
