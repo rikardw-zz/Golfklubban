@@ -16,6 +16,7 @@ namespace Golfklubban
         Team selectedTeam = new Team();
         Player selectedPlayer = new Player();
         Competition selectedCompetition = new Competition();
+        Couple selectedCouple = new Couple();
 
         public CompetitionChart()
         {
@@ -233,6 +234,31 @@ namespace Golfklubban
                 lbCoupleChart.DataSource = Methods.GetCouples();
             }
 
+        }
+
+        private void btnDeletePlayerFromCouple_Click(object sender, EventArgs e)
+        {
+            selectedPlayer = (Player)lbPlayerInCouple.SelectedItem;
+            selectedCouple = (Couple)lbCoupleChart.SelectedItem;
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            try
+            {
+                string sql = "UPDATE player SET couple_id = null WHERE couple_id = " + selectedCouple.coupleId + " AND golfid = " + selectedPlayer.golfId + "";
+                //UPDATE player SET couple_id = " + selectedCouple.coupleId + " WHERE golfid = (" + selectedPlayer.golfId + " )
+                conn.Open();
+                NpgsqlCommand command = new NpgsqlCommand(sql, conn);
+                int antal = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            lbPlayerInCouple.DataSource = Methods.GetPlayerInCouple(selectedCouple.coupleId);
+            lbPlayers2.DataSource = Methods.GetAvailablePlayersToCouple();
         }
     }
 }

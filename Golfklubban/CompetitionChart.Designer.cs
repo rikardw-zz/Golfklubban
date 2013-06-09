@@ -441,6 +441,7 @@
             this.btnDeletePlayerFromCouple.TabIndex = 9;
             this.btnDeletePlayerFromCouple.Text = "Ta bort vald spelare";
             this.btnDeletePlayerFromCouple.UseVisualStyleBackColor = true;
+            this.btnDeletePlayerFromCouple.Click += new System.EventHandler(this.btnDeletePlayerFromCouple_Click);
             // 
             // label16
             // 
