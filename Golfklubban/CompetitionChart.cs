@@ -22,6 +22,8 @@ namespace Golfklubban
             InitializeComponent();
             lbPlayers.DataSource = Methods.GetAvailablePlayers();
             lbTeamChart.DataSource = Methods.GetTeams();
+            lbPlayers2.DataSource = Methods.GetAvailablePlayersToCouple();
+            lbCoupleChart.DataSource = Methods.GetCouples();
             
         }
         private void btnRegisterCompetition_Click(object sender, EventArgs e)
