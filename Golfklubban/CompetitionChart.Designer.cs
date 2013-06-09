@@ -495,6 +495,7 @@
             this.btnDeleteCouple.TabIndex = 3;
             this.btnDeleteCouple.Text = "Ta bort par";
             this.btnDeleteCouple.UseVisualStyleBackColor = true;
+            this.btnDeleteCouple.Click += new System.EventHandler(this.btnDeleteCouple_Click);
             // 
             // lbCoupleChart
             // 

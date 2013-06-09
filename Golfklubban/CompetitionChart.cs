@@ -260,5 +260,34 @@ namespace Golfklubban
             lbPlayerInCouple.DataSource = Methods.GetPlayerInCouple(selectedCouple.coupleId);
             lbPlayers2.DataSource = Methods.GetAvailablePlayersToCouple();
         }
+
+        private void btnDeleteCouple_Click(object sender, EventArgs e)
+        {
+            DialogResult taBortPar = MessageBox.Show("Vill du verkligen ta bort det markerade paret?", "Ta bort Par", MessageBoxButtons.OKCancel);
+            if (taBortPar == DialogResult.OK)
+            {
+                selectedCouple = (Couple)lbCoupleChart.SelectedItem;
+                NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+                try
+                {
+                    string sql = "DELETE FROM couple WHERE id = " + selectedCouple.coupleId + "";
+                    conn.Open();
+                    NpgsqlCommand command = new NpgsqlCommand(sql, conn);
+                    int antal = command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                lbCoupleChart.DataSource = Methods.GetCouples();
+                lbPlayers2.DataSource = Methods.GetAvailablePlayersToCouple();
+            }
+            else if (taBortPar == DialogResult.Cancel)
+            { }
+        }
     }
 }
