@@ -30,7 +30,15 @@ namespace Golfklubban
         }
         private void btnRegisterCompetition_Click(object sender, EventArgs e)
         {
-            addCompetition();            
+            DateTime dayNow = DateTime.Today;
+            if (Convert.ToDateTime(txtStartDate.Text) > dayNow)
+            {
+                addCompetition();
+            }
+            else 
+            {
+                MessageBox.Show("Du kan inte registrera ett datum som redan passerat");
+            }
         }
         private void addCompetition()
         {
