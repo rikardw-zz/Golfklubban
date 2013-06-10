@@ -162,7 +162,6 @@ namespace Golfklubban
             }         
             lbPlayerInTeam.DataSource = Methods.GetPlayerInTeam(selectedTeam.teamId);
             lbPlayers.DataSource = Methods.GetAvailablePlayers();
-            MessageBox.Show("Du har nu lagt till spelaren till laget.");
         }
 
         private void btnDeletePlayerFromTeam_Click(object sender, EventArgs e)
@@ -307,6 +306,40 @@ namespace Golfklubban
             }
             else if (dropCouple == DialogResult.Cancel)
             { }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBox3.Hide();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBox3.Show();
+        }
+
+        private void btnAddPlayer2_Click(object sender, EventArgs e)
+        {
+            selectedPlayer = (Player)lbPlayers2.SelectedItem;
+            selectedCouple = (Couple)lbCoupleChart.SelectedItem;
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            try
+            {
+                conn.Open();
+                NpgsqlCommand command = new NpgsqlCommand("UPDATE player SET couple_id = " + selectedCouple.coupleId + " WHERE golfid = (" + selectedPlayer.golfId + " )", conn);
+                int antal = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }         
+            lbPlayerInCouple.DataSource = Methods.GetPlayerInCouple(selectedCouple.coupleId);
+            lbPlayers.DataSource = Methods.GetAvailablePlayers();        
         }
     }
 }
