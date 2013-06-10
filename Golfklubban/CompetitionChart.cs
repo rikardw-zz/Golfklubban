@@ -73,23 +73,30 @@ namespace Golfklubban
         private void DeleteCompetition()
         {
             selectedCompetition = (Competition)lbCompetitionChart.SelectedItem;
-            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true;");
-            try
-            {                
-                conn.Open();                
-                NpgsqlCommand command = new NpgsqlCommand(("DELETE FROM competition WHERE competition.id = " + selectedCompetition.Id + ""), conn);
-                
-                int numberOfAffectedRows = command.ExecuteNonQuery();
-            }
-            catch (Exception ex)
+            DialogResult dropCompetition = MessageBox.Show("Vill du verkligen ta bort den markerade tävlingen?", "Ta bort tävling", MessageBoxButtons.OKCancel);
+            if (dropCompetition == DialogResult.OK)
             {
-                MessageBox.Show(ex.ToString());
+                NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true;");
+                try
+                {
+                    conn.Open();
+                    NpgsqlCommand command = new NpgsqlCommand(("DELETE FROM competition WHERE competition.id = " + selectedCompetition.Id + ""), conn);
+
+                    int numberOfAffectedRows = command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    lbCompetitionChart.DataSource = Methods.GetCompetitions();
+                    conn.Close();
+                    MessageBox.Show("Tävlingen är nu borttagen.");
+                }
             }
-            finally
-            {
-                lbCompetitionChart.DataSource = Methods.GetCompetitions();
-                conn.Close();
-            }
+            else if (dropCompetition == DialogResult.Cancel)
+            { }
         }
 
         private void CompetitionChart_Load(object sender, EventArgs e)
@@ -123,6 +130,7 @@ namespace Golfklubban
                     conn.Close();
                 }
                 lbTeamChart.DataSource = Methods.GetTeams();
+                MessageBox.Show("Laget har nu sparats!");
             }
         }
         private void lbTeamChart_SelectedIndexChanged(object sender, EventArgs e)
@@ -154,6 +162,7 @@ namespace Golfklubban
             }         
             lbPlayerInTeam.DataSource = Methods.GetPlayerInTeam(selectedTeam.teamId);
             lbPlayers.DataSource = Methods.GetAvailablePlayers();
+            MessageBox.Show("Du har nu lagt till spelaren till laget.");
         }
 
         private void btnDeletePlayerFromTeam_Click(object sender, EventArgs e)
@@ -161,8 +170,8 @@ namespace Golfklubban
             selectedPlayer = (Player)lbPlayerInTeam.SelectedItem;
             selectedTeam = (Team)lbTeamChart.SelectedItem;
 
-            DialogResult taBortLag = MessageBox.Show("Vill du verkligen ta bort den markerade spelare från laget?", "Ta bort spelare", MessageBoxButtons.OKCancel);
-            if (taBortLag == DialogResult.OK)
+            DialogResult dropPlayerFromTeam = MessageBox.Show("Vill du verkligen ta bort den markerade spelaren från laget?", "Ta bort spelare", MessageBoxButtons.OKCancel);
+            if (dropPlayerFromTeam == DialogResult.OK)
             {
 
                 NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
@@ -184,15 +193,16 @@ namespace Golfklubban
                 }
                 lbPlayerInTeam.DataSource = Methods.GetPlayerInTeam(selectedTeam.teamId);
                 lbPlayers.DataSource = Methods.GetAvailablePlayers();
+                MessageBox.Show("Spelaren är nu borttagen från laget.");
             }
-            else if (taBortLag == DialogResult.Cancel)
+            else if (dropPlayerFromTeam == DialogResult.Cancel)
             { }
         }
 
         private void btnDeleteTeam_Click(object sender, EventArgs e)
         {
-            DialogResult taBortLag = MessageBox.Show("Vill du verkligen ta bort det markerade laget?", "Ta bort lag", MessageBoxButtons.OKCancel);
-            if (taBortLag == DialogResult.OK)
+            DialogResult dropTeam = MessageBox.Show("Vill du verkligen ta bort det markerade laget?", "Ta bort lag", MessageBoxButtons.OKCancel);
+            if (dropTeam == DialogResult.OK)
             {
                 selectedTeam = (Team)lbTeamChart.SelectedItem;
                 NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
@@ -211,10 +221,11 @@ namespace Golfklubban
                 {
                     conn.Close();
                 }
+                
                 lbTeamChart.DataSource = Methods.GetTeams();
                 lbPlayers.DataSource = Methods.GetAvailablePlayers();
             }
-            else if (taBortLag == DialogResult.Cancel)
+            else if (dropTeam == DialogResult.Cancel)
             { }
         }
 
@@ -271,8 +282,8 @@ namespace Golfklubban
 
         private void btnDeleteCouple_Click(object sender, EventArgs e)
         {
-            DialogResult taBortPar = MessageBox.Show("Vill du verkligen ta bort det markerade paret?", "Ta bort Par", MessageBoxButtons.OKCancel);
-            if (taBortPar == DialogResult.OK)
+            DialogResult dropCouple = MessageBox.Show("Vill du verkligen ta bort det markerade paret?", "Ta bort Par", MessageBoxButtons.OKCancel);
+            if (dropCouple == DialogResult.OK)
             {
                 selectedCouple = (Couple)lbCoupleChart.SelectedItem;
                 NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
@@ -294,7 +305,7 @@ namespace Golfklubban
                 lbCoupleChart.DataSource = Methods.GetCouples();
                 lbPlayers2.DataSource = Methods.GetAvailablePlayersToCouple();
             }
-            else if (taBortPar == DialogResult.Cancel)
+            else if (dropCouple == DialogResult.Cancel)
             { }
         }
     }
