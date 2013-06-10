@@ -18,6 +18,7 @@ namespace Golfklubban
         {            
             InitializeComponent();
             lbMainPagePlayers.DataSource = Methods.GetPlayers();
+            lbTimes.DataSource = Methods.GetTimeIntervals();
         }
         private void stängToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -57,6 +58,71 @@ namespace Golfklubban
         {
             CoupleChart openCoupleChart = new CoupleChart();
             openCoupleChart.Show();
+        }
+
+        private void txtSearch_Click(object sender, EventArgs e)
+        {
+            int playerGolfID = Convert.ToInt32(txtSearchGolfId.Text);
+            lbMainPagePlayers.DataSource = Methods.SearchPlayer(playerGolfID);
+        }
+
+        private void txtBooking_Click(object sender, EventArgs e)
+        {
+            selectedPlayer = (Player)lbMainPagePlayers.SelectedItem;
+            DateTime pickedDate = monthCalendar1.SelectionStart;
+            string pickedTime = lbTimes.SelectedItem.ToString();
+            
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            try
+            {
+                conn.Open();
+                NpgsqlCommand command = new NpgsqlCommand("INSERT INTO golfround (date, startingtime, playerone) VALUES ('" + pickedDate + "' , '" + pickedTime + "', '" + selectedPlayer.golfId + "')", conn);
+                int antal = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+
+        private void txtGetPlayers_Click(object sender, EventArgs e)
+        {
+            lbBookedPlayers.Items.Clear();
+            GetPlayerTimes();
+        }
+
+        private void GetPlayerTimes()
+        {
+            DateTime pickedDate = monthCalendar1.SelectionStart;
+            string pickedTime = Convert.ToString(lbTimes.SelectedItem);
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            try
+            {
+                conn.Open();
+                NpgsqlCommand command = new NpgsqlCommand("SELECT firstname, lastname FROM player INNER JOIN golfround ON player.golfid = golfround.playerone where date ='" + pickedDate + "' AND startingtime = '" + pickedTime + "'", conn);
+                NpgsqlDataReader dr = command.ExecuteReader();
+                while (dr.Read())
+                {
+                    lbBookedPlayers.Items.Add(dr["firstname"] + " " + dr["lastname"]);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+
+            }
+
         }
     }
 }

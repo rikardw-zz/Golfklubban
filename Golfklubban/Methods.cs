@@ -232,6 +232,58 @@ namespace Golfklubban
             conn.Close();
             return playerList;
         }
+        public static List<Player> SearchPlayer(int golfId)
+        {
+            List<Player> foundPlayer = new List<Player>();
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
+            NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
+            conn.Open();
+            NpgsqlCommand command = new NpgsqlCommand(@"SELECT * 
+                                                        FROM player 
+                                                        WHERE golfid =:golfId
+                                                        ", conn);
+            command.Parameters.Add(new NpgsqlParameter("golfId", DbType.Int32));
+            command.Parameters[0].Value = Convert.ToInt32(golfId);
+
+            NpgsqlDataReader dr = command.ExecuteReader();
+            while (dr.Read())
+            {
+                Player tempPlayer = new Player
+                {
+                    golfId = (int)dr["golfId"],
+                    membershipStatus = (int)dr["playerstatus_id"],
+                    firstName = (string)dr["firstname"],
+                    lastName = (string)dr["lastname"],
+                    streetNumber = (string)dr["streetnumber"],
+                    mobilePhone = (string)dr["mobile"],
+                    address = (string)dr["address"],
+                    eMail = (string)dr["email"],
+                    zipCode = (int)dr["zipcode"],
+                    handicap = (double)dr["handicap"],
+                    membershipFee = (bool)dr["membershipfee"],
+                    sex = (bool)dr["sex"]
+                };
+                foundPlayer.Add(tempPlayer);
+            }
+            conn.Close();
+            return foundPlayer;
+        }
+
+        public static List<string> GetTimeIntervals()
+        {
+            List<string> timeIntervals = new List<string>();
+            TimeSpan startTime = new TimeSpan(4, 00, 00);
+            //     DateTime startDate = new DateTime(DateTime.MinValue.Ticks); // Date to be used to get shortTime format.
+            for (int i = 0; i < 60; i++)
+            {
+                int minutesToBeAdded = 10 * i;      // Increasing minutes by 10 minutes interval
+                TimeSpan timeToBeAdded = new TimeSpan(0, minutesToBeAdded, 0);
+                TimeSpan t = startTime.Add(timeToBeAdded);
+                TimeSpan result = startTime + t;
+                timeIntervals.Add(result.ToString());      // Use Date.ToShortTimeString() method to get the desired format                
+            }
+            return timeIntervals;
+        }
     } 
 
 }

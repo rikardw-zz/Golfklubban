@@ -161,6 +161,7 @@
             this.txtBooking.TabIndex = 4;
             this.txtBooking.Text = "Genomför bokning";
             this.txtBooking.UseVisualStyleBackColor = true;
+            this.txtBooking.Click += new System.EventHandler(this.txtBooking_Click);
             // 
             // monthCalendar1
             // 
@@ -240,6 +241,7 @@
             this.txtSearch.TabIndex = 20;
             this.txtSearch.Text = "Sök Spelare";
             this.txtSearch.UseVisualStyleBackColor = true;
+            this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
             // 
             // txtGetPlayers
             // 
@@ -249,6 +251,7 @@
             this.txtGetPlayers.TabIndex = 27;
             this.txtGetPlayers.Text = "Hämta spelare";
             this.txtGetPlayers.UseVisualStyleBackColor = true;
+            this.txtGetPlayers.Click += new System.EventHandler(this.txtGetPlayers_Click);
             // 
             // MainPage
             // 
