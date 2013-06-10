@@ -106,41 +106,6 @@ namespace Golfklubban
             }
         }
 
-        private void txtGetPlayers_Click(object sender, EventArgs e)
-        {
-            lbBookedPlayers.Items.Clear();
-            GetPlayerTimes();
-        }
-
-        private void GetPlayerTimes()
-        {
-            DateTime pickedDate = monthCalendar1.SelectionStart;
-            string pickedTime = Convert.ToString(lbTimes.SelectedItem);
-
-            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
-            try
-            {
-                conn.Open();
-                NpgsqlCommand command = new NpgsqlCommand("SELECT firstname, lastname FROM player INNER JOIN golfround ON player.golfid = golfround.playerone where date ='" + pickedDate + "' AND startingtime = '" + pickedTime + "'", conn);
-                NpgsqlDataReader dr = command.ExecuteReader();
-                while (dr.Read())
-                {
-                    lbBookedPlayers.Items.Add(dr["firstname"] + " " + dr["lastname"]);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                conn.Close();
-
-            }
-
-        }
-
         private void txtDropPlayer_Click(object sender, EventArgs e)
         {
             selectedPlayer = (Player)lbBookedPlayers.SelectedItem;

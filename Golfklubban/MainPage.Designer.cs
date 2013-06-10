@@ -51,8 +51,8 @@
             this.txtSearchFirstName = new System.Windows.Forms.TextBox();
             this.txtSearchGolfId = new System.Windows.Forms.TextBox();
             this.txtSearch = new System.Windows.Forms.Button();
-            this.txtGetPlayers = new System.Windows.Forms.Button();
             this.txtDropPlayer = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -245,16 +245,6 @@
             this.txtSearch.UseVisualStyleBackColor = true;
             this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
             // 
-            // txtGetPlayers
-            // 
-            this.txtGetPlayers.Location = new System.Drawing.Point(854, 66);
-            this.txtGetPlayers.Name = "txtGetPlayers";
-            this.txtGetPlayers.Size = new System.Drawing.Size(106, 23);
-            this.txtGetPlayers.TabIndex = 27;
-            this.txtGetPlayers.Text = "Hämta spelare";
-            this.txtGetPlayers.UseVisualStyleBackColor = true;
-            this.txtGetPlayers.Click += new System.EventHandler(this.txtGetPlayers_Click);
-            // 
             // txtDropPlayer
             // 
             this.txtDropPlayer.Location = new System.Drawing.Point(733, 183);
@@ -265,13 +255,22 @@
             this.txtDropPlayer.UseVisualStyleBackColor = true;
             this.txtDropPlayer.Click += new System.EventHandler(this.txtDropPlayer_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(642, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Bokade spelare";
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1032, 615);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDropPlayer);
-            this.Controls.Add(this.txtGetPlayers);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -321,8 +320,8 @@
         private System.Windows.Forms.TextBox txtSearchFirstName;
         private System.Windows.Forms.TextBox txtSearchGolfId;
         private System.Windows.Forms.Button txtSearch;
-        private System.Windows.Forms.Button txtGetPlayers;
         private System.Windows.Forms.Button txtDropPlayer;
+        private System.Windows.Forms.Label label2;
 
 
     }
