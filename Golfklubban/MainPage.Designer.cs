@@ -39,12 +39,19 @@
             this.lagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTeamView = new System.Windows.Forms.ToolStripMenuItem();
             this.lbMainPagePlayers = new System.Windows.Forms.ListBox();
-            this.lbAvailibleTimes = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtBooking = new System.Windows.Forms.Button();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.lbTimes = new System.Windows.Forms.ListBox();
+            this.lbBookedPlayers = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtSearchLastName = new System.Windows.Forms.TextBox();
+            this.txtSearchFirstName = new System.Windows.Forms.TextBox();
+            this.txtSearchGolfId = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.Button();
+            this.txtGetPlayers = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +64,7 @@
             this.lagToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(658, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1032, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -132,79 +139,140 @@
             // lbMainPagePlayers
             // 
             this.lbMainPagePlayers.FormattingEnabled = true;
-            this.lbMainPagePlayers.Location = new System.Drawing.Point(15, 56);
+            this.lbMainPagePlayers.Location = new System.Drawing.Point(21, 250);
             this.lbMainPagePlayers.Name = "lbMainPagePlayers";
-            this.lbMainPagePlayers.Size = new System.Drawing.Size(230, 394);
-            this.lbMainPagePlayers.TabIndex = 2;            
-            // 
-            // lbAvailibleTimes
-            // 
-            this.lbAvailibleTimes.FormattingEnabled = true;
-            this.lbAvailibleTimes.Location = new System.Drawing.Point(338, 81);
-            this.lbAvailibleTimes.Name = "lbAvailibleTimes";
-            this.lbAvailibleTimes.Size = new System.Drawing.Size(285, 368);
-            this.lbAvailibleTimes.TabIndex = 2;
+            this.lbMainPagePlayers.Size = new System.Drawing.Size(228, 212);
+            this.lbMainPagePlayers.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 36);
+            this.label1.Location = new System.Drawing.Point(18, 230);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Spelare";
             // 
-            // label2
+            // txtBooking
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(335, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Tillgängliga tider";
+            this.txtBooking.Location = new System.Drawing.Point(440, 471);
+            this.txtBooking.Name = "txtBooking";
+            this.txtBooking.Size = new System.Drawing.Size(106, 23);
+            this.txtBooking.TabIndex = 4;
+            this.txtBooking.Text = "Genomför bokning";
+            this.txtBooking.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // monthCalendar1
             // 
-            this.button1.Location = new System.Drawing.Point(517, 463);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Genomför bokning";
-            this.button1.UseVisualStyleBackColor = true;
+            this.monthCalendar1.Location = new System.Drawing.Point(375, 66);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 5;
             // 
-            // comboBox1
+            // lbTimes
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(338, 53);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(285, 21);
-            this.comboBox1.TabIndex = 5;
+            this.lbTimes.FormattingEnabled = true;
+            this.lbTimes.Location = new System.Drawing.Point(375, 265);
+            this.lbTimes.Name = "lbTimes";
+            this.lbTimes.Size = new System.Drawing.Size(171, 186);
+            this.lbTimes.TabIndex = 6;
+            // 
+            // lbBookedPlayers
+            // 
+            this.lbBookedPlayers.FormattingEnabled = true;
+            this.lbBookedPlayers.Location = new System.Drawing.Point(642, 66);
+            this.lbBookedPlayers.Name = "lbBookedPlayers";
+            this.lbBookedPlayers.Size = new System.Drawing.Size(181, 95);
+            this.lbBookedPlayers.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(146, 93);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 13);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Efternamn";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(21, 93);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Förnamn";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(297, 56);
+            this.label3.Location = new System.Drawing.Point(21, 38);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Datum:";           
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Golf-ID";
+            // 
+            // txtSearchLastName
+            // 
+            this.txtSearchLastName.Location = new System.Drawing.Point(149, 108);
+            this.txtSearchLastName.Name = "txtSearchLastName";
+            this.txtSearchLastName.Size = new System.Drawing.Size(100, 20);
+            this.txtSearchLastName.TabIndex = 23;
+            // 
+            // txtSearchFirstName
+            // 
+            this.txtSearchFirstName.Location = new System.Drawing.Point(21, 109);
+            this.txtSearchFirstName.Name = "txtSearchFirstName";
+            this.txtSearchFirstName.Size = new System.Drawing.Size(100, 20);
+            this.txtSearchFirstName.TabIndex = 22;
+            // 
+            // txtSearchGolfId
+            // 
+            this.txtSearchGolfId.Location = new System.Drawing.Point(21, 55);
+            this.txtSearchGolfId.Name = "txtSearchGolfId";
+            this.txtSearchGolfId.Size = new System.Drawing.Size(100, 20);
+            this.txtSearchGolfId.TabIndex = 21;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(174, 149);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(75, 23);
+            this.txtSearch.TabIndex = 20;
+            this.txtSearch.Text = "Sök Spelare";
+            this.txtSearch.UseVisualStyleBackColor = true;
+            // 
+            // txtGetPlayers
+            // 
+            this.txtGetPlayers.Location = new System.Drawing.Point(854, 66);
+            this.txtGetPlayers.Name = "txtGetPlayers";
+            this.txtGetPlayers.Size = new System.Drawing.Size(106, 23);
+            this.txtGetPlayers.TabIndex = 27;
+            this.txtGetPlayers.Text = "Hämta spelare";
+            this.txtGetPlayers.UseVisualStyleBackColor = true;
             // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(658, 498);
+            this.ClientSize = new System.Drawing.Size(1032, 615);
+            this.Controls.Add(this.txtGetPlayers);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtSearchLastName);
+            this.Controls.Add(this.txtSearchFirstName);
+            this.Controls.Add(this.txtSearchGolfId);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.lbBookedPlayers);
+            this.Controls.Add(this.lbTimes);
+            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.txtBooking);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lbAvailibleTimes);
             this.Controls.Add(this.lbMainPagePlayers);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainPage";
-            this.Text = "Golfklubban";            
+            this.Text = "Golfklubban";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -222,15 +290,22 @@
         private System.Windows.Forms.ToolStripMenuItem lagToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tävlingarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmTeamView;
-        public  System.Windows.Forms.ListBox lbMainPagePlayers;
-        private System.Windows.Forms.ListBox lbAvailibleTimes;
+        public System.Windows.Forms.ListBox lbMainPagePlayers;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button txtBooking;
         private System.Windows.Forms.ToolStripMenuItem informationToolStripMenuItem;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem tsmCompetitionAddPlayer;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.ListBox lbTimes;
+        private System.Windows.Forms.ListBox lbBookedPlayers;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtSearchLastName;
+        private System.Windows.Forms.TextBox txtSearchFirstName;
+        private System.Windows.Forms.TextBox txtSearchGolfId;
+        private System.Windows.Forms.Button txtSearch;
+        private System.Windows.Forms.Button txtGetPlayers;
 
 
     }
