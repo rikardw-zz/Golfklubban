@@ -76,6 +76,8 @@
             this.txtCoupleName = new System.Windows.Forms.TextBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.lbPassedCompetitionChart = new System.Windows.Forms.ListBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -229,7 +231,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(265, 461);
+            this.button1.Location = new System.Drawing.Point(265, 451);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 23);
             this.button1.TabIndex = 18;
@@ -242,9 +244,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(162, 25);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 13);
+            this.label9.Size = new System.Drawing.Size(103, 13);
             this.label9.TabIndex = 10;
-            this.label9.Text = "Tävlingar";
+            this.label9.Text = "Kommande tävlingar";
             // 
             // groupBox1
             // 
@@ -549,16 +551,35 @@
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
+            // lbPassedCompetitionChart
+            // 
+            this.lbPassedCompetitionChart.FormattingEnabled = true;
+            this.lbPassedCompetitionChart.Location = new System.Drawing.Point(808, 54);
+            this.lbPassedCompetitionChart.Name = "lbPassedCompetitionChart";
+            this.lbPassedCompetitionChart.Size = new System.Drawing.Size(200, 407);
+            this.lbPassedCompetitionChart.TabIndex = 1;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(805, 41);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(84, 13);
+            this.label18.TabIndex = 10;
+            this.label18.Text = "Gamla Tävlingar";
+            // 
             // CompetitionChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 525);
+            this.ClientSize = new System.Drawing.Size(1071, 525);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.lbPassedCompetitionChart);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label18);
             this.Name = "CompetitionChart";
             this.Text = "Tävlingar";
             this.Load += new System.EventHandler(this.CompetitionChart_Load);
@@ -623,5 +644,7 @@
         private System.Windows.Forms.TextBox txtCoupleName;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.ListBox lbPassedCompetitionChart;
+        private System.Windows.Forms.Label label18;
     }
 }

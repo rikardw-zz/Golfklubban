@@ -51,7 +51,35 @@ namespace Golfklubban
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
             NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
             conn.Open();
-            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM competition ORDER BY startdate", conn);
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM competition WHERE enddate >= NOW()", conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+            while (dr.Read())
+            {
+                Competition competitions = new Competition
+                {
+                    Id = (int)dr["id"],
+                    competitionName = (string)dr["name"],
+                    startDate = (DateTime)dr["startdate"],
+                    endDate = (DateTime)dr["enddate"],
+                    lastBookingDate = (DateTime)dr["lastbookingdate"],
+                    lastUnbookingDate = (DateTime)dr["lastunbookingdate"],
+                    classA = (double)dr["classa"],
+                    classB = (double)dr["classb"],
+                    classC = (double)dr["classc"]
+                };
+                competitionList.Add(competitions);
+            }
+            conn.Close();
+            return competitionList;
+        }
+
+        public static List<Competition> GetPassedCompetitions()
+        {
+            List<Competition> competitionList = new List<Competition>();
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
+            NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
+            conn.Open();
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM competition WHERE enddate <= NOW()", conn);
             NpgsqlDataReader dr = command.ExecuteReader();
             while (dr.Read())
             {

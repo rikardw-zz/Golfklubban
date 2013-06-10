@@ -25,6 +25,7 @@ namespace Golfklubban
             lbTeamChart.DataSource = Methods.GetTeams();
             lbPlayers2.DataSource = Methods.GetAvailablePlayersToCouple();
             lbCoupleChart.DataSource = Methods.GetCouples();
+            lbPassedCompetitionChart.DataSource = Methods.GetPassedCompetitions();
             
         }
         private void btnRegisterCompetition_Click(object sender, EventArgs e)
