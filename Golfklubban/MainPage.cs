@@ -19,6 +19,9 @@ namespace Golfklubban
             InitializeComponent();
             lbMainPagePlayers.DataSource = Methods.GetPlayers();
             lbTimes.DataSource = Methods.GetTimeIntervals();
+            lbTimes.ClearSelected();
+            lbMainPagePlayers.ClearSelected();
+
         }
         private void stängToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -68,26 +71,39 @@ namespace Golfklubban
 
         private void txtBooking_Click(object sender, EventArgs e)
         {
-            selectedPlayer = (Player)lbMainPagePlayers.SelectedItem;
-            DateTime pickedDate = monthCalendar1.SelectionStart;
-            string pickedTime = lbTimes.SelectedItem.ToString();
-            
-            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
-            try
+            for (int x = 0; x < lbBookedPlayers.Items.Count; x++) //ser till så att inte fler än 4 kan vara med i samma grupp
             {
-                conn.Open();
-                NpgsqlCommand command = new NpgsqlCommand("INSERT INTO golfround (date, startingtime, playerone) VALUES ('" + pickedDate + "' , '" + pickedTime + "', '" + selectedPlayer.golfId + "')", conn);
-                int antal = command.ExecuteNonQuery();
+                lbBookedPlayers.SetSelected(x, true);
             }
-            catch (Exception ex)
+            if (lbBookedPlayers.Items.Count >= 4)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Du kan inte lägga till fler spelare");
             }
-            finally
+            else
             {
-                conn.Close();
-            }
+                selectedPlayer = (Player)lbMainPagePlayers.SelectedItem;
+                DateTime pickedDate = monthCalendar1.SelectionStart;
 
+                string pickedTime = lbTimes.SelectedItem.ToString();
+
+                NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+                try
+                {
+                    conn.Open();
+                    NpgsqlCommand command = new NpgsqlCommand("INSERT INTO golfround (date, startingtime, player) VALUES ('" + pickedDate + "' , '" + pickedTime + "', '" + selectedPlayer.golfId + "')", conn);
+                    int antal = command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                lbBookedPlayers.ClearSelected();
+                lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);
+            }
         }
 
         private void txtGetPlayers_Click(object sender, EventArgs e)
@@ -123,6 +139,39 @@ namespace Golfklubban
 
             }
 
+        }
+
+        private void txtDropPlayer_Click(object sender, EventArgs e)
+        {
+            selectedPlayer = (Player)lbBookedPlayers.SelectedItem;
+            DateTime pickedDate = monthCalendar1.SelectionStart;
+            string pickedTime = lbTimes.SelectedItem.ToString();
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            try
+            {
+                string sql = "UPDATE golfround SET player = null WHERE date = '" + pickedDate + "' AND startingtime = '" + pickedTime + "' AND player = " + selectedPlayer.golfId + "";
+                conn.Open();
+                NpgsqlCommand command = new NpgsqlCommand(sql, conn);
+                int antal = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);
+        }
+
+        private void lbTimes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DateTime pickedDate = monthCalendar1.SelectionStart;
+            string pickedTime = Convert.ToString(lbTimes.SelectedItem);
+            lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);
         }
     }
 }

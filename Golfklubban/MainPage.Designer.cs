@@ -52,6 +52,7 @@
             this.txtSearchGolfId = new System.Windows.Forms.TextBox();
             this.txtSearch = new System.Windows.Forms.Button();
             this.txtGetPlayers = new System.Windows.Forms.Button();
+            this.txtDropPlayer = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -176,6 +177,7 @@
             this.lbTimes.Name = "lbTimes";
             this.lbTimes.Size = new System.Drawing.Size(171, 186);
             this.lbTimes.TabIndex = 6;
+            this.lbTimes.SelectedIndexChanged += new System.EventHandler(this.lbTimes_SelectedIndexChanged);
             // 
             // lbBookedPlayers
             // 
@@ -253,11 +255,22 @@
             this.txtGetPlayers.UseVisualStyleBackColor = true;
             this.txtGetPlayers.Click += new System.EventHandler(this.txtGetPlayers_Click);
             // 
+            // txtDropPlayer
+            // 
+            this.txtDropPlayer.Location = new System.Drawing.Point(733, 183);
+            this.txtDropPlayer.Name = "txtDropPlayer";
+            this.txtDropPlayer.Size = new System.Drawing.Size(90, 23);
+            this.txtDropPlayer.TabIndex = 28;
+            this.txtDropPlayer.Text = "Avboka spelare";
+            this.txtDropPlayer.UseVisualStyleBackColor = true;
+            this.txtDropPlayer.Click += new System.EventHandler(this.txtDropPlayer_Click);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1032, 615);
+            this.Controls.Add(this.txtDropPlayer);
             this.Controls.Add(this.txtGetPlayers);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -309,6 +322,7 @@
         private System.Windows.Forms.TextBox txtSearchGolfId;
         private System.Windows.Forms.Button txtSearch;
         private System.Windows.Forms.Button txtGetPlayers;
+        private System.Windows.Forms.Button txtDropPlayer;
 
 
     }

@@ -284,6 +284,41 @@ namespace Golfklubban
             }
             return timeIntervals;
         }
+
+        public static List<Player> GetBookedPlayers(DateTime selectedDate, string selectedTime)
+        {
+            List<Player> bookedPlayers = new List<Player>();
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
+            NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
+            conn.Open();
+            NpgsqlCommand command = new NpgsqlCommand(@"SELECT golfid,firstname,lastname 
+                                                        FROM player 
+                                                        INNER JOIN golfround ON player.golfid
+                                                        = golfround.player
+                                                        where date =:selectedDate
+                                                        AND
+                                                        startingtime =:selectedTime", conn);
+
+            command.Parameters.Add(new NpgsqlParameter("selectedDate", DbType.Date));
+            command.Parameters[0].Value = Convert.ToDateTime(selectedDate);
+            command.Parameters.Add(new NpgsqlParameter("selectedTime", DbType.String));
+            command.Parameters[1].Value = Convert.ToString(selectedTime);
+
+            NpgsqlDataReader dr = command.ExecuteReader();
+            while (dr.Read())
+            {
+                Player players = new Player
+                {
+                    golfId = (int)dr["golfid"],
+                    firstName = (string)dr["firstname"],
+                    lastName = (string)dr["lastname"]
+
+                };
+                bookedPlayers.Add(players);
+            }
+            conn.Close();
+            return bookedPlayers;
+        }
     } 
 
 }
