@@ -138,5 +138,11 @@ namespace Golfklubban
             string pickedTime = Convert.ToString(lbTimes.SelectedItem);
             lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+        }
     }
 }

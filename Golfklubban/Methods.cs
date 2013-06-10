@@ -346,7 +346,6 @@ namespace Golfklubban
             }
             conn.Close();
             return bookedPlayers;
-        }
+        }      
     } 
-
 }
