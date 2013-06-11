@@ -350,5 +350,10 @@ namespace Golfklubban
             lbPlayerInCouple.DataSource = Methods.GetPlayerInCouple(selectedCouple.coupleId);
             lbPlayers.DataSource = Methods.GetAvailablePlayers();        
         }
+
+        private void lbCompetitionChart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

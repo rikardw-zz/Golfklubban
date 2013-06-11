@@ -19,8 +19,8 @@ namespace Golfklubban
             InitializeComponent();
             lbMainPagePlayers.DataSource = Methods.GetPlayers();
             lbTimes.DataSource = Methods.GetTimeIntervals();
-            lbTimes.ClearSelected();
-            lbMainPagePlayers.ClearSelected();
+         //   lbTimes.ClearSelected();
+        //    lbMainPagePlayers.ClearSelected();
 
         }
         private void stängToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,9 +70,7 @@ namespace Golfklubban
         }
 
         private void txtBooking_Click(object sender, EventArgs e)
-        {
-            checkhp(); 
-            
+        {                      
             for (int x = 0; x < lbBookedPlayers.Items.Count; x++) //ser till så att inte fler än 4 kan vara med i samma grupp
             {
                 lbBookedPlayers.SetSelected(x, true);
@@ -82,29 +80,38 @@ namespace Golfklubban
                 MessageBox.Show("Du kan inte lägga till fler spelare");
             }
             else
-            {
+            {                
                 selectedPlayer = (Player)lbMainPagePlayers.SelectedItem;
-                DateTime pickedDate = monthCalendar1.SelectionStart;
+                double teamTotalHp = getTotalHandicap();
+                double playerHp = selectedPlayer.handicap;
 
-                string pickedTime = lbTimes.SelectedItem.ToString();
+                if (teamTotalHp + playerHp > 100)
+                {
+                    MessageBox.Show("Om du lägger till denna spelare kommer det totala handikapsvärdet överstiga 100.\nDu kan ej lägga till fler spelare");
+                }
+                else
+                {
+                    DateTime pickedDate = monthCalendar1.SelectionStart;
+                    string pickedTime = lbTimes.SelectedItem.ToString();
 
-                NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
-                try
-                {
-                    conn.Open();
-                    NpgsqlCommand command = new NpgsqlCommand("INSERT INTO golfround (date, startingtime, player) VALUES ('" + pickedDate + "' , '" + pickedTime + "', '" + selectedPlayer.golfId + "')", conn);
-                    int antal = command.ExecuteNonQuery();
+                    NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+                    try
+                    {
+                        conn.Open();
+                        NpgsqlCommand command = new NpgsqlCommand("INSERT INTO golfround (date, startingtime, player) VALUES ('" + pickedDate + "' , '" + pickedTime + "', '" + selectedPlayer.golfId + "')", conn);
+                        int antal = command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                    //  lbBookedPlayers.ClearSelected();
+                    lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                finally
-                {
-                    conn.Close();
-                }
-                lbBookedPlayers.ClearSelected();
-                lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);
             }
         }
 
@@ -138,18 +145,17 @@ namespace Golfklubban
         {
             DateTime pickedDate = monthCalendar1.SelectionStart;
             string pickedTime = Convert.ToString(lbTimes.SelectedItem);
-            lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);
+            lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);          
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Login login = new Login();
             login.Show();
-        }
-
-        private void checkhp()   //funkar men inte klar. måste få in den på "Genomför bokning" knappen
-        {
-
+        }  
+        private double getTotalHandicap() 
+        {            
             DateTime pickedDate = monthCalendar1.SelectionStart;
             string pickedTime = lbTimes.SelectedItem.ToString();
 
@@ -160,21 +166,8 @@ namespace Golfklubban
 
             Object value = command.ExecuteScalar();
             double handicapValue = Convert.ToDouble(value);
-
-            MessageBox.Show("" + handicapValue);
-
-            if (100 <= handicapValue)
-            {
-                MessageBox.Show("Gruppen har tyvärr för högt totalhandicap");
-            }
-            else
-            {
-                lbBookedPlayers.ClearSelected();
-                lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);
-                MessageBox.Show("Det gick bra");
-
-
-            }
+           // label7.Text = ("Totalt handicap i grupp: " + handicapValue); //fixar så label fylls med information med totalt handikap
+            return handicapValue;
         } 
     }
 }

@@ -24,7 +24,7 @@ namespace Golfklubban
 
         public override string ToString()
         {
-            return firstName + " " + lastName;            
+            return firstName + " " + lastName + handicap;            
         }
     }   
 }

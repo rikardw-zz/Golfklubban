@@ -100,6 +100,7 @@
             this.lbCompetitionChart.Name = "lbCompetitionChart";
             this.lbCompetitionChart.Size = new System.Drawing.Size(200, 407);
             this.lbCompetitionChart.TabIndex = 1;
+            this.lbCompetitionChart.SelectedIndexChanged += new System.EventHandler(this.lbCompetitionChart_SelectedIndexChanged);
             // 
             // txtCompetitionName
             // 
