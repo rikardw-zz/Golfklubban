@@ -151,7 +151,46 @@ namespace Golfklubban
 
         private void btnAddPlayerToTeam_Click(object sender, EventArgs e)
         {
-            selectedPlayer = (Player)lbPlayers.SelectedItem;
+            //Kod som inte fungerar men tanken är att man ska se om playerone är upptagen, då ska den lägga in på playertwo. Om playertwo är upptaget
+            //ska playerthree fyllas osv.
+
+            selectedTeam = (Team)lbTeamChart.SelectedItem;
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            conn.Open();
+
+            NpgsqlCommand command = new NpgsqlCommand("SELECT playerone FROM team WHERE id = '" + selectedTeam.teamId + "'", conn);
+            NpgsqlDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                
+            /*    NpgsqlCommand command1 = new NpgsqlCommand("SELECT playertwo FROM team WHERE id = '" + selectedTeam.teamId + "'", conn);
+                NpgsqlDataReader reader1 = command1.ExecuteReader(); */
+            } 
+            else
+            {
+                selectedPlayer = (Player)lbPlayers.SelectedItem;
+                selectedTeam = (Team)lbTeamChart.SelectedItem;
+                try
+                {
+                    conn.Open();
+                    NpgsqlCommand command1 = new NpgsqlCommand("UPDATE team SET playerone = " + selectedPlayer.golfId + " WHERE id = (" + selectedTeam.teamId + " )", conn);
+                    int antal = command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                lbPlayerInTeam.DataSource = Methods.GetPlayerInTeam(selectedTeam.teamId);
+                lbPlayers.DataSource = Methods.GetAvailablePlayers();
+
+
+//Denna kod låg här tidigare, den fungerar och därför kommenterar jag endast bort den istället för att radera
+       /*     selectedPlayer = (Player)lbPlayers.SelectedItem;
             selectedTeam = (Team)lbTeamChart.SelectedItem;
 
             NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
@@ -170,7 +209,7 @@ namespace Golfklubban
                 conn.Close();
             }         
             lbPlayerInTeam.DataSource = Methods.GetPlayerInTeam(selectedTeam.teamId);
-            lbPlayers.DataSource = Methods.GetAvailablePlayers();
+            lbPlayers.DataSource = Methods.GetAvailablePlayers(); */
         }
 
         private void btnDeletePlayerFromTeam_Click(object sender, EventArgs e)
@@ -355,5 +394,45 @@ namespace Golfklubban
         {
 
         }
+        //Denna fungerar inte riktigt heller, men lägger in den så man kan skriva om den om den ska användas
+        /*    private int CheckTableValue()
+        {
+            selectedTeam = (Team)lbTeamChart.SelectedItem;
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+                conn.Open();
+
+                NpgsqlCommand command = new NpgsqlCommand("SELECT playerone,playertwo,playerthree,playerfour FROM team WHERE id = '" + selectedTeam.teamId + "'", conn);
+            NpgsqlDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                object svar = command.ExecuteScalar();
+                int idgolf = Convert.ToInt32(svar);
+                return idgolf;
+            }
+            else 
+            {
+            selectedPlayer = (Player)lbPlayers.SelectedItem;
+            selectedTeam = (Team)lbTeamChart.SelectedItem;
+
+            NpgsqlConnection conn1 = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            try
+            {
+                conn.Open();
+                NpgsqlCommand command1 = new NpgsqlCommand("UPDATE player SET team_id = " + selectedTeam.teamId + " WHERE golfid = (" + selectedPlayer.golfId + " )", conn1);
+                int antal = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            lbPlayerInTeam.DataSource = Methods.GetPlayerInTeam(selectedTeam.teamId);
+            lbPlayers.DataSource = Methods.GetAvailablePlayers(); 
+            } 
+            } */
     }
 }
