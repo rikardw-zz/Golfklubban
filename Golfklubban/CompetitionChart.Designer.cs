@@ -55,7 +55,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lbPlayers = new System.Windows.Forms.ListBox();
-            this.btnAddPlayer = new System.Windows.Forms.Button();
+            this.btnAddPlayerToTeam = new System.Windows.Forms.Button();
             this.btnDeleteTeam = new System.Windows.Forms.Button();
             this.btnCreateTeam = new System.Windows.Forms.Button();
             this.txtTeamName = new System.Windows.Forms.TextBox();
@@ -63,7 +63,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lbTeamChart = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnAddPlayer2 = new System.Windows.Forms.Button();
+            this.btnAddPlayerToCouple = new System.Windows.Forms.Button();
             this.btnDeletePlayerFromCouple = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -285,7 +285,7 @@
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.lbPlayers);
-            this.groupBox2.Controls.Add(this.btnAddPlayer);
+            this.groupBox2.Controls.Add(this.btnAddPlayerToTeam);
             this.groupBox2.Controls.Add(this.btnDeleteTeam);
             this.groupBox2.Controls.Add(this.btnCreateTeam);
             this.groupBox2.Controls.Add(this.txtTeamName);
@@ -344,15 +344,15 @@
             this.lbPlayers.TabIndex = 13;
             this.lbPlayers.Tag = "";
             // 
-            // btnAddPlayer
+            // btnAddPlayerToTeam
             // 
-            this.btnAddPlayer.Location = new System.Drawing.Point(183, 400);
-            this.btnAddPlayer.Name = "btnAddPlayer";
-            this.btnAddPlayer.Size = new System.Drawing.Size(134, 23);
-            this.btnAddPlayer.TabIndex = 14;
-            this.btnAddPlayer.Text = "Lägg till vald spelare";
-            this.btnAddPlayer.UseVisualStyleBackColor = true;
-            this.btnAddPlayer.Click += new System.EventHandler(this.btnAddPlayer_Click);
+            this.btnAddPlayerToTeam.Location = new System.Drawing.Point(183, 400);
+            this.btnAddPlayerToTeam.Name = "btnAddPlayerToTeam";
+            this.btnAddPlayerToTeam.Size = new System.Drawing.Size(134, 23);
+            this.btnAddPlayerToTeam.TabIndex = 14;
+            this.btnAddPlayerToTeam.Text = "Lägg till vald spelare";
+            this.btnAddPlayerToTeam.UseVisualStyleBackColor = true;
+            this.btnAddPlayerToTeam.Click += new System.EventHandler(this.btnAddPlayerToTeam_Click);
             // 
             // btnDeleteTeam
             // 
@@ -411,7 +411,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnAddPlayer2);
+            this.groupBox3.Controls.Add(this.btnAddPlayerToCouple);
             this.groupBox3.Controls.Add(this.btnDeletePlayerFromCouple);
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.label15);
@@ -430,15 +430,15 @@
             this.groupBox3.Text = "Skapa nytt par";
             this.groupBox3.Visible = false;
             // 
-            // btnAddPlayer2
+            // btnAddPlayerToCouple
             // 
-            this.btnAddPlayer2.Location = new System.Drawing.Point(183, 400);
-            this.btnAddPlayer2.Name = "btnAddPlayer2";
-            this.btnAddPlayer2.Size = new System.Drawing.Size(134, 23);
-            this.btnAddPlayer2.TabIndex = 10;
-            this.btnAddPlayer2.Text = "Lägg till vald spelare";
-            this.btnAddPlayer2.UseVisualStyleBackColor = true;
-            this.btnAddPlayer2.Click += new System.EventHandler(this.btnAddPlayer2_Click);
+            this.btnAddPlayerToCouple.Location = new System.Drawing.Point(183, 400);
+            this.btnAddPlayerToCouple.Name = "btnAddPlayerToCouple";
+            this.btnAddPlayerToCouple.Size = new System.Drawing.Size(134, 23);
+            this.btnAddPlayerToCouple.TabIndex = 10;
+            this.btnAddPlayerToCouple.Text = "Lägg till vald spelare";
+            this.btnAddPlayerToCouple.UseVisualStyleBackColor = true;
+            this.btnAddPlayerToCouple.Click += new System.EventHandler(this.btnAddPlayerToCouple_Click);
             // 
             // btnDeletePlayerFromCouple
             // 
@@ -625,14 +625,14 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListBox lbTeamChart;
         private System.Windows.Forms.ListBox lbPlayers;
-        private System.Windows.Forms.Button btnAddPlayer;
+        private System.Windows.Forms.Button btnAddPlayerToTeam;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnDeletePlayerFromTeam;
         private System.Windows.Forms.ListBox lbPlayerInTeam;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnAddPlayer2;
+        private System.Windows.Forms.Button btnAddPlayerToCouple;
         private System.Windows.Forms.Button btnDeletePlayerFromCouple;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;

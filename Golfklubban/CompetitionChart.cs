@@ -149,7 +149,7 @@ namespace Golfklubban
             lbPlayerInTeam.DataSource = Methods.GetPlayerInTeam(selectedTeam.teamId);
         }
 
-        private void btnAddPlayer_Click(object sender, EventArgs e)
+        private void btnAddPlayerToTeam_Click(object sender, EventArgs e)
         {
             selectedPlayer = (Player)lbPlayers.SelectedItem;
             selectedTeam = (Team)lbTeamChart.SelectedItem;
@@ -327,7 +327,7 @@ namespace Golfklubban
             groupBox3.Show();
         }
 
-        private void btnAddPlayer2_Click(object sender, EventArgs e)
+        private void btnAddPlayerToCouple_Click(object sender, EventArgs e)
         {
             selectedPlayer = (Player)lbPlayers2.SelectedItem;
             selectedCouple = (Couple)lbCoupleChart.SelectedItem;
