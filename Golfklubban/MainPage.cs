@@ -71,6 +71,8 @@ namespace Golfklubban
 
         private void txtBooking_Click(object sender, EventArgs e)
         {
+            checkhp(); 
+            
             for (int x = 0; x < lbBookedPlayers.Items.Count; x++) //ser till så att inte fler än 4 kan vara med i samma grupp
             {
                 lbBookedPlayers.SetSelected(x, true);
@@ -144,5 +146,35 @@ namespace Golfklubban
             Login login = new Login();
             login.Show();
         }
+
+        private void checkhp()   //funkar men inte klar. måste få in den på "Genomför bokning" knappen
+        {
+
+            DateTime pickedDate = monthCalendar1.SelectionStart;
+            string pickedTime = lbTimes.SelectedItem.ToString();
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+
+            NpgsqlCommand command = new NpgsqlCommand("SELECT SUM(handicap) FROM player INNER JOIN golfround ON player.golfid = golfround.player WHERE date = '" + pickedDate + "' AND startingtime ='" + pickedTime + "'", conn);
+            conn.Open();
+
+            Object value = command.ExecuteScalar();
+            double handicapValue = Convert.ToDouble(value);
+
+            MessageBox.Show("" + handicapValue);
+
+            if (100 <= handicapValue)
+            {
+                MessageBox.Show("Gruppen har tyvärr för högt totalhandicap");
+            }
+            else
+            {
+                lbBookedPlayers.ClearSelected();
+                lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);
+                MessageBox.Show("Det gick bra");
+
+
+            }
+        } 
     }
 }
