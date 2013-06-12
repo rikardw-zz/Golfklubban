@@ -406,7 +406,7 @@ namespace Golfklubban
         {
             groupBox2.Hide();
             groupBox3.Hide();
-            groupBox4.Show();
+            groupBox4.Show();            
         }
         //Denna fungerar inte riktigt heller, men lägger in den så man kan skriva om den om den ska användas
         /*    private int CheckTableValue()

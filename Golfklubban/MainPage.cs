@@ -99,7 +99,7 @@ namespace Golfklubban
         private void txtBooking_Click(object sender, EventArgs e)
         {
             DateTime chosenDate = getCompetitionDate();
-            DateTime pickedDate = monthCalendar1.SelectionStart;
+            DateTime pickedDate = monthCalendar1.SelectionStart;            
             if (pickedDate == chosenDate)
             {
                 MessageBox.Show("En tävling finns bokad på valt datum. Det går inte att boka en golfrunda på detta datum");
@@ -114,32 +114,7 @@ namespace Golfklubban
             if (lbBookedPlayers.Items.Count >= 4)
             {
                 MessageBox.Show("Du kan inte lägga till fler spelare");
-            }
-            if (lbBookedPlayers.Items.Count < 2)
-            {
-                //    DateTime pickedDate = monthCalendar1.SelectionStart;
-                string pickedTime = lbTimes.SelectedItem.ToString();
-
-                NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
-                try
-                {
-                    conn.Open();
-                    NpgsqlCommand command = new NpgsqlCommand("INSERT INTO golfround (date, startingtime, player) VALUES ('" + pickedDate + "' , '" + pickedTime + "', '" + selectedPlayer.golfId + "')", conn);
-                    int antal = command.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                finally
-                {
-                    conn.Close();
-                }
-                //  lbBookedPlayers.ClearSelected();
-                lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);
-            }
-            else
-            {
+            }           
                 selectedPlayer = (Player)lbMainPagePlayers.SelectedItem;
                 double teamTotalHp = getTotalHandicap();
                 double playerHp = selectedPlayer.handicap;
@@ -169,8 +144,7 @@ namespace Golfklubban
                         conn.Close();
                     }
                     //  lbBookedPlayers.ClearSelected();
-                    lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);
-                }
+                    lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);                
             }
         }
 
@@ -204,7 +178,7 @@ namespace Golfklubban
         {
             DateTime pickedDate = monthCalendar1.SelectionStart;
             string pickedTime = Convert.ToString(lbTimes.SelectedItem);
-            lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);          
+            lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);            
 
         }
 
@@ -215,17 +189,27 @@ namespace Golfklubban
         }  
         private double getTotalHandicap() 
         {            
+
             DateTime pickedDate = monthCalendar1.SelectionStart;
-            string pickedTime = lbTimes.SelectedItem.ToString();
-
+            string stringPickedDate = pickedDate.ToShortDateString();
+            string pickedTime = lbTimes.SelectedItem.ToString();            
             NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
-
-            NpgsqlCommand command = new NpgsqlCommand("SELECT SUM(handicap) FROM player INNER JOIN golfround ON player.golfid = golfround.player WHERE date = '" + pickedDate + "' AND startingtime ='" + pickedTime + "'", conn);
-            conn.Open();
-
-            Object value = command.ExecuteScalar();
-            double handicapValue = Convert.ToDouble(value);
-           // label7.Text = ("Totalt handicap i grupp: " + handicapValue); //fixar så label fylls med information med totalt handikap
+            NpgsqlCommand command = new NpgsqlCommand("SELECT SUM(handicap) FROM player INNER JOIN golfround ON player.golfid = golfround.player WHERE date = '" + stringPickedDate + "' AND startingtime ='" + pickedTime + "'", conn);
+            conn.Open();            
+           // object objValue = command.ExecuteScalar();
+            string stringValue = Convert.ToString(command.ExecuteScalar());           
+            double handicapValue = 0;
+            if (string.IsNullOrEmpty(stringValue) == true)
+            {
+                handicapValue = 0;                
+            }
+            else 
+            {
+                handicapValue = handicapValue + Convert.ToDouble(stringValue);                             
+            }
+            
+          //  handicapValue = handicapValue + Convert.ToDouble(objValue);
+              //  handicapValue = Convert.ToDouble(objValue);                
             return handicapValue;
         }
 
@@ -276,17 +260,58 @@ namespace Golfklubban
 
         private DateTime getCompetitionDate()
         {
-            DateTime pickedDate = monthCalendar1.SelectionStart;
-
+            DateTime pickedDate = monthCalendar1.SelectionStart;            
             NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
-
             NpgsqlCommand command = new NpgsqlCommand("SELECT starttime FROM competition WHERE starttime = '" + pickedDate + "'", conn);
             conn.Open();
+            object startDate = command.ExecuteScalar();
+            string stringShosenDate = Convert.ToString(startDate);
+            DateTime chosenDate;
+            MessageBox.Show("" + startDate);
+            if (string.IsNullOrEmpty(stringShosenDate) == true)
+            {
+                //här läggs spelare till på den tid som valts                           
+            }
+            else 
+            {
+                MessageBox.Show("Detta datum är tyvärr bokat för en tävling");
+            }
 
-            Object startDate = command.ExecuteScalar();
-            DateTime chosenDate = Convert.ToDateTime(startDate);
-            // label7.Text = ("Totalt handicap i grupp: " + handicapValue); //fixar så label fylls med information med totalt handikap
+
+         /*   string stringValue = Convert.ToString(command.ExecuteScalar());
+            double handicapValue = 0;
+            if (string.IsNullOrEmpty(stringValue) == true)
+            {
+                handicapValue = 0;
+            }
+            else
+            {
+                handicapValue = handicapValue + Convert.ToDouble(stringValue);
+            }
+            */
             return chosenDate;
+        }
+
+        private void MainPage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsmCompetitionAddPlayer_Click(object sender, EventArgs e)
+        {
+            CompetitionChart cc = new CompetitionChart();
+            cc.Show();
+        }
+
+        private void tsmPlayerChange_Click(object sender, EventArgs e)
+        {
+            PlayerChart pc = new PlayerChart();
+            pc.Show();
+        }
+
+        private void stängToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
         
         } 
