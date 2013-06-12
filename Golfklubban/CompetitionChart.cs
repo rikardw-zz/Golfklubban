@@ -26,6 +26,7 @@ namespace Golfklubban
             lbPlayers2.DataSource = Methods.GetAvailablePlayersToCouple();
             lbCoupleChart.DataSource = Methods.GetCouples();
             lbPassedCompetitionChart.DataSource = Methods.GetPassedCompetitions();
+            lbSinglePlayers.DataSource = Methods.GetPlayers();
             
         }
         private void btnRegisterCompetition_Click(object sender, EventArgs e)
@@ -360,12 +361,16 @@ namespace Golfklubban
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
+            groupBox2.Show();
             groupBox3.Hide();
+            groupBox4.Hide();
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
+            groupBox2.Hide();
             groupBox3.Show();
+            groupBox4.Hide();
         }
 
         private void btnAddPlayerToCouple_Click(object sender, EventArgs e)
@@ -395,6 +400,13 @@ namespace Golfklubban
         private void lbCompetitionChart_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBox2.Hide();
+            groupBox3.Hide();
+            groupBox4.Show();
         }
         //Denna fungerar inte riktigt heller, men lägger in den så man kan skriva om den om den ska användas
         /*    private int CheckTableValue()

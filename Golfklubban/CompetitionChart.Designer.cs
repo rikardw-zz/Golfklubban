@@ -78,9 +78,16 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.lbPassedCompetitionChart = new System.Windows.Forms.ListBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.lbSinglePlayers = new System.Windows.Forms.ListBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnRegisterCompetition
@@ -569,11 +576,73 @@
             this.label18.TabIndex = 10;
             this.label18.Text = "Gamla Tävlingar";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.button2);
+            this.groupBox4.Controls.Add(this.button3);
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.lbSinglePlayers);
+            this.groupBox4.Location = new System.Drawing.Point(437, 64);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(349, 446);
+            this.groupBox4.TabIndex = 24;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Välj spelare";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(21, 388);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(134, 23);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Lägg till vald spelare";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(21, 417);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(134, 23);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Ta bort vald spelare";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(18, 21);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(97, 13);
+            this.label17.TabIndex = 8;
+            this.label17.Text = "Tillgängliga spelare";
+            // 
+            // lbSinglePlayers
+            // 
+            this.lbSinglePlayers.FormattingEnabled = true;
+            this.lbSinglePlayers.Location = new System.Drawing.Point(21, 37);
+            this.lbSinglePlayers.Name = "lbSinglePlayers";
+            this.lbSinglePlayers.Size = new System.Drawing.Size(227, 329);
+            this.lbSinglePlayers.TabIndex = 6;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(568, 41);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(82, 17);
+            this.radioButton3.TabIndex = 25;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Visa spelare";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
             // CompetitionChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 525);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.groupBox3);
@@ -590,6 +659,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -647,5 +718,11 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.ListBox lbPassedCompetitionChart;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ListBox lbSinglePlayers;
+        private System.Windows.Forms.RadioButton radioButton3;
     }
 }
