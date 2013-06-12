@@ -205,7 +205,7 @@ namespace Golfklubban
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
             NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
             conn.Open();
-            NpgsqlCommand command1 = new NpgsqlCommand("SELECT * FROM player WHERE team_id IS null ORDER BY firstname", conn);
+            NpgsqlCommand command1 = new NpgsqlCommand("SELECT * FROM player WHERE playerstatus_id  < 5 AND team_id IS null ORDER BY firstname", conn);
             NpgsqlDataReader dr = command1.ExecuteReader();
             while (dr.Read())
             {
@@ -236,7 +236,7 @@ namespace Golfklubban
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
             NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
             conn.Open();
-            NpgsqlCommand command1 = new NpgsqlCommand("SELECT * FROM player WHERE couple_id IS null ORDER BY firstname", conn);
+            NpgsqlCommand command1 = new NpgsqlCommand("SELECT * FROM player WHERE playerstatus_id  < 5 AND couple_id IS null ORDER BY firstname", conn);
             NpgsqlDataReader dr = command1.ExecuteReader();
             while (dr.Read())
             {
