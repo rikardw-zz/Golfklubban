@@ -98,12 +98,16 @@ namespace Golfklubban
 
         private void txtBooking_Click(object sender, EventArgs e)
         {
-            DateTime chosenDate = getCompetitionDate();
-            DateTime pickedDate = monthCalendar1.SelectionStart;            
-            if (pickedDate == chosenDate)
+            DateTime pickedDate = monthCalendar1.SelectionStart;
+            string convPickedDate = pickedDate.ToShortDateString();
+            string chosenDate = getCompetitionDate();
+            if (convPickedDate == chosenDate)
             {
                 MessageBox.Show("En tävling finns bokad på valt datum. Det går inte att boka en golfrunda på detta datum");
+                return;
             }
+            else
+            { }
 
 
 
@@ -260,38 +264,28 @@ namespace Golfklubban
             txtGuestMobilePhone.Clear();
         }
 
-        private DateTime getCompetitionDate()
+        private string getCompetitionDate()
         {
-            DateTime pickedDate = monthCalendar1.SelectionStart;            
+            DateTime pickedDate = monthCalendar1.SelectionStart;
             NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
-            NpgsqlCommand command = new NpgsqlCommand("SELECT starttime FROM competition WHERE starttime = '" + pickedDate + "'", conn);
+            NpgsqlCommand command = new NpgsqlCommand("SELECT startdate FROM competition WHERE startdate = '" + pickedDate + "'", conn);
             conn.Open();
-            object startDate = command.ExecuteScalar();
-            string stringShosenDate = Convert.ToString(startDate);
-            DateTime chosenDate;
-            MessageBox.Show("" + startDate);
-            if (string.IsNullOrEmpty(stringShosenDate) == true)
-            {
-                //här läggs spelare till på den tid som valts                           
-            }
-            else 
-            {
-                MessageBox.Show("Detta datum är tyvärr bokat för en tävling");
-            }
+            Object startDate = command.ExecuteScalar();
+            DateTime conStartDate = Convert.ToDateTime(startDate);
+            string convStartDate = conStartDate.ToShortDateString();
+            string stringChosenDate = "2013-06-01";
 
-
-         /*   string stringValue = Convert.ToString(command.ExecuteScalar());
-            double handicapValue = 0;
-            if (string.IsNullOrEmpty(stringValue) == true)
+        //    MessageBox.Show("" + startDate);
+            if (string.IsNullOrEmpty(convStartDate) == true)
             {
-                handicapValue = 0;
+                stringChosenDate = "2013-06-01";
             }
             else
             {
-                handicapValue = handicapValue + Convert.ToDouble(stringValue);
+                stringChosenDate = convStartDate;
             }
-            */
-            return chosenDate;
+
+            return stringChosenDate; 
         }
 
         private void MainPage_Load(object sender, EventArgs e)
