@@ -163,10 +163,10 @@ namespace Golfklubban
             NpgsqlDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
             {
-                
-            /*    NpgsqlCommand command1 = new NpgsqlCommand("SELECT playertwo FROM team WHERE id = '" + selectedTeam.teamId + "'", conn);
-                NpgsqlDataReader reader1 = command1.ExecuteReader(); */
-            } 
+
+                /*    NpgsqlCommand command1 = new NpgsqlCommand("SELECT playertwo FROM team WHERE id = '" + selectedTeam.teamId + "'", conn);
+                    NpgsqlDataReader reader1 = command1.ExecuteReader(); */
+            }
             else
             {
                 selectedPlayer = (Player)lbPlayers.SelectedItem;
@@ -187,6 +187,8 @@ namespace Golfklubban
                 }
                 lbPlayerInTeam.DataSource = Methods.GetPlayerInTeam(selectedTeam.teamId);
                 lbPlayers.DataSource = Methods.GetAvailablePlayers();
+            }
+        }
 
 
 //Denna kod låg här tidigare, den fungerar och därför kommenterar jag endast bort den istället för att radera
@@ -209,8 +211,8 @@ namespace Golfklubban
                 conn.Close();
             }         
             lbPlayerInTeam.DataSource = Methods.GetPlayerInTeam(selectedTeam.teamId);
-            lbPlayers.DataSource = Methods.GetAvailablePlayers(); */
-        }
+            lbPlayers.DataSource = Methods.GetAvailablePlayers(); 
+        }*/
 
         private void btnDeletePlayerFromTeam_Click(object sender, EventArgs e)
         {

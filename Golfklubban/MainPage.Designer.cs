@@ -45,10 +45,8 @@
             this.lbTimes = new System.Windows.Forms.ListBox();
             this.lbBookedPlayers = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSearchLastName = new System.Windows.Forms.TextBox();
-            this.txtSearchFirstName = new System.Windows.Forms.TextBox();
             this.txtSearchGolfId = new System.Windows.Forms.TextBox();
             this.txtSearch = new System.Windows.Forms.Button();
             this.txtDropPlayer = new System.Windows.Forms.Button();
@@ -193,20 +191,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(146, 93);
+            this.label5.Location = new System.Drawing.Point(18, 91);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
             this.label5.TabIndex = 26;
             this.label5.Text = "Efternamn";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 93);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Förnamn";
             // 
             // label3
             // 
@@ -219,17 +208,10 @@
             // 
             // txtSearchLastName
             // 
-            this.txtSearchLastName.Location = new System.Drawing.Point(149, 108);
+            this.txtSearchLastName.Location = new System.Drawing.Point(21, 106);
             this.txtSearchLastName.Name = "txtSearchLastName";
             this.txtSearchLastName.Size = new System.Drawing.Size(100, 20);
             this.txtSearchLastName.TabIndex = 23;
-            // 
-            // txtSearchFirstName
-            // 
-            this.txtSearchFirstName.Location = new System.Drawing.Point(21, 109);
-            this.txtSearchFirstName.Name = "txtSearchFirstName";
-            this.txtSearchFirstName.Size = new System.Drawing.Size(100, 20);
-            this.txtSearchFirstName.TabIndex = 22;
             // 
             // txtSearchGolfId
             // 
@@ -240,7 +222,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(174, 149);
+            this.txtSearch.Location = new System.Drawing.Point(46, 138);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(75, 23);
             this.txtSearch.TabIndex = 20;
@@ -306,10 +288,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDropPlayer);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtSearchLastName);
-            this.Controls.Add(this.txtSearchFirstName);
             this.Controls.Add(this.txtSearchGolfId);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lbBookedPlayers);
@@ -348,10 +328,8 @@
         private System.Windows.Forms.ListBox lbTimes;
         private System.Windows.Forms.ListBox lbBookedPlayers;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSearchLastName;
-        private System.Windows.Forms.TextBox txtSearchFirstName;
         private System.Windows.Forms.TextBox txtSearchGolfId;
         private System.Windows.Forms.Button txtSearch;
         private System.Windows.Forms.Button txtDropPlayer;
