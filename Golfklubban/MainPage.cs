@@ -195,6 +195,53 @@ namespace Golfklubban
             double handicapValue = Convert.ToDouble(value);
            // label7.Text = ("Totalt handicap i grupp: " + handicapValue); //fixar så label fylls med information med totalt handikap
             return handicapValue;
+        }
+
+        private void btnRegisterGuest_Click(object sender, EventArgs e)
+        {
+            int guestId = Convert.ToInt32(txtGuestGolfId.Text);
+            string guestFirstName = txtGuestFirstName.Text;
+            string guestLastName = txtGuestLastName.Text;
+            string guestTelephone = txtGuestMobilePhone.Text;
+            double guestHandicap = Convert.ToDouble(txtGuestHandicap.Text);
+            int guestStatus = 5;
+            bool guestMembershipFee = false;
+
+            string playerSex = cbGuestSex.GetItemText(cbGuestSex.SelectedItem);
+
+            bool guestSex = selectedPlayer.sex;
+            if (playerSex.Equals("Man"))
+            { guestSex = true; }
+            else
+            {
+                guestSex = false;
+            }
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true;");
+            try
+            {
+                conn.Open();
+                string insert = "INSERT INTO player (golfid, playerstatus_id, firstname, lastname, mobile, handicap, sex, membershipfee) VALUES('" + guestId + "', '"+ guestStatus + "','" + guestFirstName + "','" + guestLastName + "','" + guestTelephone + "','" + guestHandicap + "', '"+ guestSex + "','" + guestMembershipFee + "')";
+                NpgsqlCommand command = new NpgsqlCommand(insert, conn);
+                //används när man kör INSERT fråga
+                int numberOfAffectedRows = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Du måste fylla i alla fält innan du kan registrera personen");
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                lbMainPagePlayers.DataSource = Methods.GetPlayers();
+                conn.Close();
+            }
+            txtGuestFirstName.Clear();
+            txtGuestLastName.Clear();
+            txtGuestGolfId.Clear();
+            txtGuestHandicap.Clear();
+            txtGuestMobilePhone.Clear();
+        }
+        
         } 
     }
-}
+
