@@ -144,7 +144,8 @@ namespace Golfklubban
                         conn.Close();
                     }
                     //  lbBookedPlayers.ClearSelected();
-                    lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);                
+                    lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);
+                    lbMainPagePlayers.DataSource = Methods.GetUnbookedPlayers(pickedDate, pickedTime);
             }
         }
 
@@ -172,14 +173,15 @@ namespace Golfklubban
             }
 
             lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);
+            lbMainPagePlayers.DataSource = Methods.GetUnbookedPlayers(pickedDate, pickedTime);
         }
 
         private void lbTimes_SelectedIndexChanged(object sender, EventArgs e)
         {
             DateTime pickedDate = monthCalendar1.SelectionStart;
             string pickedTime = Convert.ToString(lbTimes.SelectedItem);
-            lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);            
-
+            lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);
+            lbMainPagePlayers.DataSource = Methods.GetUnbookedPlayers(pickedDate, pickedTime);
         }
 
         private void button1_Click(object sender, EventArgs e)

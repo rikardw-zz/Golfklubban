@@ -385,5 +385,41 @@ namespace Golfklubban
             conn.Close();
             return foundPlayer;
         }
+        public static List<Player> GetUnbookedPlayers(DateTime selectedDate, string selectedTime)
+        {
+            List<Player> unBookedPlayers = new List<Player>();
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
+            NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
+            conn.Open();
+            NpgsqlCommand command = new NpgsqlCommand(@"SELECT golfid,firstname,lastname,handicap 
+                                                        FROM player
+                                                        WHERE golfid not in (
+                                                        SELECT player 
+                                                        FROM golfround 
+                                                        WHERE player.golfid = golfround.player
+                                                        AND date =:selectedDate
+                                                        AND startingtime =:selectedTime )", conn);
+
+            command.Parameters.Add(new NpgsqlParameter("selectedDate", DbType.Date));
+            command.Parameters[0].Value = Convert.ToDateTime(selectedDate);
+            command.Parameters.Add(new NpgsqlParameter("selectedTime", DbType.String));
+            command.Parameters[1].Value = Convert.ToString(selectedTime);
+
+            NpgsqlDataReader dr = command.ExecuteReader();
+            while (dr.Read())
+            {
+                Player players = new Player
+                {
+                    golfId = (int)dr["golfid"],
+                    firstName = (string)dr["firstname"],
+                    lastName = (string)dr["lastname"],
+                    handicap = (double)dr["handicap"]
+
+                };
+                unBookedPlayers.Add(players);
+            }
+            conn.Close();
+            return unBookedPlayers;
+        }
     } 
 }
