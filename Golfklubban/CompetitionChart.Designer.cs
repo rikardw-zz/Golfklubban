@@ -84,6 +84,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.lbSinglePlayers = new System.Windows.Forms.ListBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.lbPlayersInCompetition = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -105,7 +106,7 @@
             this.lbCompetitionChart.FormattingEnabled = true;
             this.lbCompetitionChart.Location = new System.Drawing.Point(165, 38);
             this.lbCompetitionChart.Name = "lbCompetitionChart";
-            this.lbCompetitionChart.Size = new System.Drawing.Size(200, 407);
+            this.lbCompetitionChart.Size = new System.Drawing.Size(200, 212);
             this.lbCompetitionChart.TabIndex = 1;
             this.lbCompetitionChart.SelectedIndexChanged += new System.EventHandler(this.lbCompetitionChart_SelectedIndexChanged);
             // 
@@ -251,7 +252,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(265, 451);
+            this.button1.Location = new System.Drawing.Point(265, 256);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 23);
             this.button1.TabIndex = 18;
@@ -270,6 +271,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbPlayersInCompetition);
+            this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.txtCompetitionName);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnRegisterCompetition);
@@ -573,6 +576,7 @@
             // 
             // lbPassedCompetitionChart
             // 
+            this.lbPassedCompetitionChart.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.lbPassedCompetitionChart.FormattingEnabled = true;
             this.lbPassedCompetitionChart.Location = new System.Drawing.Point(808, 54);
             this.lbPassedCompetitionChart.Name = "lbPassedCompetitionChart";
@@ -591,7 +595,6 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.button2);
-            this.groupBox4.Controls.Add(this.button3);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.lbSinglePlayers);
             this.groupBox4.Location = new System.Drawing.Point(437, 64);
@@ -612,11 +615,11 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(21, 400);
+            this.button3.Location = new System.Drawing.Point(265, 451);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(134, 23);
+            this.button3.Size = new System.Drawing.Size(100, 23);
             this.button3.TabIndex = 9;
-            this.button3.Text = "Ta bort vald spelare";
+            this.button3.Text = "Ta bort spelare";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // label17
@@ -647,6 +650,14 @@
             this.radioButton3.Text = "Visa spelare";
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
+            // lbPlayersInCompetition
+            // 
+            this.lbPlayersInCompetition.FormattingEnabled = true;
+            this.lbPlayersInCompetition.Location = new System.Drawing.Point(165, 288);
+            this.lbPlayersInCompetition.Name = "lbPlayersInCompetition";
+            this.lbPlayersInCompetition.Size = new System.Drawing.Size(200, 147);
+            this.lbPlayersInCompetition.TabIndex = 19;
             // 
             // CompetitionChart
             // 
@@ -736,5 +747,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ListBox lbSinglePlayers;
         private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.ListBox lbPlayersInCompetition;
     }
 }
