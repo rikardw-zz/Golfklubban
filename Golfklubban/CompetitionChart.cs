@@ -408,6 +408,30 @@ namespace Golfklubban
             groupBox3.Hide();
             groupBox4.Show();            
         }
+
+        private void txtStartDate_Click(object sender, EventArgs e)
+        {
+            txtStartDate.Clear();
+            txtStartDate.ForeColor = Color.Black;
+        }
+
+        private void txtEndDate_Click(object sender, EventArgs e)
+        {
+            txtEndDate.Clear();
+            txtEndDate.ForeColor = Color.Black;
+        }
+
+        private void txtLastBookingDate_Click(object sender, EventArgs e)
+        {
+            txtLastBookingDate.Clear();
+            txtLastBookingDate.ForeColor = Color.Black;
+        }
+
+        private void txtLastUnbookingDate_Click(object sender, EventArgs e)
+        {
+            txtLastUnbookingDate.Clear();
+            txtLastUnbookingDate.ForeColor = Color.Black;
+        }
         //Denna fungerar inte riktigt heller, men lägger in den så man kan skriva om den om den ska användas
         /*    private int CheckTableValue()
         {

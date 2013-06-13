@@ -41,9 +41,6 @@
             this.txtSearch = new System.Windows.Forms.Button();
             this.txtDropPlayer = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbGuestSex = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -68,64 +65,76 @@
             this.tsmCompetitionAddPlayer = new System.Windows.Forms.ToolStripMenuItem();
             this.lagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTeamView = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbMainPagePlayers
             // 
             this.lbMainPagePlayers.FormattingEnabled = true;
-            this.lbMainPagePlayers.Location = new System.Drawing.Point(21, 312);
+            this.lbMainPagePlayers.Location = new System.Drawing.Point(36, 58);
             this.lbMainPagePlayers.Name = "lbMainPagePlayers";
-            this.lbMainPagePlayers.Size = new System.Drawing.Size(228, 212);
+            this.lbMainPagePlayers.Size = new System.Drawing.Size(228, 303);
             this.lbMainPagePlayers.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 292);
+            this.label1.Location = new System.Drawing.Point(27, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(98, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Spelare";
+            this.label1.Text = "Spelare tillgängliga:";
             // 
             // txtBooking
             // 
-            this.txtBooking.Location = new System.Drawing.Point(591, 460);
+            this.txtBooking.Location = new System.Drawing.Point(396, 359);
             this.txtBooking.Name = "txtBooking";
-            this.txtBooking.Size = new System.Drawing.Size(106, 23);
+            this.txtBooking.Size = new System.Drawing.Size(94, 23);
             this.txtBooking.TabIndex = 4;
-            this.txtBooking.Text = "Genomför bokning";
+            this.txtBooking.Text = "Boka spelare";
             this.txtBooking.UseVisualStyleBackColor = true;
             this.txtBooking.Click += new System.EventHandler(this.txtBooking_Click);
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(526, 55);
+            this.monthCalendar1.Location = new System.Drawing.Point(319, 58);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 5;
             // 
             // lbTimes
             // 
             this.lbTimes.FormattingEnabled = true;
-            this.lbTimes.Location = new System.Drawing.Point(526, 254);
+            this.lbTimes.Location = new System.Drawing.Point(319, 232);
             this.lbTimes.Name = "lbTimes";
-            this.lbTimes.Size = new System.Drawing.Size(171, 186);
+            this.lbTimes.Size = new System.Drawing.Size(171, 121);
             this.lbTimes.TabIndex = 6;
             this.lbTimes.SelectedIndexChanged += new System.EventHandler(this.lbTimes_SelectedIndexChanged);
             // 
             // lbBookedPlayers
             // 
             this.lbBookedPlayers.FormattingEnabled = true;
-            this.lbBookedPlayers.Location = new System.Drawing.Point(793, 55);
+            this.lbBookedPlayers.Location = new System.Drawing.Point(319, 411);
             this.lbBookedPlayers.Name = "lbBookedPlayers";
-            this.lbBookedPlayers.Size = new System.Drawing.Size(181, 95);
+            this.lbBookedPlayers.Size = new System.Drawing.Size(171, 69);
             this.lbBookedPlayers.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 91);
+            this.label5.Location = new System.Drawing.Point(86, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
             this.label5.TabIndex = 26;
@@ -134,7 +143,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 38);
+            this.label3.Location = new System.Drawing.Point(6, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 24;
@@ -142,21 +151,21 @@
             // 
             // txtSearchLastName
             // 
-            this.txtSearchLastName.Location = new System.Drawing.Point(21, 106);
+            this.txtSearchLastName.Location = new System.Drawing.Point(89, 35);
             this.txtSearchLastName.Name = "txtSearchLastName";
             this.txtSearchLastName.Size = new System.Drawing.Size(100, 20);
             this.txtSearchLastName.TabIndex = 23;
             // 
             // txtSearchGolfId
             // 
-            this.txtSearchGolfId.Location = new System.Drawing.Point(21, 55);
+            this.txtSearchGolfId.Location = new System.Drawing.Point(6, 35);
             this.txtSearchGolfId.Name = "txtSearchGolfId";
-            this.txtSearchGolfId.Size = new System.Drawing.Size(100, 20);
+            this.txtSearchGolfId.Size = new System.Drawing.Size(78, 20);
             this.txtSearchGolfId.TabIndex = 21;
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(46, 138);
+            this.txtSearch.Location = new System.Drawing.Point(6, 61);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(75, 23);
             this.txtSearch.TabIndex = 20;
@@ -166,9 +175,9 @@
             // 
             // txtDropPlayer
             // 
-            this.txtDropPlayer.Location = new System.Drawing.Point(884, 180);
+            this.txtDropPlayer.Location = new System.Drawing.Point(396, 486);
             this.txtDropPlayer.Name = "txtDropPlayer";
-            this.txtDropPlayer.Size = new System.Drawing.Size(90, 23);
+            this.txtDropPlayer.Size = new System.Drawing.Size(94, 23);
             this.txtDropPlayer.TabIndex = 28;
             this.txtDropPlayer.Text = "Avboka spelare";
             this.txtDropPlayer.UseVisualStyleBackColor = true;
@@ -177,39 +186,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(793, 36);
+            this.label2.Location = new System.Drawing.Point(316, 395);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 29;
             this.label2.Text = "Bokade spelare";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(862, 350);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "Logintest";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(859, 385);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(98, 13);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "P: Björn L : banck1";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(793, 153);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(10, 13);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "-";
             // 
             // groupBox2
             // 
@@ -226,9 +207,9 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Location = new System.Drawing.Point(212, 55);
+            this.groupBox2.Location = new System.Drawing.Point(610, 42);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(267, 238);
+            this.groupBox2.Size = new System.Drawing.Size(137, 308);
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Registrera gästspelare";
@@ -240,7 +221,7 @@
             this.cbGuestSex.Items.AddRange(new object[] {
             "Man",
             "Kvinna"});
-            this.cbGuestSex.Location = new System.Drawing.Point(152, 143);
+            this.cbGuestSex.Location = new System.Drawing.Point(18, 232);
             this.cbGuestSex.Name = "cbGuestSex";
             this.cbGuestSex.Size = new System.Drawing.Size(100, 21);
             this.cbGuestSex.TabIndex = 345;
@@ -248,7 +229,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(149, 127);
+            this.label12.Location = new System.Drawing.Point(15, 216);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(26, 13);
             this.label12.TabIndex = 346;
@@ -256,21 +237,25 @@
             // 
             // txtGuestGolfId
             // 
-            this.txtGuestGolfId.Location = new System.Drawing.Point(18, 92);
+            this.txtGuestGolfId.ForeColor = System.Drawing.Color.Silver;
+            this.txtGuestGolfId.Location = new System.Drawing.Point(18, 68);
+            this.txtGuestGolfId.MaxLength = 9;
             this.txtGuestGolfId.Name = "txtGuestGolfId";
             this.txtGuestGolfId.Size = new System.Drawing.Size(100, 20);
             this.txtGuestGolfId.TabIndex = 35;
+            this.txtGuestGolfId.Text = "YYMMDDXXX";
+            this.txtGuestGolfId.Click += new System.EventHandler(this.txtGuestGolfId_Click);
             // 
             // txtGuestFirstName
             // 
-            this.txtGuestFirstName.Location = new System.Drawing.Point(18, 42);
+            this.txtGuestFirstName.Location = new System.Drawing.Point(18, 32);
             this.txtGuestFirstName.Name = "txtGuestFirstName";
             this.txtGuestFirstName.Size = new System.Drawing.Size(100, 20);
             this.txtGuestFirstName.TabIndex = 33;
             // 
             // btnRegisterGuest
             // 
-            this.btnRegisterGuest.Location = new System.Drawing.Point(177, 192);
+            this.btnRegisterGuest.Location = new System.Drawing.Point(43, 269);
             this.btnRegisterGuest.Name = "btnRegisterGuest";
             this.btnRegisterGuest.Size = new System.Drawing.Size(75, 23);
             this.btnRegisterGuest.TabIndex = 43;
@@ -280,7 +265,7 @@
             // 
             // txtGuestLastName
             // 
-            this.txtGuestLastName.Location = new System.Drawing.Point(152, 42);
+            this.txtGuestLastName.Location = new System.Drawing.Point(18, 154);
             this.txtGuestLastName.Name = "txtGuestLastName";
             this.txtGuestLastName.Size = new System.Drawing.Size(100, 20);
             this.txtGuestLastName.TabIndex = 34;
@@ -288,7 +273,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(15, 125);
+            this.label11.Location = new System.Drawing.Point(15, 91);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 13);
             this.label11.TabIndex = 42;
@@ -296,7 +281,7 @@
             // 
             // txtGuestMobilePhone
             // 
-            this.txtGuestMobilePhone.Location = new System.Drawing.Point(152, 92);
+            this.txtGuestMobilePhone.Location = new System.Drawing.Point(18, 190);
             this.txtGuestMobilePhone.Name = "txtGuestMobilePhone";
             this.txtGuestMobilePhone.Size = new System.Drawing.Size(100, 20);
             this.txtGuestMobilePhone.TabIndex = 36;
@@ -304,7 +289,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(149, 77);
+            this.label10.Location = new System.Drawing.Point(15, 175);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(43, 13);
             this.label10.TabIndex = 41;
@@ -312,7 +297,7 @@
             // 
             // txtGuestHandicap
             // 
-            this.txtGuestHandicap.Location = new System.Drawing.Point(18, 144);
+            this.txtGuestHandicap.Location = new System.Drawing.Point(18, 110);
             this.txtGuestHandicap.Name = "txtGuestHandicap";
             this.txtGuestHandicap.Size = new System.Drawing.Size(100, 20);
             this.txtGuestHandicap.TabIndex = 37;
@@ -320,16 +305,16 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 77);
+            this.label9.Location = new System.Drawing.Point(15, 53);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 13);
+            this.label9.Size = new System.Drawing.Size(37, 13);
             this.label9.TabIndex = 40;
-            this.label9.Text = "Golf-Id";
+            this.label9.Text = "GolfID";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 25);
+            this.label4.Location = new System.Drawing.Point(15, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 38;
@@ -338,7 +323,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(149, 25);
+            this.label8.Location = new System.Drawing.Point(15, 137);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 13);
             this.label8.TabIndex = 39;
@@ -353,7 +338,7 @@
             this.lagToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1095, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(953, 24);
             this.menuStrip1.TabIndex = 47;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -375,7 +360,7 @@
             // stängToolStripMenuItem
             // 
             this.stängToolStripMenuItem.Name = "stängToolStripMenuItem";
-            this.stängToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stängToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.stängToolStripMenuItem.Text = "Stäng";
             this.stängToolStripMenuItem.Click += new System.EventHandler(this.stängToolStripMenuItem_Click_1);
             // 
@@ -423,36 +408,140 @@
             this.tsmTeamView.Size = new System.Drawing.Size(114, 22);
             this.tsmTeamView.Text = "Visa lag";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtSearch);
+            this.groupBox1.Controls.Add(this.txtSearchGolfId);
+            this.groupBox1.Controls.Add(this.txtSearchLastName);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Location = new System.Drawing.Point(36, 411);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(228, 92);
+            this.groupBox1.TabIndex = 48;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Sök spelare";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(89, 62);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 23);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "Visa alla spelare";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Location = new System.Drawing.Point(779, 42);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(135, 178);
+            this.groupBox3.TabIndex = 49;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Boka tid för banskötsel";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 94);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(36, 13);
+            this.label13.TabIndex = 38;
+            this.label13.Text = "Sluttid";
+            // 
+            // textBox2
+            // 
+            this.textBox2.ForeColor = System.Drawing.Color.Silver;
+            this.textBox2.Location = new System.Drawing.Point(6, 68);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(112, 20);
+            this.textBox2.TabIndex = 0;
+            this.textBox2.Text = "HH:MM";
+            this.textBox2.Click += new System.EventHandler(this.textBox2_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 13);
+            this.label7.TabIndex = 38;
+            this.label7.Text = "Starttid";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(43, 142);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 43;
+            this.button1.Text = "Boka";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnRegisterGuest_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.ForeColor = System.Drawing.Color.Silver;
+            this.textBox1.Location = new System.Drawing.Point(6, 32);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(112, 20);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "YY-MM-DD";
+            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(38, 13);
+            this.label6.TabIndex = 38;
+            this.label6.Text = "Datum";
+            // 
+            // textBox3
+            // 
+            this.textBox3.ForeColor = System.Drawing.Color.Silver;
+            this.textBox3.Location = new System.Drawing.Point(9, 110);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(112, 20);
+            this.textBox3.TabIndex = 0;
+            this.textBox3.Text = "HH:MM";
+            this.textBox3.Click += new System.EventHandler(this.textBox3_Click);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1095, 572);
-            this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtDropPlayer);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtSearchLastName);
-            this.Controls.Add(this.txtSearchGolfId);
-            this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.lbBookedPlayers);
-            this.Controls.Add(this.lbTimes);
-            this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.txtBooking);
+            this.ClientSize = new System.Drawing.Size(953, 522);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbMainPagePlayers);
+            this.Controls.Add(this.txtBooking);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.txtDropPlayer);
+            this.Controls.Add(this.lbBookedPlayers);
+            this.Controls.Add(this.lbTimes);
             this.Name = "MainPage";
             this.Text = "Golfklubban";
-            this.Load += new System.EventHandler(this.MainPage_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,9 +562,6 @@
         private System.Windows.Forms.Button txtSearch;
         private System.Windows.Forms.Button txtDropPlayer;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cbGuestSex;
         internal System.Windows.Forms.Label label12;
@@ -500,6 +586,16 @@
         private System.Windows.Forms.ToolStripMenuItem tsmCompetitionAddPlayer;
         private System.Windows.Forms.ToolStripMenuItem lagToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmTeamView;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox3;
 
 
     }

@@ -118,31 +118,43 @@
             // 
             // txtStartDate
             // 
+            this.txtStartDate.ForeColor = System.Drawing.Color.Silver;
             this.txtStartDate.Location = new System.Drawing.Point(4, 85);
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.Size = new System.Drawing.Size(131, 20);
             this.txtStartDate.TabIndex = 2;
+            this.txtStartDate.Text = "YY-MM-DD";
+            this.txtStartDate.Click += new System.EventHandler(this.txtStartDate_Click);
             // 
             // txtEndDate
             // 
+            this.txtEndDate.ForeColor = System.Drawing.Color.Silver;
             this.txtEndDate.Location = new System.Drawing.Point(6, 130);
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.Size = new System.Drawing.Size(129, 20);
             this.txtEndDate.TabIndex = 3;
+            this.txtEndDate.Text = "YY-MM-DD";
+            this.txtEndDate.Click += new System.EventHandler(this.txtEndDate_Click);
             // 
             // txtLastBookingDate
             // 
+            this.txtLastBookingDate.ForeColor = System.Drawing.Color.Silver;
             this.txtLastBookingDate.Location = new System.Drawing.Point(6, 174);
             this.txtLastBookingDate.Name = "txtLastBookingDate";
             this.txtLastBookingDate.Size = new System.Drawing.Size(129, 20);
             this.txtLastBookingDate.TabIndex = 4;
+            this.txtLastBookingDate.Text = "YY-MM-DD";
+            this.txtLastBookingDate.Click += new System.EventHandler(this.txtLastBookingDate_Click);
             // 
             // txtLastUnbookingDate
             // 
+            this.txtLastUnbookingDate.ForeColor = System.Drawing.Color.Silver;
             this.txtLastUnbookingDate.Location = new System.Drawing.Point(6, 218);
             this.txtLastUnbookingDate.Name = "txtLastUnbookingDate";
             this.txtLastUnbookingDate.Size = new System.Drawing.Size(129, 20);
             this.txtLastUnbookingDate.TabIndex = 5;
+            this.txtLastUnbookingDate.Text = "YY-MM-DD";
+            this.txtLastUnbookingDate.Click += new System.EventHandler(this.txtLastUnbookingDate_Click);
             // 
             // txtClassA
             // 
@@ -301,7 +313,7 @@
             this.groupBox2.Controls.Add(this.lbTeamChart);
             this.groupBox2.Location = new System.Drawing.Point(437, 64);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(349, 446);
+            this.groupBox2.Size = new System.Drawing.Size(329, 446);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Skapa nytt lag";
@@ -431,7 +443,7 @@
             this.groupBox3.Controls.Add(this.txtCoupleName);
             this.groupBox3.Location = new System.Drawing.Point(437, 64);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(349, 446);
+            this.groupBox3.Size = new System.Drawing.Size(329, 446);
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Skapa nytt par";
@@ -584,14 +596,14 @@
             this.groupBox4.Controls.Add(this.lbSinglePlayers);
             this.groupBox4.Location = new System.Drawing.Point(437, 64);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(349, 446);
+            this.groupBox4.Size = new System.Drawing.Size(329, 446);
             this.groupBox4.TabIndex = 24;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Välj spelare";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(21, 388);
+            this.button2.Location = new System.Drawing.Point(183, 400);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(134, 23);
             this.button2.TabIndex = 10;
@@ -600,7 +612,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(21, 417);
+            this.button3.Location = new System.Drawing.Point(21, 400);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(134, 23);
             this.button3.TabIndex = 9;
@@ -621,7 +633,7 @@
             this.lbSinglePlayers.FormattingEnabled = true;
             this.lbSinglePlayers.Location = new System.Drawing.Point(21, 37);
             this.lbSinglePlayers.Name = "lbSinglePlayers";
-            this.lbSinglePlayers.Size = new System.Drawing.Size(227, 329);
+            this.lbSinglePlayers.Size = new System.Drawing.Size(296, 355);
             this.lbSinglePlayers.TabIndex = 6;
             // 
             // radioButton3

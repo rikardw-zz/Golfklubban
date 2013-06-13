@@ -18,7 +18,8 @@ namespace Golfklubban
         {            
             InitializeComponent();
             lbMainPagePlayers.DataSource = Methods.GetPlayers();
-            lbTimes.DataSource = Methods.GetTimeIntervals();
+            lbTimes.DataSource = Methods.GetTimeIntervals();            
+            label2.Text = ("Spelare bokade klockan " +lbTimes.Text );
          //   lbTimes.ClearSelected();
         //    lbMainPagePlayers.ClearSelected();
 
@@ -186,6 +187,7 @@ namespace Golfklubban
             string pickedTime = Convert.ToString(lbTimes.SelectedItem);
             lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);
             lbMainPagePlayers.DataSource = Methods.GetUnbookedPlayers(pickedDate, pickedTime);
+            label2.Text = ("Spelare bokade kl " + lbTimes.Text);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -287,12 +289,6 @@ namespace Golfklubban
 
             return stringChosenDate; 
         }
-
-        private void MainPage_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void tsmCompetitionAddPlayer_Click(object sender, EventArgs e)
         {
             CompetitionChart cc = new CompetitionChart();
@@ -309,7 +305,31 @@ namespace Golfklubban
         {
             this.Close();
         }
-        
-        } 
-    }
+
+        private void txtGuestGolfId_Click(object sender, EventArgs e)
+        {
+            txtGuestGolfId.Clear();
+            txtGuestGolfId.ForeColor = Color.Black;
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox1.ForeColor = Color.Black;
+
+        }
+
+        private void textBox2_Click(object sender, EventArgs e)
+        {
+            textBox2.Clear();
+            textBox2.ForeColor = Color.Black;
+        }
+
+        private void textBox3_Click(object sender, EventArgs e)
+        {
+            textBox3.Clear();
+            textBox3.ForeColor = Color.Black;
+        }       
+    }     
+}
 
