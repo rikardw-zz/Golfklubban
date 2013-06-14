@@ -99,9 +99,25 @@ namespace Golfklubban
 
         private void txtBooking_Click(object sender, EventArgs e)
         {
-            DateTime pickedDate = monthCalendar1.SelectionStart;
-            string convPickedDate = pickedDate.ToShortDateString();
-            string chosenDate = getCompetitionDate();
+            DateTime pickedDate = monthCalendar1.SelectionStart; //vald i kalender
+            string convPickedDate = pickedDate.ToShortDateString(); //konvert till endast datum
+            string chosenDate = getCompetitionDate(); //hämtar tävlingsdatum
+            string pickedTime = lbTimes.SelectedItem.ToString(); //hämtar klockslag
+
+            string maintenanceStartTime = getMaintenanceStartTime(); //hämtar starttid för banunderhåll
+            string maintenanceEndTime = getMaintenanceEndTime();
+            DateTime startDateAndTime = Convert.ToDateTime(convPickedDate + " " + maintenanceStartTime); //datum och starttid för banunderhåll
+            DateTime endDateAndTime = Convert.ToDateTime(convPickedDate + " " + maintenanceEndTime); //datum och sluttid för banunderhåll
+
+            DateTime playerPickedDateAndTime = Convert.ToDateTime(convPickedDate + " " + pickedTime); //Datum och tid som spelare vill boka in golfrunda på
+
+            if (playerPickedDateAndTime > startDateAndTime && playerPickedDateAndTime < endDateAndTime)
+            {
+                MessageBox.Show("Ett underhåll av banan kommer att ske på vald tid och det går inte att boka en golfrunda förrän klockan" + " " + maintenanceEndTime);
+                return;
+            }
+            else
+            { }
             if (convPickedDate == chosenDate)
             {
                 MessageBox.Show("En tävling finns bokad på valt datum. Det går inte att boka en golfrunda på detta datum");
@@ -130,8 +146,7 @@ namespace Golfklubban
                 }
                 else
                 {
-                    //     DateTime pickedDate = monthCalendar1.SelectionStart;
-                    string pickedTime = lbTimes.SelectedItem.ToString();
+                   
 
                     NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
                     try
@@ -329,7 +344,56 @@ namespace Golfklubban
         {
             textBox3.Clear();
             textBox3.ForeColor = Color.Black;
-        }       
+        }
+        private string getMaintenanceStartTime() //hämtar starttid för underhåll
+        {
+            string pickedDate = monthCalendar1.SelectionStart.ToString();
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            NpgsqlCommand command = new NpgsqlCommand("SELECT startingtime FROM golfround WHERE date = '" + pickedDate + "' AND staff_id is not null", conn);
+            conn.Open();
+            Object startTime = command.ExecuteScalar();
+            string conStartTime = Convert.ToString(startTime);
+            //     DateTime conStartDate = Convert.ToDateTime(startTime);
+            //     string convStartDate = conStartDate.ToShortDateString();
+            string maintenanceStartTime = "19:00:00";
+
+
+            if (string.IsNullOrEmpty(conStartTime) == true)
+            {
+                maintenanceStartTime = "19:00:00";
+            }
+            else
+            {
+                maintenanceStartTime = conStartTime;
+            }
+
+            return maintenanceStartTime;
+        }
+        private string getMaintenanceEndTime() //hämtar sluttid för underhåll
+        {
+            string pickedDate = monthCalendar1.SelectionStart.ToString();
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            NpgsqlCommand command = new NpgsqlCommand("SELECT endtime FROM golfround WHERE date = '" + pickedDate + "' AND staff_id is not null", conn);
+            conn.Open();
+            Object endTime = command.ExecuteScalar();
+            string conEndDate = Convert.ToString(endTime);
+
+            string maintenanceEndTime = "07:00:00";
+
+
+            if (string.IsNullOrEmpty(conEndDate) == true)
+            {
+                maintenanceEndTime = "07:00:00";
+            }
+            else
+            {
+                maintenanceEndTime = conEndDate;
+            }
+
+            return maintenanceEndTime;
+        }
     }     
 }
 
