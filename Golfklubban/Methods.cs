@@ -43,15 +43,45 @@ namespace Golfklubban
             conn.Close();
             return playerList;        
         }
+        public static List<Player> GetNotGuestPlayers() //hämtar alla spelare i databasen
+        {
+            List<Player> playerList = new List<Player>();
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
+            NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
+            conn.Open();
+            NpgsqlCommand command1 = new NpgsqlCommand("SELECT * FROM player WHERE playerstatus_id <= 4 ORDER BY firstname", conn);
+            NpgsqlDataReader dr = command1.ExecuteReader();
+            while (dr.Read())
+            {
+                Player tempPlayer = new Player
+                {
+                    golfId = (int)dr["golfId"],
+                    membershipStatus = (int)dr["playerstatus_id"],
+                    firstName = (string)dr["firstname"],
+                    lastName = (string)dr["lastname"],
+                    streetNumber = (string)dr["streetnumber"],
+                    mobilePhone = (string)dr["mobile"],
+                    address = (string)dr["address"],
+                    eMail = (string)dr["email"],
+                    zipCode = (int)dr["zipcode"],
+                    handicap = (double)dr["handicap"],
+                    membershipFee = (bool)dr["membershipfee"],
+                    sex = (bool)dr["sex"]
+                };
+                playerList.Add(tempPlayer);
+            }
+            conn.Close();
+            return playerList;
+        }
 
         //***Hämtar Tävlingar***
-        public static List<Competition> GetCompetitions() //hämtar alla tävlingar framåt i tiden
+        public static List<Competition> GetSingleCompetitions() //hämtar alla tävlingar framåt i tiden
         {
             List<Competition> competitionList = new List<Competition>();
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
             NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
             conn.Open();
-            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM competition WHERE enddate >= NOW()", conn);
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM competition WHERE enddate >= NOW() AND competition.competitiontype = 1", conn);
             NpgsqlDataReader dr = command.ExecuteReader();
             while (dr.Read())
             {
@@ -72,6 +102,61 @@ namespace Golfklubban
             conn.Close();
             return competitionList;
         }
+        public static List<Competition> GetCoupleCompetitions() //hämtar alla tävlingar framåt i tiden
+        {
+            List<Competition> competitionList = new List<Competition>();
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
+            NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
+            conn.Open();
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM competition WHERE enddate >= NOW() AND competition.competitiontype = 2", conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+            while (dr.Read())
+            {
+                Competition competitions = new Competition
+                {
+                    Id = (int)dr["id"],
+                    competitionName = (string)dr["name"],
+                    startDate = (DateTime)dr["startdate"],
+                    endDate = (DateTime)dr["enddate"],
+                    lastBookingDate = (DateTime)dr["lastbookingdate"],
+                    lastUnbookingDate = (DateTime)dr["lastunbookingdate"],
+                    classA = (double)dr["classa"],
+                    classB = (double)dr["classb"],
+                    classC = (double)dr["classc"]
+                };
+                competitionList.Add(competitions);
+            }
+            conn.Close();
+            return competitionList;
+        }
+        public static List<Competition> GetTeamCompetitions() //hämtar alla tävlingar framåt i tiden
+        {
+            List<Competition> competitionList = new List<Competition>();
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
+            NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
+            conn.Open();
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM competition WHERE enddate >= NOW() AND competition.competitiontype = 3", conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+            while (dr.Read())
+            {
+                Competition competitions = new Competition
+                {
+                    Id = (int)dr["id"],
+                    competitionName = (string)dr["name"],
+                    startDate = (DateTime)dr["startdate"],
+                    endDate = (DateTime)dr["enddate"],
+                    lastBookingDate = (DateTime)dr["lastbookingdate"],
+                    lastUnbookingDate = (DateTime)dr["lastunbookingdate"],
+                    classA = (double)dr["classa"],
+                    classB = (double)dr["classb"],
+                    classC = (double)dr["classc"]
+                };
+                competitionList.Add(competitions);
+            }
+            conn.Close();
+            return competitionList;
+        }
+
 
         public static List<Competition> GetPassedCompetitions() //hämtar gamla tävlingar
         {

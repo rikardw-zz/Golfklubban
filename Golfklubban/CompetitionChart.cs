@@ -26,7 +26,7 @@ namespace Golfklubban
             lbPlayers2.DataSource = Methods.GetAvailablePlayersToCouple();
             lbCoupleChart.DataSource = Methods.GetCouples();
             lbPassedCompetitionChart.DataSource = Methods.GetPassedCompetitions();
-            lbSinglePlayers.DataSource = Methods.GetPlayers();
+            lbSinglePlayers.DataSource = Methods.GetNotGuestPlayers();            
             
         }
         private void btnRegisterCompetition_Click(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace Golfklubban
             }
             finally
             {
-                lbCompetitionChart.DataSource = Methods.GetCompetitions();
+                lbCompetitionChart.DataSource = Methods.GetSingleCompetitions();
                 conn.Close();
             }
             txtCompetitionName.Clear();
@@ -100,7 +100,7 @@ namespace Golfklubban
                 }
                 finally
                 {
-                    lbCompetitionChart.DataSource = Methods.GetCompetitions();
+                  //  lbCompetitionChart.DataSource = Methods.GetCompetitions();
                     conn.Close();
                     MessageBox.Show("Tävlingen är nu borttagen.");
                 }
@@ -111,7 +111,7 @@ namespace Golfklubban
 
         private void CompetitionChart_Load(object sender, EventArgs e)
         {
-            lbCompetitionChart.DataSource = Methods.GetCompetitions();            
+            lbCompetitionChart.DataSource = Methods.GetSingleCompetitions();            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -152,31 +152,29 @@ namespace Golfklubban
 
         private void btnAddPlayerToTeam_Click(object sender, EventArgs e)
         {
-            //Kod som inte fungerar men tanken är att man ska se om playerone är upptagen, då ska den lägga in på playertwo. Om playertwo är upptaget
-            //ska playerthree fyllas osv.
-
-            selectedTeam = (Team)lbTeamChart.SelectedItem;
-
-            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
-            conn.Open();
-
-            NpgsqlCommand command = new NpgsqlCommand("SELECT playerone FROM team WHERE id = '" + selectedTeam.teamId + "'", conn);
-            NpgsqlDataReader reader = command.ExecuteReader();
-            if (reader.HasRows)
+            
+            for (int x = 0; x < lbPlayerInTeam.Items.Count; x++) //ser till så att inte fler än 4 kan vara med i samma grupp
             {
-
-                /*    NpgsqlCommand command1 = new NpgsqlCommand("SELECT playertwo FROM team WHERE id = '" + selectedTeam.teamId + "'", conn);
-                    NpgsqlDataReader reader1 = command1.ExecuteReader(); */
+                lbPlayerInTeam.SetSelected(x, true);
+            }
+            if (lbPlayerInTeam.Items.Count >= 4)
+            {
+                MessageBox.Show("Du kan inte lägga till fler spelare");
             }
             else
-            {
+            {            
+                selectedTeam = (Team)lbTeamChart.SelectedItem;            
+                NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");            
+              //  conn.Open();            
+             //   NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM player WHERE id = '" + selectedTeam.teamId + "'", conn);            
+               // NpgsqlDataReader reader = command1.ExecuteReader();                           
                 selectedPlayer = (Player)lbPlayers.SelectedItem;
                 selectedTeam = (Team)lbTeamChart.SelectedItem;
                 try
                 {
                     conn.Open();
-                    NpgsqlCommand command1 = new NpgsqlCommand("UPDATE team SET playerone = " + selectedPlayer.golfId + " WHERE id = (" + selectedTeam.teamId + " )", conn);
-                    int antal = command.ExecuteNonQuery();
+                    NpgsqlCommand command1 = new NpgsqlCommand("UPDATE player SET team_id = " + selectedTeam.teamId + " WHERE golfid = (" + selectedPlayer.golfId + " )", conn);
+                    int antal = command1.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
@@ -187,8 +185,8 @@ namespace Golfklubban
                     conn.Close();
                 }
                 lbPlayerInTeam.DataSource = Methods.GetPlayerInTeam(selectedTeam.teamId);
-                lbPlayers.DataSource = Methods.GetAvailablePlayers();
-            }
+                lbPlayers.DataSource = Methods.GetAvailablePlayers();                              
+            }        
         }
 
 
@@ -364,6 +362,7 @@ namespace Golfklubban
             groupBox2.Show();
             groupBox3.Hide();
             groupBox4.Hide();
+            lbCompetitionChart.DataSource = Methods.GetTeamCompetitions();
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -371,6 +370,7 @@ namespace Golfklubban
             groupBox2.Hide();
             groupBox3.Show();
             groupBox4.Hide();
+            lbCompetitionChart.DataSource = Methods.GetCoupleCompetitions();
         }
 
         private void btnAddPlayerToCouple_Click(object sender, EventArgs e)
@@ -378,23 +378,34 @@ namespace Golfklubban
             selectedPlayer = (Player)lbPlayers2.SelectedItem;
             selectedCouple = (Couple)lbCoupleChart.SelectedItem;
 
-            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
-            try
+            for (int x = 0; x < lbPlayerInCouple.Items.Count; x++) //ser till så att inte fler än 4 kan vara med i samma grupp
             {
-                conn.Open();
-                NpgsqlCommand command = new NpgsqlCommand("UPDATE player SET couple_id = " + selectedCouple.coupleId + " WHERE golfid = (" + selectedPlayer.golfId + " )", conn);
-                int antal = command.ExecuteNonQuery();
+                lbPlayerInCouple.SetSelected(x, true);
             }
-            catch (Exception ex)
+            if (lbPlayerInCouple.Items.Count >= 2)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Du kan inte lägga till fler spelare");
             }
-            finally
+            else
             {
-                conn.Close();
-            }         
-            lbPlayerInCouple.DataSource = Methods.GetPlayerInCouple(selectedCouple.coupleId);
-            lbPlayers.DataSource = Methods.GetAvailablePlayers();        
+                NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+                try
+                {
+                    conn.Open();
+                    NpgsqlCommand command = new NpgsqlCommand("UPDATE player SET couple_id = " + selectedCouple.coupleId + " WHERE golfid = (" + selectedPlayer.golfId + " )", conn);
+                    int antal = command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                lbPlayerInCouple.DataSource = Methods.GetPlayerInCouple(selectedCouple.coupleId);
+                lbPlayers.DataSource = Methods.GetAvailablePlayers();
+            }
         }
 
         private void lbCompetitionChart_SelectedIndexChanged(object sender, EventArgs e)
@@ -406,7 +417,8 @@ namespace Golfklubban
         {
             groupBox2.Hide();
             groupBox3.Hide();
-            groupBox4.Show();            
+            groupBox4.Show();
+            lbCompetitionChart.DataSource = Methods.GetSingleCompetitions();
         }
 
         private void txtStartDate_Click(object sender, EventArgs e)
@@ -431,6 +443,18 @@ namespace Golfklubban
         {
             txtLastUnbookingDate.Clear();
             txtLastUnbookingDate.ForeColor = Color.Black;
+        }
+
+        private void lbSinglePlayers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbCoupleChart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedCouple = (Couple)lbCoupleChart.SelectedItem;
+            lbPlayerInCouple.DataSource = Methods.GetPlayerInCouple(selectedCouple.coupleId);
+
         }
         //Denna fungerar inte riktigt heller, men lägger in den så man kan skriva om den om den ska användas
         /*    private int CheckTableValue()

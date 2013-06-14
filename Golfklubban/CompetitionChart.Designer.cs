@@ -550,6 +550,7 @@
             this.lbCoupleChart.Name = "lbCoupleChart";
             this.lbCoupleChart.Size = new System.Drawing.Size(296, 95);
             this.lbCoupleChart.TabIndex = 2;
+            this.lbCoupleChart.SelectedIndexChanged += new System.EventHandler(this.lbCoupleChart_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -614,7 +615,7 @@
             this.groupBox4.Controls.Add(this.button2);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.lbSinglePlayers);
-            this.groupBox4.Location = new System.Drawing.Point(437, 64);
+            this.groupBox4.Location = new System.Drawing.Point(808, 38);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(329, 446);
             this.groupBox4.TabIndex = 24;
@@ -646,6 +647,7 @@
             this.lbSinglePlayers.Name = "lbSinglePlayers";
             this.lbSinglePlayers.Size = new System.Drawing.Size(296, 355);
             this.lbSinglePlayers.TabIndex = 6;
+            this.lbSinglePlayers.SelectedIndexChanged += new System.EventHandler(this.lbSinglePlayers_SelectedIndexChanged);
             // 
             // radioButton3
             // 
@@ -663,7 +665,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 525);
+            this.ClientSize = new System.Drawing.Size(1381, 525);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
