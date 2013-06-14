@@ -404,6 +404,7 @@ namespace Golfklubban
                     conn.Close();
                 }
                 lbPlayerInCouple.DataSource = Methods.GetPlayerInCouple(selectedCouple.coupleId);
+                lbPlayers2.DataSource = Methods.GetAvailablePlayersToCouple();
                 lbPlayers.DataSource = Methods.GetAvailablePlayers();
             }
         }
