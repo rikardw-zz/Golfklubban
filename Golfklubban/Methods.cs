@@ -12,8 +12,8 @@ namespace Golfklubban
     {       
         public const string conString = "MIUN";
         
-        //***Hämtar spelare***
-        public static List<Player> GetPlayers()
+        
+        public static List<Player> GetPlayers() //hämtar alla spelare i databasen
         {
             List<Player> playerList = new List<Player>();
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
@@ -45,7 +45,7 @@ namespace Golfklubban
         }
 
         //***Hämtar Tävlingar***
-        public static List<Competition> GetCompetitions()
+        public static List<Competition> GetCompetitions() //hämtar alla tävlingar framåt i tiden
         {
             List<Competition> competitionList = new List<Competition>();
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
@@ -73,7 +73,7 @@ namespace Golfklubban
             return competitionList;
         }
 
-        public static List<Competition> GetPassedCompetitions()
+        public static List<Competition> GetPassedCompetitions() //hämtar gamla tävlingar
         {
             List<Competition> competitionList = new List<Competition>();
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
@@ -129,7 +129,7 @@ namespace Golfklubban
             return playerInTeamList;
         }
 
-        public static List<Team> GetTeams()
+        public static List<Team> GetTeams() //hämtar alla lag
         {
             List<Team> teamList = new List<Team>();
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
@@ -178,7 +178,7 @@ namespace Golfklubban
             return playerInCoupleList;
         }
 
-        public static List<Couple> GetCouples()
+        public static List<Couple> GetCouples() //hämtar alla par
         {
             List<Couple> coupleList = new List<Couple>();
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
@@ -221,8 +221,7 @@ namespace Golfklubban
                     eMail = (string)dr["email"],
                     zipCode = (int)dr["zipcode"],
                     handicap = (double)dr["handicap"],
-                    //  membershipFee = (bool)dr["membershipfee"]
-                    //  sex = (bool)dr["sex"],
+                   
                 };
                 playerList.Add(tempPlayer);
             }
@@ -252,8 +251,6 @@ namespace Golfklubban
                     eMail = (string)dr["email"],
                     zipCode = (int)dr["zipcode"],
                     handicap = (double)dr["handicap"],
-                    //  membershipFee = (bool)dr["membershipfee"]
-                    //  sex = (bool)dr["sex"],
                 };
                 playerList.Add(tempPlayer);
             }
@@ -297,18 +294,17 @@ namespace Golfklubban
             return foundPlayer;
         }
 
-        public static List<string> GetTimeIntervals()
+        public static List<string> GetTimeIntervals() //metod som skapar tid med tio min mellanrun 08:00, 08:10 osv
         {
             List<string> timeIntervals = new List<string>();
             TimeSpan startTime = new TimeSpan(4, 00, 00);
-            //     DateTime startDate = new DateTime(DateTime.MinValue.Ticks); // Date to be used to get shortTime format.
             for (int i = 0; i < 60; i++)
             {
-                int minutesToBeAdded = 10 * i;      // Increasing minutes by 10 minutes interval
+                int minutesToBeAdded = 10 * i;      
                 TimeSpan timeToBeAdded = new TimeSpan(0, minutesToBeAdded, 0);
                 TimeSpan t = startTime.Add(timeToBeAdded);
                 TimeSpan result = startTime + t;
-                timeIntervals.Add(result.ToString());      // Use Date.ToShortTimeString() method to get the desired format                
+                timeIntervals.Add(result.ToString());                     
             }
             return timeIntervals;
         }

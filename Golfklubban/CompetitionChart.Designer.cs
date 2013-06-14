@@ -49,6 +49,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbPlayersInCompetition = new System.Windows.Forms.ListBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnDeletePlayerFromTeam = new System.Windows.Forms.Button();
             this.lbPlayerInTeam = new System.Windows.Forms.ListBox();
@@ -80,11 +82,9 @@
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.lbSinglePlayers = new System.Windows.Forms.ListBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.lbPlayersInCompetition = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -124,7 +124,7 @@
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.Size = new System.Drawing.Size(131, 20);
             this.txtStartDate.TabIndex = 2;
-            this.txtStartDate.Text = "YY-MM-DD";
+            this.txtStartDate.Text = "YYYY-MM-DD";
             this.txtStartDate.Click += new System.EventHandler(this.txtStartDate_Click);
             // 
             // txtEndDate
@@ -134,7 +134,7 @@
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.Size = new System.Drawing.Size(129, 20);
             this.txtEndDate.TabIndex = 3;
-            this.txtEndDate.Text = "YY-MM-DD";
+            this.txtEndDate.Text = "YYYY-MM-DD";
             this.txtEndDate.Click += new System.EventHandler(this.txtEndDate_Click);
             // 
             // txtLastBookingDate
@@ -144,7 +144,7 @@
             this.txtLastBookingDate.Name = "txtLastBookingDate";
             this.txtLastBookingDate.Size = new System.Drawing.Size(129, 20);
             this.txtLastBookingDate.TabIndex = 4;
-            this.txtLastBookingDate.Text = "YY-MM-DD";
+            this.txtLastBookingDate.Text = "YYYY-MM-DD";
             this.txtLastBookingDate.Click += new System.EventHandler(this.txtLastBookingDate_Click);
             // 
             // txtLastUnbookingDate
@@ -154,7 +154,7 @@
             this.txtLastUnbookingDate.Name = "txtLastUnbookingDate";
             this.txtLastUnbookingDate.Size = new System.Drawing.Size(129, 20);
             this.txtLastUnbookingDate.TabIndex = 5;
-            this.txtLastUnbookingDate.Text = "YY-MM-DD";
+            this.txtLastUnbookingDate.Text = "YYYY-MM-DD";
             this.txtLastUnbookingDate.Click += new System.EventHandler(this.txtLastUnbookingDate_Click);
             // 
             // txtClassA
@@ -299,6 +299,23 @@
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lägg till tävlingar";
+            // 
+            // lbPlayersInCompetition
+            // 
+            this.lbPlayersInCompetition.FormattingEnabled = true;
+            this.lbPlayersInCompetition.Location = new System.Drawing.Point(165, 288);
+            this.lbPlayersInCompetition.Name = "lbPlayersInCompetition";
+            this.lbPlayersInCompetition.Size = new System.Drawing.Size(200, 147);
+            this.lbPlayersInCompetition.TabIndex = 19;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(265, 451);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(100, 23);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Ta bort spelare";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -613,15 +630,6 @@
             this.button2.Text = "Lägg till vald spelare";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(265, 451);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Ta bort spelare";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -650,14 +658,6 @@
             this.radioButton3.Text = "Visa spelare";
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
-            // 
-            // lbPlayersInCompetition
-            // 
-            this.lbPlayersInCompetition.FormattingEnabled = true;
-            this.lbPlayersInCompetition.Location = new System.Drawing.Point(165, 288);
-            this.lbPlayersInCompetition.Name = "lbPlayersInCompetition";
-            this.lbPlayersInCompetition.Size = new System.Drawing.Size(200, 147);
-            this.lbPlayersInCompetition.TabIndex = 19;
             // 
             // CompetitionChart
             // 

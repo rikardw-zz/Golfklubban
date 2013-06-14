@@ -69,12 +69,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -457,6 +457,16 @@
             this.label13.TabIndex = 38;
             this.label13.Text = "Sluttid";
             // 
+            // textBox3
+            // 
+            this.textBox3.ForeColor = System.Drawing.Color.Silver;
+            this.textBox3.Location = new System.Drawing.Point(9, 110);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(112, 20);
+            this.textBox3.TabIndex = 0;
+            this.textBox3.Text = "HH:MM";
+            this.textBox3.Click += new System.EventHandler(this.textBox3_Click);
+            // 
             // textBox2
             // 
             this.textBox2.ForeColor = System.Drawing.Color.Silver;
@@ -493,7 +503,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(112, 20);
             this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "YY-MM-DD";
+            this.textBox1.Text = "YYYY-MM-DD";
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             // 
             // label6
@@ -504,16 +514,6 @@
             this.label6.Size = new System.Drawing.Size(38, 13);
             this.label6.TabIndex = 38;
             this.label6.Text = "Datum";
-            // 
-            // textBox3
-            // 
-            this.textBox3.ForeColor = System.Drawing.Color.Silver;
-            this.textBox3.Location = new System.Drawing.Point(9, 110);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(112, 20);
-            this.textBox3.TabIndex = 0;
-            this.textBox3.Text = "HH:MM";
-            this.textBox3.Click += new System.EventHandler(this.textBox3_Click);
             // 
             // MainPage
             // 
