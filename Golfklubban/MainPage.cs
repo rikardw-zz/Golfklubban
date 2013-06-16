@@ -13,6 +13,7 @@ namespace Golfklubban
     public partial class MainPage : Form
     {        
         Player selectedPlayer = new Player();
+        Maintenance selectedMaintenance = new Maintenance();
 
         public MainPage()
         {            
@@ -469,6 +470,37 @@ namespace Golfklubban
             }
 
             return stringChosenDate;
+        }
+
+        private void btnCancelMaintenance_Click(object sender, EventArgs e)
+        {
+            DialogResult dropMaintenance = MessageBox.Show("Vill du verkligen avboka den aktuella banskötseln?", "Avboka banskötsel", MessageBoxButtons.OKCancel);
+            if (dropMaintenance == DialogResult.OK)
+            {
+                selectedMaintenance = (Maintenance)lbUpcomingMaintenance.SelectedItem;
+                NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+                try
+                {
+                    string sql = "DELETE FROM golfround WHERE id = " + selectedMaintenance.maintenanceId + "";
+                    conn.Open();
+                    NpgsqlCommand command = new NpgsqlCommand(sql, conn);
+                    int antal = command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Det finns inget underhåll att avboka.");
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                lbUpcomingMaintenance.DataSource = Methods.GetUpcomingMaintenance();
+            }
+
+            else if (dropMaintenance == DialogResult.Cancel)
+            { }
+        }
         }
     }     
 }

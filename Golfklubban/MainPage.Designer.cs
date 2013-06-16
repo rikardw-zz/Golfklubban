@@ -546,6 +546,7 @@
             this.btnCancelMaintenance.TabIndex = 55;
             this.btnCancelMaintenance.Text = "Avboka";
             this.btnCancelMaintenance.UseVisualStyleBackColor = true;
+            this.btnCancelMaintenance.Click += new System.EventHandler(this.btnCancelMaintenance_Click);
             // 
             // label15
             // 
