@@ -75,6 +75,7 @@
     <Compile Include="MainPage.Designer.cs">
       <DependentUpon>MainPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maintenance.cs" />
     <Compile Include="Methods.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerChart.cs">

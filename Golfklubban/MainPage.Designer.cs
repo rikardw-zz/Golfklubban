@@ -77,6 +77,9 @@
             this.btnMaintenance = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.txtStaffId = new System.Windows.Forms.TextBox();
+            this.btnCancelMaintenance = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lbUpcomingMaintenance = new System.Windows.Forms.ListBox();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -340,7 +343,7 @@
             this.lagToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1105, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1151, 24);
             this.menuStrip1.TabIndex = 47;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -535,11 +538,40 @@
             this.txtStaffId.Size = new System.Drawing.Size(112, 20);
             this.txtStaffId.TabIndex = 52;
             // 
+            // btnCancelMaintenance
+            // 
+            this.btnCancelMaintenance.Location = new System.Drawing.Point(1047, 202);
+            this.btnCancelMaintenance.Name = "btnCancelMaintenance";
+            this.btnCancelMaintenance.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelMaintenance.TabIndex = 55;
+            this.btnCancelMaintenance.Text = "Avboka";
+            this.btnCancelMaintenance.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(945, 38);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(106, 13);
+            this.label15.TabIndex = 54;
+            this.label15.Text = "Kommande underhåll";
+            // 
+            // lbUpcomingMaintenance
+            // 
+            this.lbUpcomingMaintenance.FormattingEnabled = true;
+            this.lbUpcomingMaintenance.Location = new System.Drawing.Point(948, 54);
+            this.lbUpcomingMaintenance.Name = "lbUpcomingMaintenance";
+            this.lbUpcomingMaintenance.Size = new System.Drawing.Size(174, 134);
+            this.lbUpcomingMaintenance.TabIndex = 53;
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1105, 522);
+            this.ClientSize = new System.Drawing.Size(1151, 522);
+            this.Controls.Add(this.btnCancelMaintenance);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.lbUpcomingMaintenance);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbMainPagePlayers);
@@ -619,6 +651,9 @@
         private System.Windows.Forms.Button btnMaintenance;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtStaffId;
+        private System.Windows.Forms.Button btnCancelMaintenance;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ListBox lbUpcomingMaintenance;
 
 
     }

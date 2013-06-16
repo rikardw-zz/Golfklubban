@@ -502,5 +502,28 @@ namespace Golfklubban
             conn.Close();
             return unBookedPlayers;
         }
+        public static List<Maintenance> GetUpcomingMaintenance() //hämtar alla kommande underhåll
+        {
+            List<Maintenance> maintenanceList = new List<Maintenance>();
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
+            NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
+            conn.Open();
+            NpgsqlCommand command = new NpgsqlCommand("SELECT id, date, startingtime, endtime FROM golfround WHERE date >= NOW() AND staff_id IS NOT null ORDER BY date", conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+            while (dr.Read())
+            {
+                Maintenance maintenances = new Maintenance
+                {
+                    maintenanceId = (int)dr["id"],
+                    maintenanceDate = (DateTime)dr["date"],
+                    maintenanceStart = (string)dr["startingtime"],
+                    maintenanceEnd = (string)dr["endtime"],
+
+                };
+                maintenanceList.Add(maintenances);
+            }
+            conn.Close();
+            return maintenanceList;
+        }
     } 
 }

@@ -20,6 +20,7 @@ namespace Golfklubban
             lbMainPagePlayers.DataSource = Methods.GetPlayers();
             lbTimes.DataSource = Methods.GetTimeIntervals();            
             label2.Text = ("Spelare bokade klockan " +lbTimes.Text );
+            lbUpcomingMaintenance.DataSource = Methods.GetUpcomingMaintenance();
          //   lbTimes.ClearSelected();
         //    lbMainPagePlayers.ClearSelected();
 
