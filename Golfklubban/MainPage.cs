@@ -329,21 +329,21 @@ namespace Golfklubban
 
         private void textBox1_Click(object sender, EventArgs e)
         {
-            textBox1.Clear();
-            textBox1.ForeColor = Color.Black;
+            txtMaintenanceDate.Clear();
+            txtMaintenanceDate.ForeColor = Color.Black;
 
         }
 
         private void textBox2_Click(object sender, EventArgs e)
         {
-            textBox2.Clear();
-            textBox2.ForeColor = Color.Black;
+            txtMaintenanceStart.Clear();
+            txtMaintenanceStart.ForeColor = Color.Black;
         }
 
         private void textBox3_Click(object sender, EventArgs e)
         {
-            textBox3.Clear();
-            textBox3.ForeColor = Color.Black;
+            txtMaintenanceEnd.Clear();
+            txtMaintenanceEnd.ForeColor = Color.Black;
         }
         private string getMaintenanceStartTime() //hämtar starttid för underhåll
         {
@@ -393,6 +393,81 @@ namespace Golfklubban
             }
 
             return maintenanceEndTime;
+        }
+
+        private void MainPage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMaintenance_Click(object sender, EventArgs e)
+        {
+            string maintenanceDate = txtMaintenanceDate.Text;
+            string chosenDate = getCompetitions();
+            if (maintenanceDate == chosenDate)
+            {
+                MessageBox.Show("Det går inte att boka banan för underhåll på valt datum då en tävling ska spelas då.");
+                return;
+            }
+            else
+            {
+                BookMaintenance();
+            }
+        }
+
+        private void BookMaintenance()
+        {
+
+            DateTime maintenanceDate = Convert.ToDateTime(txtMaintenanceDate.Text);
+            string maintenanceStart = txtMaintenanceStart.Text;
+            string maintenanceEnd = txtMaintenanceEnd.Text;
+            int staffId = Convert.ToInt16(txtStaffId.Text);
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true;");
+            try
+            {
+                conn.Open();
+                string insert = "INSERT INTO golfround (date, startingtime, endtime, staff_id) VALUES('" + maintenanceDate + "','" + maintenanceStart + "','" + maintenanceEnd + "','" + staffId + "')";
+                NpgsqlCommand command = new NpgsqlCommand(insert, conn);
+                int numberOfAffectedRows = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+            MessageBox.Show("Du har nu bokat hela banan");
+            txtMaintenanceDate.Clear();
+            txtMaintenanceStart.Clear();
+            txtMaintenanceEnd.Clear();
+            txtStaffId.Clear();
+        }
+        private string getCompetitions()
+        {
+            string pickedDate = txtMaintenanceDate.Text;
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            NpgsqlCommand command = new NpgsqlCommand("SELECT startdate FROM competition WHERE startdate = '" + pickedDate + "'", conn);
+            conn.Open();
+            Object startDate = command.ExecuteScalar();
+            DateTime conStartDate = Convert.ToDateTime(startDate);
+            string convStartDate = conStartDate.ToShortDateString();
+            string stringChosenDate = "2013-06-01";
+
+            //    MessageBox.Show("" + startDate);
+            if (string.IsNullOrEmpty(convStartDate) == true)
+            {
+                stringChosenDate = "2013-06-01";
+            }
+            else
+            {
+                stringChosenDate = convStartDate;
+            }
+
+            return stringChosenDate;
         }
     }     
 }

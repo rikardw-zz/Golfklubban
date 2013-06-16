@@ -69,12 +69,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtMaintenanceEnd = new System.Windows.Forms.TextBox();
+            this.txtMaintenanceStart = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMaintenanceDate = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnMaintenance = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtStaffId = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -338,7 +340,7 @@
             this.lagToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(953, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1105, 24);
             this.menuStrip1.TabIndex = 47;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -434,16 +436,18 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Controls.Add(this.btnMaintenance);
+            this.groupBox3.Controls.Add(this.txtStaffId);
             this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.txtMaintenanceEnd);
+            this.groupBox3.Controls.Add(this.txtMaintenanceStart);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.txtMaintenanceDate);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Location = new System.Drawing.Point(779, 42);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(135, 178);
+            this.groupBox3.Size = new System.Drawing.Size(135, 210);
             this.groupBox3.TabIndex = 49;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Boka tid för banskötsel";
@@ -457,25 +461,25 @@
             this.label13.TabIndex = 38;
             this.label13.Text = "Sluttid";
             // 
-            // textBox3
+            // txtMaintenanceEnd
             // 
-            this.textBox3.ForeColor = System.Drawing.Color.Silver;
-            this.textBox3.Location = new System.Drawing.Point(9, 110);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(112, 20);
-            this.textBox3.TabIndex = 0;
-            this.textBox3.Text = "HH:MM";
-            this.textBox3.Click += new System.EventHandler(this.textBox3_Click);
+            this.txtMaintenanceEnd.ForeColor = System.Drawing.Color.Silver;
+            this.txtMaintenanceEnd.Location = new System.Drawing.Point(9, 110);
+            this.txtMaintenanceEnd.Name = "txtMaintenanceEnd";
+            this.txtMaintenanceEnd.Size = new System.Drawing.Size(112, 20);
+            this.txtMaintenanceEnd.TabIndex = 0;
+            this.txtMaintenanceEnd.Text = "HH:MM";
+            this.txtMaintenanceEnd.Click += new System.EventHandler(this.textBox3_Click);
             // 
-            // textBox2
+            // txtMaintenanceStart
             // 
-            this.textBox2.ForeColor = System.Drawing.Color.Silver;
-            this.textBox2.Location = new System.Drawing.Point(6, 68);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(112, 20);
-            this.textBox2.TabIndex = 0;
-            this.textBox2.Text = "HH:MM";
-            this.textBox2.Click += new System.EventHandler(this.textBox2_Click);
+            this.txtMaintenanceStart.ForeColor = System.Drawing.Color.Silver;
+            this.txtMaintenanceStart.Location = new System.Drawing.Point(6, 68);
+            this.txtMaintenanceStart.Name = "txtMaintenanceStart";
+            this.txtMaintenanceStart.Size = new System.Drawing.Size(112, 20);
+            this.txtMaintenanceStart.TabIndex = 0;
+            this.txtMaintenanceStart.Text = "HH:MM";
+            this.txtMaintenanceStart.Click += new System.EventHandler(this.textBox2_Click);
             // 
             // label7
             // 
@@ -486,25 +490,15 @@
             this.label7.TabIndex = 38;
             this.label7.Text = "Starttid";
             // 
-            // button1
+            // txtMaintenanceDate
             // 
-            this.button1.Location = new System.Drawing.Point(43, 142);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 43;
-            this.button1.Text = "Boka";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnRegisterGuest_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.ForeColor = System.Drawing.Color.Silver;
-            this.textBox1.Location = new System.Drawing.Point(6, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(112, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "YYYY-MM-DD";
-            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
+            this.txtMaintenanceDate.ForeColor = System.Drawing.Color.Silver;
+            this.txtMaintenanceDate.Location = new System.Drawing.Point(6, 32);
+            this.txtMaintenanceDate.Name = "txtMaintenanceDate";
+            this.txtMaintenanceDate.Size = new System.Drawing.Size(112, 20);
+            this.txtMaintenanceDate.TabIndex = 0;
+            this.txtMaintenanceDate.Text = "YYYY-MM-DD";
+            this.txtMaintenanceDate.Click += new System.EventHandler(this.textBox1_Click);
             // 
             // label6
             // 
@@ -515,11 +509,37 @@
             this.label6.TabIndex = 38;
             this.label6.Text = "Datum";
             // 
+            // btnMaintenance
+            // 
+            this.btnMaintenance.Location = new System.Drawing.Point(24, 181);
+            this.btnMaintenance.Name = "btnMaintenance";
+            this.btnMaintenance.Size = new System.Drawing.Size(94, 23);
+            this.btnMaintenance.TabIndex = 39;
+            this.btnMaintenance.Text = "Boka Underhåll";
+            this.btnMaintenance.UseVisualStyleBackColor = true;
+            this.btnMaintenance.Click += new System.EventHandler(this.btnMaintenance_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(7, 133);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(60, 13);
+            this.label14.TabIndex = 53;
+            this.label14.Text = "Personal Id";
+            // 
+            // txtStaffId
+            // 
+            this.txtStaffId.Location = new System.Drawing.Point(6, 149);
+            this.txtStaffId.Name = "txtStaffId";
+            this.txtStaffId.Size = new System.Drawing.Size(112, 20);
+            this.txtStaffId.TabIndex = 52;
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 522);
+            this.ClientSize = new System.Drawing.Size(1105, 522);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbMainPagePlayers);
@@ -534,6 +554,7 @@
             this.Controls.Add(this.lbTimes);
             this.Name = "MainPage";
             this.Text = "Golfklubban";
+            this.Load += new System.EventHandler(this.MainPage_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -589,13 +610,15 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtMaintenanceStart;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMaintenanceDate;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtMaintenanceEnd;
+        private System.Windows.Forms.Button btnMaintenance;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtStaffId;
 
 
     }
