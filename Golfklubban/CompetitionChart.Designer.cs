@@ -55,6 +55,7 @@
             this.lbPlayersInCompetition = new System.Windows.Forms.ListBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.btnDeletePlayerFromTeam = new System.Windows.Forms.Button();
             this.lbPlayerInTeam = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -68,6 +69,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lbTeamChart = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.btnAddPlayerToCouple = new System.Windows.Forms.Button();
             this.btnDeletePlayerFromCouple = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
@@ -88,8 +90,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.lbSinglePlayers = new System.Windows.Forms.ListBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.lbResults = new System.Windows.Forms.ListBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -380,6 +382,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Skapa nytt lag";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(21, 167);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(91, 23);
+            this.button5.TabIndex = 19;
+            this.button5.Text = "Lägg till i tävling";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // btnDeletePlayerFromTeam
             // 
             this.btnDeletePlayerFromTeam.Location = new System.Drawing.Point(21, 400);
@@ -512,6 +523,15 @@
             this.groupBox3.Text = "Skapa nytt par";
             this.groupBox3.Visible = false;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(21, 167);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(91, 23);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "Lägg till i tävling";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // btnAddPlayerToCouple
             // 
             this.btnAddPlayerToCouple.Location = new System.Drawing.Point(183, 400);
@@ -641,7 +661,7 @@
             this.lbPassedCompetitionChart.FormattingEnabled = true;
             this.lbPassedCompetitionChart.Location = new System.Drawing.Point(794, 54);
             this.lbPassedCompetitionChart.Name = "lbPassedCompetitionChart";
-            this.lbPassedCompetitionChart.Size = new System.Drawing.Size(200, 407);
+            this.lbPassedCompetitionChart.Size = new System.Drawing.Size(200, 199);
             this.lbPassedCompetitionChart.TabIndex = 1;
             // 
             // label18
@@ -704,23 +724,23 @@
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
-            // button4
+            // lbResults
             // 
-            this.button4.Location = new System.Drawing.Point(21, 167);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(91, 23);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "Lägg till i tävling";
-            this.button4.UseVisualStyleBackColor = true;
+            this.lbResults.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lbResults.FormattingEnabled = true;
+            this.lbResults.Location = new System.Drawing.Point(794, 286);
+            this.lbResults.Name = "lbResults";
+            this.lbResults.Size = new System.Drawing.Size(200, 173);
+            this.lbResults.TabIndex = 1;
             // 
-            // button5
+            // label19
             // 
-            this.button5.Location = new System.Drawing.Point(21, 167);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(91, 23);
-            this.button5.TabIndex = 19;
-            this.button5.Text = "Lägg till i tävling";
-            this.button5.UseVisualStyleBackColor = true;
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(791, 269);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(49, 13);
+            this.label19.TabIndex = 10;
+            this.label19.Text = "Resultat:";
             // 
             // CompetitionChart
             // 
@@ -733,8 +753,10 @@
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.lbResults);
             this.Controls.Add(this.lbPassedCompetitionChart);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Name = "CompetitionChart";
             this.Text = "Tävlingar";
@@ -816,5 +838,7 @@
         private System.Windows.Forms.RadioButton rbSingel;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ListBox lbResults;
+        private System.Windows.Forms.Label label19;
     }
 }
