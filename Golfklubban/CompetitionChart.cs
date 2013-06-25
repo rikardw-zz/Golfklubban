@@ -114,7 +114,7 @@ namespace Golfklubban
                 }
                 finally
                 {
-                  //  lbCompetitionChart.DataSource = Methods.GetCompetitions();
+                  
                     conn.Close();
                     MessageBox.Show("Tävlingen är nu borttagen.");
                 }
@@ -179,9 +179,7 @@ namespace Golfklubban
             {            
                 selectedTeam = (Team)lbTeamChart.SelectedItem;            
                 NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");            
-              //  conn.Open();            
-             //   NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM player WHERE id = '" + selectedTeam.teamId + "'", conn);            
-               // NpgsqlDataReader reader = command1.ExecuteReader();                           
+                                  
                 selectedPlayer = (Player)lbPlayers.SelectedItem;
                 selectedTeam = (Team)lbTeamChart.SelectedItem;
                 try
@@ -240,7 +238,6 @@ namespace Golfklubban
                 try
                 {
                     string sql = "UPDATE player SET team_id = null WHERE team_id = " + selectedTeam.teamId + " AND golfid = " + selectedPlayer.golfId + "";
-                    //UPDATE player SET team_id = " + selectedTeam.teamId + " WHERE golfid = (" + selectedPlayer.golfId + " )
                     conn.Open();
                     NpgsqlCommand command = new NpgsqlCommand(sql, conn);
                     int antal = command.ExecuteNonQuery();
@@ -325,7 +322,6 @@ namespace Golfklubban
             try
             {
                 string sql = "UPDATE player SET couple_id = null WHERE couple_id = " + selectedCouple.coupleId + " AND golfid = " + selectedPlayer.golfId + "";
-                //UPDATE player SET couple_id = " + selectedCouple.coupleId + " WHERE golfid = (" + selectedPlayer.golfId + " )
                 conn.Open();
                 NpgsqlCommand command = new NpgsqlCommand(sql, conn);
                 int antal = command.ExecuteNonQuery();
@@ -522,46 +518,7 @@ namespace Golfklubban
             }
         }
 
-        
-        //Denna fungerar inte riktigt heller, men lägger in den så man kan skriva om den om den ska användas
-        /*    private int CheckTableValue()
-        {
-            selectedTeam = (Team)lbTeamChart.SelectedItem;
-
-            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
-                conn.Open();
-
-                NpgsqlCommand command = new NpgsqlCommand("SELECT playerone,playertwo,playerthree,playerfour FROM team WHERE id = '" + selectedTeam.teamId + "'", conn);
-            NpgsqlDataReader reader = command.ExecuteReader();
-            if (reader.HasRows)
-            {
-                object svar = command.ExecuteScalar();
-                int idgolf = Convert.ToInt32(svar);
-                return idgolf;
-            }
-            else 
-            {
-            selectedPlayer = (Player)lbPlayers.SelectedItem;
-            selectedTeam = (Team)lbTeamChart.SelectedItem;
-
-            NpgsqlConnection conn1 = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
-            try
-            {
-                conn.Open();
-                NpgsqlCommand command1 = new NpgsqlCommand("UPDATE player SET team_id = " + selectedTeam.teamId + " WHERE golfid = (" + selectedPlayer.golfId + " )", conn1);
-                int antal = command.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                conn.Close();
-            }
-            lbPlayerInTeam.DataSource = Methods.GetPlayerInTeam(selectedTeam.teamId);
-            lbPlayers.DataSource = Methods.GetAvailablePlayers(); 
-            } 
-            } */
+       
+           
     }
 }

@@ -21,7 +21,8 @@ namespace Golfklubban
         }
         private void PlayerChart_Load(object sender, EventArgs e)
         {
-            lbPlayerChart.DataSource = Methods.GetPlayers();           
+            lbPlayerChart.DataSource = Methods.GetPlayers();
+            lbPlayerChart.ClearSelected();
         }        
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -94,55 +95,70 @@ namespace Golfklubban
         private void lbPlayerChart_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedPlayer = (Player)lbPlayerChart.SelectedItem;
-            txtFirstName.Text = selectedPlayer.firstName;
-            txtLastName.Text = selectedPlayer.lastName;
-            txtGolfId.Text = selectedPlayer.golfId.ToString();
-            txtMobile.Text = selectedPlayer.mobilePhone;
-            txtStreetNumber.Text = selectedPlayer.streetNumber;
-            txtZipCode.Text = selectedPlayer.zipCode.ToString();
-            txtEmail.Text = selectedPlayer.eMail;
-            txtAddress.Text = selectedPlayer.address;
-            txtHandicap.Text = selectedPlayer.handicap.ToString();           
-            //Kön
-            if (Convert.ToString(selectedPlayer.sex) == "True"){
-                cbSex.Text = "Man";
+            if (selectedPlayer == null)
+            {
+                txtFirstName.Clear();
+                txtLastName.Clear();
+                txtGolfId.Clear();
+                txtMobile.Clear();
+                txtStreetNumber.Clear();
+                txtZipCode.Clear();
+                txtEmail.Clear();
+                txtAddress.Clear();
+                txtHandicap.Clear();
             }
             else
             {
-                cbSex.Text = "Kvinna";               
-            }
-            //Medlemasavgift
-            if (Convert.ToString(selectedPlayer.membershipFee) == "True")
-            {
-                cbMembershipFee.Text = "Betald";
-            }
-            else
-            {
-                cbMembershipFee.Text = "Ej betald";
-            }
-            //Medlemstatus           
-            if (Convert.ToString(selectedPlayer.membershipStatus) == "1")
-            {
-                cbMembershipStatus.Text = "Aktiv";
-            }
-            else if (Convert.ToString(selectedPlayer.membershipStatus) == "2")
-            {
-                cbMembershipStatus.Text = "Vilande";
-            }
-            else if (Convert.ToString(selectedPlayer.membershipStatus) == "3")
-            {
-                cbMembershipStatus.Text = "Junior";
-            }
-            else if (Convert.ToString(selectedPlayer.membershipStatus) == "4")
-            {
-                cbMembershipStatus.Text = "Greenfee";
-            }
-            else if (Convert.ToString(selectedPlayer.membershipStatus) == "5")
-            {
-                cbMembershipStatus.Text = "Gäst";
+                txtFirstName.Text = selectedPlayer.firstName;
+                txtLastName.Text = selectedPlayer.lastName;
+                txtGolfId.Text = selectedPlayer.golfId.ToString();
+                txtMobile.Text = selectedPlayer.mobilePhone;
+                txtStreetNumber.Text = selectedPlayer.streetNumber;
+                txtZipCode.Text = selectedPlayer.zipCode.ToString();
+                txtEmail.Text = selectedPlayer.eMail;
+                txtAddress.Text = selectedPlayer.address;
+                txtHandicap.Text = selectedPlayer.handicap.ToString();
+                //Kön
+                if (Convert.ToString(selectedPlayer.sex) == "True")
+                {
+                    cbSex.Text = "Man";
+                }
+                else
+                {
+                    cbSex.Text = "Kvinna";
+                }
+                //Medlemasavgift
+                if (Convert.ToString(selectedPlayer.membershipFee) == "True")
+                {
+                    cbMembershipFee.Text = "Betald";
+                }
+                else
+                {
+                    cbMembershipFee.Text = "Ej betald";
+                }
+                //Medlemstatus           
+                if (Convert.ToString(selectedPlayer.membershipStatus) == "1")
+                {
+                    cbMembershipStatus.Text = "Aktiv";
+                }
+                else if (Convert.ToString(selectedPlayer.membershipStatus) == "2")
+                {
+                    cbMembershipStatus.Text = "Vilande";
+                }
+                else if (Convert.ToString(selectedPlayer.membershipStatus) == "3")
+                {
+                    cbMembershipStatus.Text = "Junior";
+                }
+                else if (Convert.ToString(selectedPlayer.membershipStatus) == "4")
+                {
+                    cbMembershipStatus.Text = "Greenfee";
+                }
+                else if (Convert.ToString(selectedPlayer.membershipStatus) == "5")
+                {
+                    cbMembershipStatus.Text = "Gäst";
+                }
             }
         }
-
         private void btnDeletePlayer_Click(object sender, EventArgs e)
         {
           DialogResult dr = MessageBox.Show(("Är du säker på att du vill ta bort spelare " + selectedPlayer.firstName + " " + selectedPlayer.lastName + "?"), "Ta bort medlem?", MessageBoxButtons.YesNo);
