@@ -425,7 +425,8 @@ namespace Golfklubban
 
         private void lbCompetitionChart_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            selectedCompetition = (Competition)lbCompetitionChart.SelectedItem;
+            lbPlayersInCompetition.DataSource = Methods.GetPlayersInCompetition(selectedCompetition.Id);
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
@@ -470,6 +471,29 @@ namespace Golfklubban
             selectedCouple = (Couple)lbCoupleChart.SelectedItem;
             lbPlayerInCouple.DataSource = Methods.GetPlayerInCouple(selectedCouple.coupleId);
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            selectedCompetition = (Competition)lbCompetitionChart.SelectedItem;
+            selectedPlayer = (Player)lbSinglePlayers.SelectedItem;
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            try
+            {
+                conn.Open();
+                NpgsqlCommand command = new NpgsqlCommand("INSERT INTO player_competition (competition_id, player_id) VALUES (" + selectedCompetition.Id + "," + selectedPlayer.golfId + ")", conn);
+                int antal = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            lbPlayersInCompetition.DataSource = Methods.GetPlayersInCompetition(selectedCompetition.Id);
         }
         //Denna fungerar inte riktigt heller, men lägger in den så man kan skriva om den om den ska användas
         /*    private int CheckTableValue()

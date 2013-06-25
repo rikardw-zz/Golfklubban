@@ -525,5 +525,36 @@ namespace Golfklubban
             conn.Close();
             return maintenanceList;
         }
+
+        public static List<Player> GetPlayersInCompetition(int selectedCompetitionId)
+        {
+            List<Player> competitionsPlayers = new List<Player>();
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
+            NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
+            conn.Open();
+            NpgsqlCommand command = new NpgsqlCommand(@"SELECT firstname,lastname
+                                                        FROM player 
+                                                        JOIN player_competition ON player.golfid
+                                                        = player_competition.player_id
+                                                        where player_competition.competition_id =:selectedCompetitionId", conn);
+
+            command.Parameters.Add(new NpgsqlParameter("selectedCompetitionId", DbType.Int32));
+            command.Parameters[0].Value = Convert.ToInt32(selectedCompetitionId);
+
+
+            NpgsqlDataReader dr = command.ExecuteReader();
+            while (dr.Read())
+            {
+                Player players = new Player
+                {
+                    firstName = (string)dr["firstname"],
+                    lastName = (string)dr["lastname"]
+
+                };
+                competitionsPlayers.Add(players);
+            }
+            conn.Close();
+            return competitionsPlayers;
+        }
     } 
 }
