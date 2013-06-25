@@ -49,6 +49,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbLag = new System.Windows.Forms.RadioButton();
+            this.rbPar = new System.Windows.Forms.RadioButton();
+            this.rbSingel = new System.Windows.Forms.RadioButton();
             this.lbPlayersInCompetition = new System.Windows.Forms.ListBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -85,9 +88,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.lbSinglePlayers = new System.Windows.Forms.ListBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.rbLag = new System.Windows.Forms.RadioButton();
-            this.rbPar = new System.Windows.Forms.RadioButton();
-            this.rbSingel = new System.Windows.Forms.RadioButton();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -306,10 +308,43 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lägg till tävlingar";
             // 
+            // rbLag
+            // 
+            this.rbLag.AutoSize = true;
+            this.rbLag.Location = new System.Drawing.Point(6, 75);
+            this.rbLag.Name = "rbLag";
+            this.rbLag.Size = new System.Drawing.Size(43, 17);
+            this.rbLag.TabIndex = 25;
+            this.rbLag.TabStop = true;
+            this.rbLag.Text = "Lag";
+            this.rbLag.UseVisualStyleBackColor = true;
+            // 
+            // rbPar
+            // 
+            this.rbPar.AutoSize = true;
+            this.rbPar.Location = new System.Drawing.Point(7, 52);
+            this.rbPar.Name = "rbPar";
+            this.rbPar.Size = new System.Drawing.Size(41, 17);
+            this.rbPar.TabIndex = 24;
+            this.rbPar.TabStop = true;
+            this.rbPar.Text = "Par";
+            this.rbPar.UseVisualStyleBackColor = true;
+            // 
+            // rbSingel
+            // 
+            this.rbSingel.AutoSize = true;
+            this.rbSingel.Location = new System.Drawing.Point(7, 28);
+            this.rbSingel.Name = "rbSingel";
+            this.rbSingel.Size = new System.Drawing.Size(54, 17);
+            this.rbSingel.TabIndex = 23;
+            this.rbSingel.TabStop = true;
+            this.rbSingel.Text = "Singel";
+            this.rbSingel.UseVisualStyleBackColor = true;
+            // 
             // lbPlayersInCompetition
             // 
             this.lbPlayersInCompetition.FormattingEnabled = true;
-            this.lbPlayersInCompetition.Location = new System.Drawing.Point(165, 288);
+            this.lbPlayersInCompetition.Location = new System.Drawing.Point(165, 294);
             this.lbPlayersInCompetition.Name = "lbPlayersInCompetition";
             this.lbPlayersInCompetition.Size = new System.Drawing.Size(200, 147);
             this.lbPlayersInCompetition.TabIndex = 19;
@@ -325,6 +360,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Controls.Add(this.btnDeletePlayerFromTeam);
             this.groupBox2.Controls.Add(this.lbPlayerInTeam);
             this.groupBox2.Controls.Add(this.label12);
@@ -411,7 +447,7 @@
             // 
             // btnCreateTeam
             // 
-            this.btnCreateTeam.Location = new System.Drawing.Point(131, 167);
+            this.btnCreateTeam.Location = new System.Drawing.Point(125, 167);
             this.btnCreateTeam.Name = "btnCreateTeam";
             this.btnCreateTeam.Size = new System.Drawing.Size(91, 23);
             this.btnCreateTeam.TabIndex = 9;
@@ -456,6 +492,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button4);
             this.groupBox3.Controls.Add(this.btnAddPlayerToCouple);
             this.groupBox3.Controls.Add(this.btnDeletePlayerFromCouple);
             this.groupBox3.Controls.Add(this.label16);
@@ -531,7 +568,7 @@
             // 
             // btnCreateCouple
             // 
-            this.btnCreateCouple.Location = new System.Drawing.Point(131, 167);
+            this.btnCreateCouple.Location = new System.Drawing.Point(125, 167);
             this.btnCreateCouple.Name = "btnCreateCouple";
             this.btnCreateCouple.Size = new System.Drawing.Size(91, 23);
             this.btnCreateCouple.TabIndex = 11;
@@ -602,7 +639,7 @@
             // 
             this.lbPassedCompetitionChart.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.lbPassedCompetitionChart.FormattingEnabled = true;
-            this.lbPassedCompetitionChart.Location = new System.Drawing.Point(808, 54);
+            this.lbPassedCompetitionChart.Location = new System.Drawing.Point(794, 54);
             this.lbPassedCompetitionChart.Name = "lbPassedCompetitionChart";
             this.lbPassedCompetitionChart.Size = new System.Drawing.Size(200, 407);
             this.lbPassedCompetitionChart.TabIndex = 1;
@@ -610,7 +647,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(805, 41);
+            this.label18.Location = new System.Drawing.Point(791, 41);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(84, 13);
             this.label18.TabIndex = 10;
@@ -621,7 +658,7 @@
             this.groupBox4.Controls.Add(this.button2);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.lbSinglePlayers);
-            this.groupBox4.Location = new System.Drawing.Point(808, 38);
+            this.groupBox4.Location = new System.Drawing.Point(437, 64);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(329, 446);
             this.groupBox4.TabIndex = 24;
@@ -667,44 +704,29 @@
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
-            // rbLag
+            // button4
             // 
-            this.rbLag.AutoSize = true;
-            this.rbLag.Location = new System.Drawing.Point(6, 75);
-            this.rbLag.Name = "rbLag";
-            this.rbLag.Size = new System.Drawing.Size(43, 17);
-            this.rbLag.TabIndex = 25;
-            this.rbLag.TabStop = true;
-            this.rbLag.Text = "Lag";
-            this.rbLag.UseVisualStyleBackColor = true;
+            this.button4.Location = new System.Drawing.Point(21, 167);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(91, 23);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "Lägg till i tävling";
+            this.button4.UseVisualStyleBackColor = true;
             // 
-            // rbPar
+            // button5
             // 
-            this.rbPar.AutoSize = true;
-            this.rbPar.Location = new System.Drawing.Point(7, 52);
-            this.rbPar.Name = "rbPar";
-            this.rbPar.Size = new System.Drawing.Size(41, 17);
-            this.rbPar.TabIndex = 24;
-            this.rbPar.TabStop = true;
-            this.rbPar.Text = "Par";
-            this.rbPar.UseVisualStyleBackColor = true;
-            // 
-            // rbSingel
-            // 
-            this.rbSingel.AutoSize = true;
-            this.rbSingel.Location = new System.Drawing.Point(7, 28);
-            this.rbSingel.Name = "rbSingel";
-            this.rbSingel.Size = new System.Drawing.Size(54, 17);
-            this.rbSingel.TabIndex = 23;
-            this.rbSingel.TabStop = true;
-            this.rbSingel.Text = "Singel";
-            this.rbSingel.UseVisualStyleBackColor = true;
+            this.button5.Location = new System.Drawing.Point(21, 167);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(91, 23);
+            this.button5.TabIndex = 19;
+            this.button5.Text = "Lägg till i tävling";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // CompetitionChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1381, 525);
+            this.ClientSize = new System.Drawing.Size(1018, 525);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
@@ -792,5 +814,7 @@
         private System.Windows.Forms.RadioButton rbLag;
         private System.Windows.Forms.RadioButton rbPar;
         private System.Windows.Forms.RadioButton rbSingel;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
     }
 }
