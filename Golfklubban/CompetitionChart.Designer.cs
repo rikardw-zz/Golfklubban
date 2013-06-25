@@ -85,6 +85,9 @@
             this.label17 = new System.Windows.Forms.Label();
             this.lbSinglePlayers = new System.Windows.Forms.ListBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.rbLag = new System.Windows.Forms.RadioButton();
+            this.rbPar = new System.Windows.Forms.RadioButton();
+            this.rbSingel = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -93,7 +96,7 @@
             // 
             // btnRegisterCompetition
             // 
-            this.btnRegisterCompetition.Location = new System.Drawing.Point(3, 288);
+            this.btnRegisterCompetition.Location = new System.Drawing.Point(3, 370);
             this.btnRegisterCompetition.Name = "btnRegisterCompetition";
             this.btnRegisterCompetition.Size = new System.Drawing.Size(100, 23);
             this.btnRegisterCompetition.TabIndex = 9;
@@ -112,7 +115,7 @@
             // 
             // txtCompetitionName
             // 
-            this.txtCompetitionName.Location = new System.Drawing.Point(6, 41);
+            this.txtCompetitionName.Location = new System.Drawing.Point(6, 123);
             this.txtCompetitionName.Name = "txtCompetitionName";
             this.txtCompetitionName.Size = new System.Drawing.Size(129, 20);
             this.txtCompetitionName.TabIndex = 1;
@@ -120,7 +123,7 @@
             // txtStartDate
             // 
             this.txtStartDate.ForeColor = System.Drawing.Color.Silver;
-            this.txtStartDate.Location = new System.Drawing.Point(4, 85);
+            this.txtStartDate.Location = new System.Drawing.Point(4, 167);
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.Size = new System.Drawing.Size(131, 20);
             this.txtStartDate.TabIndex = 2;
@@ -130,7 +133,7 @@
             // txtEndDate
             // 
             this.txtEndDate.ForeColor = System.Drawing.Color.Silver;
-            this.txtEndDate.Location = new System.Drawing.Point(6, 130);
+            this.txtEndDate.Location = new System.Drawing.Point(6, 212);
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.Size = new System.Drawing.Size(129, 20);
             this.txtEndDate.TabIndex = 3;
@@ -140,7 +143,7 @@
             // txtLastBookingDate
             // 
             this.txtLastBookingDate.ForeColor = System.Drawing.Color.Silver;
-            this.txtLastBookingDate.Location = new System.Drawing.Point(6, 174);
+            this.txtLastBookingDate.Location = new System.Drawing.Point(6, 256);
             this.txtLastBookingDate.Name = "txtLastBookingDate";
             this.txtLastBookingDate.Size = new System.Drawing.Size(129, 20);
             this.txtLastBookingDate.TabIndex = 4;
@@ -150,7 +153,7 @@
             // txtLastUnbookingDate
             // 
             this.txtLastUnbookingDate.ForeColor = System.Drawing.Color.Silver;
-            this.txtLastUnbookingDate.Location = new System.Drawing.Point(6, 218);
+            this.txtLastUnbookingDate.Location = new System.Drawing.Point(6, 300);
             this.txtLastUnbookingDate.Name = "txtLastUnbookingDate";
             this.txtLastUnbookingDate.Size = new System.Drawing.Size(129, 20);
             this.txtLastUnbookingDate.TabIndex = 5;
@@ -159,21 +162,21 @@
             // 
             // txtClassA
             // 
-            this.txtClassA.Location = new System.Drawing.Point(6, 262);
+            this.txtClassA.Location = new System.Drawing.Point(6, 344);
             this.txtClassA.Name = "txtClassA";
             this.txtClassA.Size = new System.Drawing.Size(39, 20);
             this.txtClassA.TabIndex = 6;
             // 
             // txtClassB
             // 
-            this.txtClassB.Location = new System.Drawing.Point(51, 262);
+            this.txtClassB.Location = new System.Drawing.Point(51, 344);
             this.txtClassB.Name = "txtClassB";
             this.txtClassB.Size = new System.Drawing.Size(39, 20);
             this.txtClassB.TabIndex = 7;
             // 
             // txtClassC
             // 
-            this.txtClassC.Location = new System.Drawing.Point(96, 260);
+            this.txtClassC.Location = new System.Drawing.Point(96, 342);
             this.txtClassC.Name = "txtClassC";
             this.txtClassC.Size = new System.Drawing.Size(39, 20);
             this.txtClassC.TabIndex = 8;
@@ -181,7 +184,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 25);
+            this.label1.Location = new System.Drawing.Point(3, 107);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 10;
@@ -190,7 +193,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 69);
+            this.label2.Location = new System.Drawing.Point(3, 151);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 11;
@@ -199,7 +202,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 114);
+            this.label3.Location = new System.Drawing.Point(3, 196);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 12;
@@ -208,7 +211,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 158);
+            this.label4.Location = new System.Drawing.Point(3, 240);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(115, 13);
             this.label4.TabIndex = 13;
@@ -217,7 +220,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 202);
+            this.label5.Location = new System.Drawing.Point(3, 284);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(117, 13);
             this.label5.TabIndex = 14;
@@ -226,7 +229,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 246);
+            this.label6.Location = new System.Drawing.Point(3, 328);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 13);
             this.label6.TabIndex = 15;
@@ -235,7 +238,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(51, 244);
+            this.label7.Location = new System.Drawing.Point(51, 326);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 16;
@@ -244,7 +247,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(99, 244);
+            this.label8.Location = new System.Drawing.Point(99, 326);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(42, 13);
             this.label8.TabIndex = 17;
@@ -271,6 +274,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rbLag);
+            this.groupBox1.Controls.Add(this.rbPar);
+            this.groupBox1.Controls.Add(this.rbSingel);
             this.groupBox1.Controls.Add(this.lbPlayersInCompetition);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.txtCompetitionName);
@@ -661,6 +667,39 @@
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
+            // rbLag
+            // 
+            this.rbLag.AutoSize = true;
+            this.rbLag.Location = new System.Drawing.Point(6, 75);
+            this.rbLag.Name = "rbLag";
+            this.rbLag.Size = new System.Drawing.Size(43, 17);
+            this.rbLag.TabIndex = 25;
+            this.rbLag.TabStop = true;
+            this.rbLag.Text = "Lag";
+            this.rbLag.UseVisualStyleBackColor = true;
+            // 
+            // rbPar
+            // 
+            this.rbPar.AutoSize = true;
+            this.rbPar.Location = new System.Drawing.Point(7, 52);
+            this.rbPar.Name = "rbPar";
+            this.rbPar.Size = new System.Drawing.Size(41, 17);
+            this.rbPar.TabIndex = 24;
+            this.rbPar.TabStop = true;
+            this.rbPar.Text = "Par";
+            this.rbPar.UseVisualStyleBackColor = true;
+            // 
+            // rbSingel
+            // 
+            this.rbSingel.AutoSize = true;
+            this.rbSingel.Location = new System.Drawing.Point(7, 28);
+            this.rbSingel.Name = "rbSingel";
+            this.rbSingel.Size = new System.Drawing.Size(54, 17);
+            this.rbSingel.TabIndex = 23;
+            this.rbSingel.TabStop = true;
+            this.rbSingel.Text = "Singel";
+            this.rbSingel.UseVisualStyleBackColor = true;
+            // 
             // CompetitionChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -750,5 +789,8 @@
         private System.Windows.Forms.ListBox lbSinglePlayers;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.ListBox lbPlayersInCompetition;
+        private System.Windows.Forms.RadioButton rbLag;
+        private System.Windows.Forms.RadioButton rbPar;
+        private System.Windows.Forms.RadioButton rbSingel;
     }
 }

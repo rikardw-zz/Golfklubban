@@ -51,12 +51,26 @@ namespace Golfklubban
             string classA = txtClassA.Text;
             string classB = txtClassB.Text;
             string classC = txtClassC.Text;
+            int competitionType = 0;
+
+            if (rbSingel.Checked)
+            {
+                competitionType = 1;
+            }
+            else if (rbPar.Checked)
+            {
+                competitionType = 2;
+            }
+            else if (rbLag.Checked)
+            {
+                competitionType = 3;
+            }
 
             NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true;");
             try
             {
                 conn.Open();
-                string insert = "INSERT INTO competition (name, startdate, enddate, lastbookingdate, lastunbookingdate, classa, classb, classc) VALUES('" + name + "','" + startDate + "','" + endDate + "','" + lastBooking + "','" + lastUnbooking + "'," + classA + "," + classB + "," + classC + ")";
+                string insert = "INSERT INTO competition (name, startdate, enddate, lastbookingdate, lastunbookingdate, classa, classb, classc, competitiontype) VALUES('" + name + "','" + startDate + "','" + endDate + "','" + lastBooking + "','" + lastUnbooking + "'," + classA + "," + classB + "," + classC + ", " + competitionType + ")";
                 NpgsqlCommand command = new NpgsqlCommand(insert, conn);
                 //används när man kör INSERT fråga
                 int numberOfAffectedRows = command.ExecuteNonQuery();
