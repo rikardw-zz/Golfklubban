@@ -532,7 +532,7 @@ namespace Golfklubban
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
             NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
             conn.Open();
-            NpgsqlCommand command = new NpgsqlCommand(@"SELECT firstname,lastname
+            NpgsqlCommand command = new NpgsqlCommand(@"SELECT golfid,firstname,lastname
                                                         FROM player 
                                                         JOIN player_competition ON player.golfid
                                                         = player_competition.player_id
@@ -547,6 +547,7 @@ namespace Golfklubban
             {
                 Player players = new Player
                 {
+                    golfId = (int)dr["golfid"],
                     firstName = (string)dr["firstname"],
                     lastName = (string)dr["lastname"]
 

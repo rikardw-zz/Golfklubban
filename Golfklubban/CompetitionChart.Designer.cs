@@ -53,7 +53,7 @@
             this.rbPar = new System.Windows.Forms.RadioButton();
             this.rbSingel = new System.Windows.Forms.RadioButton();
             this.lbPlayersInCompetition = new System.Windows.Forms.ListBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDropPlayerFromComp = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
             this.btnDeletePlayerFromTeam = new System.Windows.Forms.Button();
@@ -282,7 +282,7 @@
             this.groupBox1.Controls.Add(this.rbPar);
             this.groupBox1.Controls.Add(this.rbSingel);
             this.groupBox1.Controls.Add(this.lbPlayersInCompetition);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.btnDropPlayerFromComp);
             this.groupBox1.Controls.Add(this.txtCompetitionName);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnRegisterCompetition);
@@ -351,14 +351,15 @@
             this.lbPlayersInCompetition.Size = new System.Drawing.Size(200, 147);
             this.lbPlayersInCompetition.TabIndex = 19;
             // 
-            // button3
+            // btnDropPlayerFromComp
             // 
-            this.button3.Location = new System.Drawing.Point(265, 451);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 23);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "Ta bort spelare";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDropPlayerFromComp.Location = new System.Drawing.Point(265, 451);
+            this.btnDropPlayerFromComp.Name = "btnDropPlayerFromComp";
+            this.btnDropPlayerFromComp.Size = new System.Drawing.Size(100, 23);
+            this.btnDropPlayerFromComp.TabIndex = 20;
+            this.btnDropPlayerFromComp.Text = "Ta bort spelare";
+            this.btnDropPlayerFromComp.UseVisualStyleBackColor = true;
+            this.btnDropPlayerFromComp.Click += new System.EventHandler(this.btnDropPlayerFromComp_Click);
             // 
             // groupBox2
             // 
@@ -829,7 +830,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDropPlayerFromComp;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ListBox lbSinglePlayers;
         private System.Windows.Forms.RadioButton radioButton3;

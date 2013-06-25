@@ -495,6 +495,34 @@ namespace Golfklubban
             }
             lbPlayersInCompetition.DataSource = Methods.GetPlayersInCompetition(selectedCompetition.Id);
         }
+
+        private void btnDropPlayerFromComp_Click(object sender, EventArgs e)
+        {
+            selectedPlayer = (Player)lbPlayersInCompetition.SelectedItem;
+            selectedCompetition = (Competition)lbCompetitionChart.SelectedItem;
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            try
+            {
+                string sql = "DELETE FROM player_competition WHERE competition_id = " + selectedCompetition.Id + " AND player_id = " + selectedPlayer.golfId + "";
+                conn.Open();
+                NpgsqlCommand command = new NpgsqlCommand(sql, conn);
+                int antal = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+            }
+            finally
+            {
+                MessageBox.Show("Du har nu avbokat spelaren från tävlingen.");
+                lbPlayersInCompetition.DataSource = Methods.GetPlayersInCompetition(selectedCompetition.Id);
+                conn.Close();
+            }
+        }
+
+        
         //Denna fungerar inte riktigt heller, men lägger in den så man kan skriva om den om den ska användas
         /*    private int CheckTableValue()
         {
