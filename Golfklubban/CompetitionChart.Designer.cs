@@ -319,7 +319,7 @@
             this.button3.Location = new System.Drawing.Point(265, 451);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 23);
-            this.button3.TabIndex = 9;
+            this.button3.TabIndex = 20;
             this.button3.Text = "Ta bort spelare";
             this.button3.UseVisualStyleBackColor = true;
             // 
@@ -534,7 +534,7 @@
             this.btnCreateCouple.Location = new System.Drawing.Point(131, 167);
             this.btnCreateCouple.Name = "btnCreateCouple";
             this.btnCreateCouple.Size = new System.Drawing.Size(91, 23);
-            this.btnCreateCouple.TabIndex = 4;
+            this.btnCreateCouple.TabIndex = 11;
             this.btnCreateCouple.Text = "Skapa par";
             this.btnCreateCouple.UseVisualStyleBackColor = true;
             this.btnCreateCouple.Click += new System.EventHandler(this.btnCreateCouple_Click);
@@ -572,7 +572,7 @@
             this.txtCoupleName.Location = new System.Drawing.Point(21, 37);
             this.txtCoupleName.Name = "txtCoupleName";
             this.txtCoupleName.Size = new System.Drawing.Size(134, 20);
-            this.txtCoupleName.TabIndex = 0;
+            this.txtCoupleName.TabIndex = 10;
             // 
             // radioButton1
             // 

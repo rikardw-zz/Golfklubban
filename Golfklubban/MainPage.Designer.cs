@@ -68,15 +68,15 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnMaintenance = new System.Windows.Forms.Button();
+            this.txtStaffId = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtMaintenanceEnd = new System.Windows.Forms.TextBox();
             this.txtMaintenanceStart = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtMaintenanceDate = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnMaintenance = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtStaffId = new System.Windows.Forms.TextBox();
             this.btnCancelMaintenance = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.lbUpcomingMaintenance = new System.Windows.Forms.ListBox();
@@ -92,7 +92,7 @@
             this.lbMainPagePlayers.Location = new System.Drawing.Point(36, 58);
             this.lbMainPagePlayers.Name = "lbMainPagePlayers";
             this.lbMainPagePlayers.Size = new System.Drawing.Size(228, 303);
-            this.lbMainPagePlayers.TabIndex = 2;
+            this.lbMainPagePlayers.TabIndex = 20;
             // 
             // label1
             // 
@@ -108,7 +108,7 @@
             this.txtBooking.Location = new System.Drawing.Point(396, 359);
             this.txtBooking.Name = "txtBooking";
             this.txtBooking.Size = new System.Drawing.Size(94, 23);
-            this.txtBooking.TabIndex = 4;
+            this.txtBooking.TabIndex = 23;
             this.txtBooking.Text = "Boka spelare";
             this.txtBooking.UseVisualStyleBackColor = true;
             this.txtBooking.Click += new System.EventHandler(this.txtBooking_Click);
@@ -117,7 +117,7 @@
             // 
             this.monthCalendar1.Location = new System.Drawing.Point(319, 58);
             this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 5;
+            this.monthCalendar1.TabIndex = 21;
             // 
             // lbTimes
             // 
@@ -125,7 +125,7 @@
             this.lbTimes.Location = new System.Drawing.Point(319, 232);
             this.lbTimes.Name = "lbTimes";
             this.lbTimes.Size = new System.Drawing.Size(171, 121);
-            this.lbTimes.TabIndex = 6;
+            this.lbTimes.TabIndex = 22;
             this.lbTimes.SelectedIndexChanged += new System.EventHandler(this.lbTimes_SelectedIndexChanged);
             // 
             // lbBookedPlayers
@@ -134,7 +134,7 @@
             this.lbBookedPlayers.Location = new System.Drawing.Point(319, 411);
             this.lbBookedPlayers.Name = "lbBookedPlayers";
             this.lbBookedPlayers.Size = new System.Drawing.Size(171, 69);
-            this.lbBookedPlayers.TabIndex = 7;
+            this.lbBookedPlayers.TabIndex = 24;
             // 
             // label5
             // 
@@ -159,21 +159,21 @@
             this.txtSearchLastName.Location = new System.Drawing.Point(89, 35);
             this.txtSearchLastName.Name = "txtSearchLastName";
             this.txtSearchLastName.Size = new System.Drawing.Size(100, 20);
-            this.txtSearchLastName.TabIndex = 23;
+            this.txtSearchLastName.TabIndex = 2;
             // 
             // txtSearchGolfId
             // 
             this.txtSearchGolfId.Location = new System.Drawing.Point(6, 35);
             this.txtSearchGolfId.Name = "txtSearchGolfId";
             this.txtSearchGolfId.Size = new System.Drawing.Size(78, 20);
-            this.txtSearchGolfId.TabIndex = 21;
+            this.txtSearchGolfId.TabIndex = 1;
             // 
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(6, 61);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(75, 23);
-            this.txtSearch.TabIndex = 20;
+            this.txtSearch.TabIndex = 3;
             this.txtSearch.Text = "Sök Spelare";
             this.txtSearch.UseVisualStyleBackColor = true;
             this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
@@ -229,7 +229,7 @@
             this.cbGuestSex.Location = new System.Drawing.Point(18, 232);
             this.cbGuestSex.Name = "cbGuestSex";
             this.cbGuestSex.Size = new System.Drawing.Size(100, 21);
-            this.cbGuestSex.TabIndex = 345;
+            this.cbGuestSex.TabIndex = 10;
             // 
             // label12
             // 
@@ -247,7 +247,7 @@
             this.txtGuestGolfId.MaxLength = 9;
             this.txtGuestGolfId.Name = "txtGuestGolfId";
             this.txtGuestGolfId.Size = new System.Drawing.Size(100, 20);
-            this.txtGuestGolfId.TabIndex = 35;
+            this.txtGuestGolfId.TabIndex = 6;
             this.txtGuestGolfId.Text = "YYMMDDXXX";
             this.txtGuestGolfId.Click += new System.EventHandler(this.txtGuestGolfId_Click);
             // 
@@ -256,14 +256,14 @@
             this.txtGuestFirstName.Location = new System.Drawing.Point(18, 32);
             this.txtGuestFirstName.Name = "txtGuestFirstName";
             this.txtGuestFirstName.Size = new System.Drawing.Size(100, 20);
-            this.txtGuestFirstName.TabIndex = 33;
+            this.txtGuestFirstName.TabIndex = 5;
             // 
             // btnRegisterGuest
             // 
             this.btnRegisterGuest.Location = new System.Drawing.Point(43, 269);
             this.btnRegisterGuest.Name = "btnRegisterGuest";
             this.btnRegisterGuest.Size = new System.Drawing.Size(75, 23);
-            this.btnRegisterGuest.TabIndex = 43;
+            this.btnRegisterGuest.TabIndex = 11;
             this.btnRegisterGuest.Text = "Registrera";
             this.btnRegisterGuest.UseVisualStyleBackColor = true;
             this.btnRegisterGuest.Click += new System.EventHandler(this.btnRegisterGuest_Click);
@@ -273,7 +273,7 @@
             this.txtGuestLastName.Location = new System.Drawing.Point(18, 154);
             this.txtGuestLastName.Name = "txtGuestLastName";
             this.txtGuestLastName.Size = new System.Drawing.Size(100, 20);
-            this.txtGuestLastName.TabIndex = 34;
+            this.txtGuestLastName.TabIndex = 8;
             // 
             // label11
             // 
@@ -289,7 +289,7 @@
             this.txtGuestMobilePhone.Location = new System.Drawing.Point(18, 190);
             this.txtGuestMobilePhone.Name = "txtGuestMobilePhone";
             this.txtGuestMobilePhone.Size = new System.Drawing.Size(100, 20);
-            this.txtGuestMobilePhone.TabIndex = 36;
+            this.txtGuestMobilePhone.TabIndex = 9;
             // 
             // label10
             // 
@@ -305,7 +305,7 @@
             this.txtGuestHandicap.Location = new System.Drawing.Point(18, 110);
             this.txtGuestHandicap.Name = "txtGuestHandicap";
             this.txtGuestHandicap.Size = new System.Drawing.Size(100, 20);
-            this.txtGuestHandicap.TabIndex = 37;
+            this.txtGuestHandicap.TabIndex = 7;
             // 
             // label9
             // 
@@ -433,7 +433,7 @@
             this.button2.Location = new System.Drawing.Point(89, 62);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
-            this.button2.TabIndex = 27;
+            this.button2.TabIndex = 4;
             this.button2.Text = "Visa alla spelare";
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -455,6 +455,32 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Boka tid för banskötsel";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(7, 133);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(60, 13);
+            this.label14.TabIndex = 53;
+            this.label14.Text = "Personal Id";
+            // 
+            // btnMaintenance
+            // 
+            this.btnMaintenance.Location = new System.Drawing.Point(24, 181);
+            this.btnMaintenance.Name = "btnMaintenance";
+            this.btnMaintenance.Size = new System.Drawing.Size(94, 23);
+            this.btnMaintenance.TabIndex = 16;
+            this.btnMaintenance.Text = "Boka Underhåll";
+            this.btnMaintenance.UseVisualStyleBackColor = true;
+            this.btnMaintenance.Click += new System.EventHandler(this.btnMaintenance_Click);
+            // 
+            // txtStaffId
+            // 
+            this.txtStaffId.Location = new System.Drawing.Point(6, 149);
+            this.txtStaffId.Name = "txtStaffId";
+            this.txtStaffId.Size = new System.Drawing.Size(112, 20);
+            this.txtStaffId.TabIndex = 15;
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -470,7 +496,7 @@
             this.txtMaintenanceEnd.Location = new System.Drawing.Point(9, 110);
             this.txtMaintenanceEnd.Name = "txtMaintenanceEnd";
             this.txtMaintenanceEnd.Size = new System.Drawing.Size(112, 20);
-            this.txtMaintenanceEnd.TabIndex = 0;
+            this.txtMaintenanceEnd.TabIndex = 14;
             this.txtMaintenanceEnd.Text = "HH:MM";
             this.txtMaintenanceEnd.Click += new System.EventHandler(this.textBox3_Click);
             // 
@@ -480,7 +506,7 @@
             this.txtMaintenanceStart.Location = new System.Drawing.Point(6, 68);
             this.txtMaintenanceStart.Name = "txtMaintenanceStart";
             this.txtMaintenanceStart.Size = new System.Drawing.Size(112, 20);
-            this.txtMaintenanceStart.TabIndex = 0;
+            this.txtMaintenanceStart.TabIndex = 13;
             this.txtMaintenanceStart.Text = "HH:MM";
             this.txtMaintenanceStart.Click += new System.EventHandler(this.textBox2_Click);
             // 
@@ -499,7 +525,7 @@
             this.txtMaintenanceDate.Location = new System.Drawing.Point(6, 32);
             this.txtMaintenanceDate.Name = "txtMaintenanceDate";
             this.txtMaintenanceDate.Size = new System.Drawing.Size(112, 20);
-            this.txtMaintenanceDate.TabIndex = 0;
+            this.txtMaintenanceDate.TabIndex = 12;
             this.txtMaintenanceDate.Text = "YYYY-MM-DD";
             this.txtMaintenanceDate.Click += new System.EventHandler(this.textBox1_Click);
             // 
@@ -512,38 +538,12 @@
             this.label6.TabIndex = 38;
             this.label6.Text = "Datum";
             // 
-            // btnMaintenance
-            // 
-            this.btnMaintenance.Location = new System.Drawing.Point(24, 181);
-            this.btnMaintenance.Name = "btnMaintenance";
-            this.btnMaintenance.Size = new System.Drawing.Size(94, 23);
-            this.btnMaintenance.TabIndex = 39;
-            this.btnMaintenance.Text = "Boka Underhåll";
-            this.btnMaintenance.UseVisualStyleBackColor = true;
-            this.btnMaintenance.Click += new System.EventHandler(this.btnMaintenance_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(7, 133);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(60, 13);
-            this.label14.TabIndex = 53;
-            this.label14.Text = "Personal Id";
-            // 
-            // txtStaffId
-            // 
-            this.txtStaffId.Location = new System.Drawing.Point(6, 149);
-            this.txtStaffId.Name = "txtStaffId";
-            this.txtStaffId.Size = new System.Drawing.Size(112, 20);
-            this.txtStaffId.TabIndex = 52;
-            // 
             // btnCancelMaintenance
             // 
             this.btnCancelMaintenance.Location = new System.Drawing.Point(1047, 202);
             this.btnCancelMaintenance.Name = "btnCancelMaintenance";
             this.btnCancelMaintenance.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelMaintenance.TabIndex = 55;
+            this.btnCancelMaintenance.TabIndex = 17;
             this.btnCancelMaintenance.Text = "Avboka";
             this.btnCancelMaintenance.UseVisualStyleBackColor = true;
             this.btnCancelMaintenance.Click += new System.EventHandler(this.btnCancelMaintenance_Click);
