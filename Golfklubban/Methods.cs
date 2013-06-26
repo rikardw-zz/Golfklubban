@@ -557,5 +557,70 @@ namespace Golfklubban
             conn.Close();
             return competitionsPlayers;
         }
+
+        public static List<Player> GetPlayersResult(int selectedCompetitionId)
+        {
+            List<Player> resultOnPlayers = new List<Player>();
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
+            NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
+            conn.Open();
+            NpgsqlCommand command = new NpgsqlCommand(@"SELECT golfid,firstname,lastname,result
+                                                        FROM player 
+                                                        JOIN player_competition ON player.golfid
+                                                        = player_competition.player_id
+                                                        where player_competition.competition_id =:selectedCompetitionId ORDER BY result", conn);
+
+            command.Parameters.Add(new NpgsqlParameter("selectedCompetitionId", DbType.Int32));
+            command.Parameters[0].Value = Convert.ToInt32(selectedCompetitionId);
+
+
+            NpgsqlDataReader dr = command.ExecuteReader();
+            while (dr.Read())
+            {
+                Player players = new Player
+                {
+                    golfId = (int)dr["golfid"],
+                    firstName = (string)dr["firstname"],
+                    lastName = (string)dr["lastname"],
+                    result = (int)dr["result"]
+
+                };
+                resultOnPlayers.Add(players);
+            }
+            conn.Close();
+            return resultOnPlayers;
+        }
+
+        public static List<Player> GetPlayersInPassedCompetition(int selectedCompetitionId) //hämtar spelare från gamla tävlingar
+        {
+            List<Player> competitionsPlayers = new List<Player>();
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
+            NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
+            conn.Open();
+            NpgsqlCommand command = new NpgsqlCommand(@"SELECT golfid,firstname,lastname
+                                                        FROM player 
+                                                        JOIN player_competition ON player.golfid
+                                                        = player_competition.player_id
+                                                        where player_competition.competition_id =:selectedCompetitionId", conn);
+
+            command.Parameters.Add(new NpgsqlParameter("selectedCompetitionId", DbType.Int32));
+            command.Parameters[0].Value = Convert.ToInt32(selectedCompetitionId);
+
+
+            NpgsqlDataReader dr = command.ExecuteReader();
+            while (dr.Read())
+            {
+                Player players = new Player
+                {
+                    golfId = (int)dr["golfid"],
+                    firstName = (string)dr["firstname"],
+                    lastName = (string)dr["lastname"]
+
+                };
+                competitionsPlayers.Add(players);
+            }
+            conn.Close();
+            return competitionsPlayers;
+        }
     } 
 }

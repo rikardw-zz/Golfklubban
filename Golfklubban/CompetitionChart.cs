@@ -519,6 +519,128 @@ namespace Golfklubban
         }
 
        
+
+        private void btnAddResult_Click(object sender, EventArgs e)
+        {
+            int result = Convert.ToInt32(txtAddResult.Text);
+            selectedPlayer = (Player)lbGolfPlayers.SelectedItem;
+            selectedCompetition = (Competition)lbPassedCompetitionChart.SelectedItem;
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+            try
+            {
+                string sql = "UPDATE player_competition SET result = " + result + " WHERE player_id = " + selectedPlayer.golfId + " AND competition_id = " + selectedCompetition.Id + "";
+                conn.Open();
+                NpgsqlCommand command = new NpgsqlCommand(sql, conn);
+                int antal = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+                txtAddResult.Clear();
+            }
+        }
+ 
+
+        private void btnGetResult_Click(object sender, EventArgs e)
+        {
+            if (rbClassA.Checked == true)
+            {
+                lbResults.Items.Clear();
+                selectedCompetition = (Competition)lbPassedCompetitionChart.SelectedItem;
+                NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+                try
+                {
+                    conn.Open();
+                    NpgsqlCommand command = new NpgsqlCommand("SELECT *, result FROM player JOIN player_competition ON player.golfid = player_competition.player_id AND player_competition.competition_id = " + selectedCompetition.Id + " ORDER BY result", conn);
+                    NpgsqlDataReader dr = command.ExecuteReader();
+                    while (dr.Read())
+                    {
+
+                        if (0 <= Convert.ToInt32(dr["handicap"]) && selectedCompetition.classA >= Convert.ToInt32(dr["handicap"]))
+                        {
+                            lbResults.Items.Add(dr["firstname"] + " " + dr["lastname"] + " " + dr["result"]);
+                        }
+                        else
+                        {
+                        }
+                    }
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+                if (rbClassB.Checked == true)
+            {
+                lbResults.Items.Clear();
+                selectedCompetition = (Competition)lbPassedCompetitionChart.SelectedItem;
+                NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+                try
+                {
+                    conn.Open();
+                    NpgsqlCommand command = new NpgsqlCommand("SELECT firstname, lastname, handicap, result FROM player JOIN player_competition ON player.golfid = player_competition.player_id AND player_competition.competition_id = " + selectedCompetition.Id + " ORDER BY result", conn);
+                    NpgsqlDataReader dr = command.ExecuteReader();
+                    while (dr.Read())
+                    {
+
+                        if (Convert.ToInt32(dr["handicap"]) > selectedCompetition.classA && Convert.ToInt32(dr["handicap"]) <= selectedCompetition.classB)
+                        {
+                            lbResults.Items.Add(dr["firstname"] + " " + dr["lastname"] + " " + dr["result"]);
+                        }
+                        else
+                        {
+                        }
+                    }
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                }
+
+                if (rbClassC.Checked == true)
+                {
+                    lbResults.Items.Clear();
+                    selectedCompetition = (Competition)lbPassedCompetitionChart.SelectedItem;
+                    NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+                    try
+                    {
+                        conn.Open();
+                        NpgsqlCommand command = new NpgsqlCommand("SELECT firstname, lastname, handicap, result FROM player JOIN player_competition ON player.golfid = player_competition.player_id AND player_competition.competition_id = " + selectedCompetition.Id + " ORDER BY result", conn);
+                        NpgsqlDataReader dr = command.ExecuteReader();
+                        while (dr.Read())
+                        {
+
+                            if (Convert.ToInt32(dr["handicap"]) > selectedCompetition.classB)
+                            {
+                                lbResults.Items.Add(dr["firstname"] + " " + dr["lastname"] + " " + dr["result"]);
+                            }
+                            else
+                            {
+                            }
+                        }
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+
+            }
+        }
+
+        private void lbPassedCompetitionChart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedCompetition = (Competition)lbPassedCompetitionChart.SelectedItem;
+            lbGolfPlayers.DataSource = Methods.GetPlayersInPassedCompetition(selectedCompetition.Id);
+        }
+
+        
+       
            
     }
 }

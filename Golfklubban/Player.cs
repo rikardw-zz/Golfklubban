@@ -21,6 +21,7 @@ namespace Golfklubban
         public bool membershipFee { get; set; }
         public int teamId { get; set; }
         public int coupleId {get; set; }
+        public int result { get; set; }
 
         public override string ToString()
         {

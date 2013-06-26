@@ -92,6 +92,14 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.lbResults = new System.Windows.Forms.ListBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.btnAddResult = new System.Windows.Forms.Button();
+            this.txtAddResult = new System.Windows.Forms.TextBox();
+            this.btnGetResult = new System.Windows.Forms.Button();
+            this.rbClassC = new System.Windows.Forms.RadioButton();
+            this.rbClassB = new System.Windows.Forms.RadioButton();
+            this.rbClassA = new System.Windows.Forms.RadioButton();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lbGolfPlayers = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -664,6 +672,7 @@
             this.lbPassedCompetitionChart.Name = "lbPassedCompetitionChart";
             this.lbPassedCompetitionChart.Size = new System.Drawing.Size(200, 199);
             this.lbPassedCompetitionChart.TabIndex = 1;
+            this.lbPassedCompetitionChart.SelectedIndexChanged += new System.EventHandler(this.lbPassedCompetitionChart_SelectedIndexChanged);
             // 
             // label18
             // 
@@ -728,9 +737,9 @@
             // 
             // lbResults
             // 
-            this.lbResults.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lbResults.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbResults.FormattingEnabled = true;
-            this.lbResults.Location = new System.Drawing.Point(794, 286);
+            this.lbResults.Location = new System.Drawing.Point(794, 503);
             this.lbResults.Name = "lbResults";
             this.lbResults.Size = new System.Drawing.Size(200, 173);
             this.lbResults.TabIndex = 1;
@@ -738,17 +747,102 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(791, 269);
+            this.label19.Location = new System.Drawing.Point(791, 487);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(49, 13);
             this.label19.TabIndex = 10;
             this.label19.Text = "Resultat:";
             // 
+            // btnAddResult
+            // 
+            this.btnAddResult.Location = new System.Drawing.Point(893, 410);
+            this.btnAddResult.Name = "btnAddResult";
+            this.btnAddResult.Size = new System.Drawing.Size(101, 23);
+            this.btnAddResult.TabIndex = 26;
+            this.btnAddResult.Text = "Registrera resultat";
+            this.btnAddResult.UseVisualStyleBackColor = true;
+            this.btnAddResult.Click += new System.EventHandler(this.btnAddResult_Click);
+            // 
+            // txtAddResult
+            // 
+            this.txtAddResult.Location = new System.Drawing.Point(794, 412);
+            this.txtAddResult.Name = "txtAddResult";
+            this.txtAddResult.Size = new System.Drawing.Size(88, 20);
+            this.txtAddResult.TabIndex = 27;
+            // 
+            // btnGetResult
+            // 
+            this.btnGetResult.Location = new System.Drawing.Point(996, 455);
+            this.btnGetResult.Name = "btnGetResult";
+            this.btnGetResult.Size = new System.Drawing.Size(103, 23);
+            this.btnGetResult.TabIndex = 250;
+            this.btnGetResult.Text = "Visa resultat";
+            this.btnGetResult.UseVisualStyleBackColor = true;
+            this.btnGetResult.Click += new System.EventHandler(this.btnGetResult_Click);
+            // 
+            // rbClassC
+            // 
+            this.rbClassC.AutoSize = true;
+            this.rbClassC.Location = new System.Drawing.Point(930, 461);
+            this.rbClassC.Name = "rbClassC";
+            this.rbClassC.Size = new System.Drawing.Size(60, 17);
+            this.rbClassC.TabIndex = 249;
+            this.rbClassC.TabStop = true;
+            this.rbClassC.Text = "Klass C";
+            this.rbClassC.UseVisualStyleBackColor = true;
+            // 
+            // rbClassB
+            // 
+            this.rbClassB.AutoSize = true;
+            this.rbClassB.Location = new System.Drawing.Point(864, 461);
+            this.rbClassB.Name = "rbClassB";
+            this.rbClassB.Size = new System.Drawing.Size(60, 17);
+            this.rbClassB.TabIndex = 248;
+            this.rbClassB.TabStop = true;
+            this.rbClassB.Text = "Klass B";
+            this.rbClassB.UseVisualStyleBackColor = true;
+            // 
+            // rbClassA
+            // 
+            this.rbClassA.AutoSize = true;
+            this.rbClassA.Location = new System.Drawing.Point(798, 461);
+            this.rbClassA.Name = "rbClassA";
+            this.rbClassA.Size = new System.Drawing.Size(60, 17);
+            this.rbClassA.TabIndex = 247;
+            this.rbClassA.TabStop = true;
+            this.rbClassA.Text = "Klass A";
+            this.rbClassA.UseVisualStyleBackColor = true;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(791, 256);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(60, 13);
+            this.label20.TabIndex = 252;
+            this.label20.Text = "Golfspelare";
+            // 
+            // lbGolfPlayers
+            // 
+            this.lbGolfPlayers.FormattingEnabled = true;
+            this.lbGolfPlayers.Location = new System.Drawing.Point(794, 272);
+            this.lbGolfPlayers.Name = "lbGolfPlayers";
+            this.lbGolfPlayers.Size = new System.Drawing.Size(200, 134);
+            this.lbGolfPlayers.TabIndex = 251;
+            // 
             // CompetitionChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1018, 525);
+            this.ClientSize = new System.Drawing.Size(1134, 749);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.lbGolfPlayers);
+            this.Controls.Add(this.btnGetResult);
+            this.Controls.Add(this.rbClassC);
+            this.Controls.Add(this.rbClassB);
+            this.Controls.Add(this.rbClassA);
+            this.Controls.Add(this.txtAddResult);
+            this.Controls.Add(this.btnAddResult);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
@@ -842,5 +936,13 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ListBox lbResults;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button btnAddResult;
+        private System.Windows.Forms.TextBox txtAddResult;
+        internal System.Windows.Forms.Button btnGetResult;
+        internal System.Windows.Forms.RadioButton rbClassC;
+        internal System.Windows.Forms.RadioButton rbClassB;
+        internal System.Windows.Forms.RadioButton rbClassA;
+        internal System.Windows.Forms.Label label20;
+        internal System.Windows.Forms.ListBox lbGolfPlayers;
     }
 }
