@@ -40,11 +40,7 @@ namespace Golfklubban
             PlayerChart openPlayerChart = new PlayerChart();
             openPlayerChart.Show();
         }
-        private void visaLagToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TeamChart openTeamChart = new TeamChart();
-            openTeamChart.Show();
-        }
+       
         private void visaKommandeTävlingarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CompetitionChart openPlayerChart = new CompetitionChart();
@@ -58,12 +54,6 @@ namespace Golfklubban
         {
             CompetitionChart openCompetitionChart = new CompetitionChart();
             openCompetitionChart.Show();
-        }
-
-        private void tsmCoupleView_Click(object sender, EventArgs e)
-        {
-            CoupleChart openCoupleChart = new CoupleChart();
-            openCoupleChart.Show();
         }
 
         private void txtSearch_Click(object sender, EventArgs e)

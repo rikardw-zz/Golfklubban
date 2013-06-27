@@ -278,7 +278,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(162, 25);
+            this.label9.Location = new System.Drawing.Point(162, 24);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(103, 13);
             this.label9.TabIndex = 10;
@@ -668,16 +668,16 @@
             // 
             this.lbPassedCompetitionChart.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.lbPassedCompetitionChart.FormattingEnabled = true;
-            this.lbPassedCompetitionChart.Location = new System.Drawing.Point(794, 54);
+            this.lbPassedCompetitionChart.Location = new System.Drawing.Point(793, 67);
             this.lbPassedCompetitionChart.Name = "lbPassedCompetitionChart";
-            this.lbPassedCompetitionChart.Size = new System.Drawing.Size(200, 199);
+            this.lbPassedCompetitionChart.Size = new System.Drawing.Size(200, 173);
             this.lbPassedCompetitionChart.TabIndex = 1;
             this.lbPassedCompetitionChart.SelectedIndexChanged += new System.EventHandler(this.lbPassedCompetitionChart_SelectedIndexChanged);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(791, 41);
+            this.label18.Location = new System.Drawing.Point(790, 54);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(84, 13);
             this.label18.TabIndex = 10;
@@ -739,15 +739,15 @@
             // 
             this.lbResults.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbResults.FormattingEnabled = true;
-            this.lbResults.Location = new System.Drawing.Point(794, 503);
+            this.lbResults.Location = new System.Drawing.Point(1033, 67);
             this.lbResults.Name = "lbResults";
-            this.lbResults.Size = new System.Drawing.Size(200, 173);
+            this.lbResults.Size = new System.Drawing.Size(200, 394);
             this.lbResults.TabIndex = 1;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(791, 487);
+            this.label19.Location = new System.Drawing.Point(1030, 54);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(49, 13);
             this.label19.TabIndex = 10;
@@ -755,7 +755,7 @@
             // 
             // btnAddResult
             // 
-            this.btnAddResult.Location = new System.Drawing.Point(893, 410);
+            this.btnAddResult.Location = new System.Drawing.Point(892, 466);
             this.btnAddResult.Name = "btnAddResult";
             this.btnAddResult.Size = new System.Drawing.Size(101, 23);
             this.btnAddResult.TabIndex = 26;
@@ -765,14 +765,14 @@
             // 
             // txtAddResult
             // 
-            this.txtAddResult.Location = new System.Drawing.Point(794, 412);
+            this.txtAddResult.Location = new System.Drawing.Point(793, 468);
             this.txtAddResult.Name = "txtAddResult";
             this.txtAddResult.Size = new System.Drawing.Size(88, 20);
             this.txtAddResult.TabIndex = 27;
             // 
             // btnGetResult
             // 
-            this.btnGetResult.Location = new System.Drawing.Point(996, 455);
+            this.btnGetResult.Location = new System.Drawing.Point(1122, 487);
             this.btnGetResult.Name = "btnGetResult";
             this.btnGetResult.Size = new System.Drawing.Size(103, 23);
             this.btnGetResult.TabIndex = 250;
@@ -783,7 +783,7 @@
             // rbClassC
             // 
             this.rbClassC.AutoSize = true;
-            this.rbClassC.Location = new System.Drawing.Point(930, 461);
+            this.rbClassC.Location = new System.Drawing.Point(1173, 464);
             this.rbClassC.Name = "rbClassC";
             this.rbClassC.Size = new System.Drawing.Size(60, 17);
             this.rbClassC.TabIndex = 249;
@@ -794,7 +794,7 @@
             // rbClassB
             // 
             this.rbClassB.AutoSize = true;
-            this.rbClassB.Location = new System.Drawing.Point(864, 461);
+            this.rbClassB.Location = new System.Drawing.Point(1107, 464);
             this.rbClassB.Name = "rbClassB";
             this.rbClassB.Size = new System.Drawing.Size(60, 17);
             this.rbClassB.TabIndex = 248;
@@ -805,7 +805,7 @@
             // rbClassA
             // 
             this.rbClassA.AutoSize = true;
-            this.rbClassA.Location = new System.Drawing.Point(798, 461);
+            this.rbClassA.Location = new System.Drawing.Point(1041, 464);
             this.rbClassA.Name = "rbClassA";
             this.rbClassA.Size = new System.Drawing.Size(60, 17);
             this.rbClassA.TabIndex = 247;
@@ -816,7 +816,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(791, 256);
+            this.label20.Location = new System.Drawing.Point(790, 270);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(60, 13);
             this.label20.TabIndex = 252;
@@ -825,16 +825,16 @@
             // lbGolfPlayers
             // 
             this.lbGolfPlayers.FormattingEnabled = true;
-            this.lbGolfPlayers.Location = new System.Drawing.Point(794, 272);
+            this.lbGolfPlayers.Location = new System.Drawing.Point(793, 286);
             this.lbGolfPlayers.Name = "lbGolfPlayers";
-            this.lbGolfPlayers.Size = new System.Drawing.Size(200, 134);
+            this.lbGolfPlayers.Size = new System.Drawing.Size(200, 173);
             this.lbGolfPlayers.TabIndex = 251;
             // 
             // CompetitionChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 749);
+            this.ClientSize = new System.Drawing.Size(1288, 545);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.lbGolfPlayers);
             this.Controls.Add(this.btnGetResult);

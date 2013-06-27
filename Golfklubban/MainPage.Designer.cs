@@ -63,8 +63,6 @@
             this.tsmPlayerChange = new System.Windows.Forms.ToolStripMenuItem();
             this.tävlingarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCompetitionAddPlayer = new System.Windows.Forms.ToolStripMenuItem();
-            this.lagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmTeamView = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -91,7 +89,7 @@
             this.lbMainPagePlayers.FormattingEnabled = true;
             this.lbMainPagePlayers.Location = new System.Drawing.Point(36, 58);
             this.lbMainPagePlayers.Name = "lbMainPagePlayers";
-            this.lbMainPagePlayers.Size = new System.Drawing.Size(228, 303);
+            this.lbMainPagePlayers.Size = new System.Drawing.Size(228, 433);
             this.lbMainPagePlayers.TabIndex = 20;
             // 
             // label1
@@ -105,7 +103,7 @@
             // 
             // txtBooking
             // 
-            this.txtBooking.Location = new System.Drawing.Point(396, 359);
+            this.txtBooking.Location = new System.Drawing.Point(396, 498);
             this.txtBooking.Name = "txtBooking";
             this.txtBooking.Size = new System.Drawing.Size(94, 23);
             this.txtBooking.TabIndex = 23;
@@ -122,16 +120,16 @@
             // lbTimes
             // 
             this.lbTimes.FormattingEnabled = true;
-            this.lbTimes.Location = new System.Drawing.Point(319, 232);
+            this.lbTimes.Location = new System.Drawing.Point(319, 228);
             this.lbTimes.Name = "lbTimes";
-            this.lbTimes.Size = new System.Drawing.Size(171, 121);
+            this.lbTimes.Size = new System.Drawing.Size(171, 264);
             this.lbTimes.TabIndex = 22;
             this.lbTimes.SelectedIndexChanged += new System.EventHandler(this.lbTimes_SelectedIndexChanged);
             // 
             // lbBookedPlayers
             // 
             this.lbBookedPlayers.FormattingEnabled = true;
-            this.lbBookedPlayers.Location = new System.Drawing.Point(319, 411);
+            this.lbBookedPlayers.Location = new System.Drawing.Point(319, 544);
             this.lbBookedPlayers.Name = "lbBookedPlayers";
             this.lbBookedPlayers.Size = new System.Drawing.Size(171, 69);
             this.lbBookedPlayers.TabIndex = 24;
@@ -180,7 +178,7 @@
             // 
             // txtDropPlayer
             // 
-            this.txtDropPlayer.Location = new System.Drawing.Point(396, 486);
+            this.txtDropPlayer.Location = new System.Drawing.Point(396, 619);
             this.txtDropPlayer.Name = "txtDropPlayer";
             this.txtDropPlayer.Size = new System.Drawing.Size(94, 23);
             this.txtDropPlayer.TabIndex = 28;
@@ -191,7 +189,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(316, 395);
+            this.label2.Location = new System.Drawing.Point(316, 528);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 29;
@@ -212,9 +210,9 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Location = new System.Drawing.Point(610, 42);
+            this.groupBox2.Location = new System.Drawing.Point(568, 42);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(137, 308);
+            this.groupBox2.Size = new System.Drawing.Size(137, 258);
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Registrera gästspelare";
@@ -226,7 +224,7 @@
             this.cbGuestSex.Items.AddRange(new object[] {
             "Man",
             "Kvinna"});
-            this.cbGuestSex.Location = new System.Drawing.Point(18, 232);
+            this.cbGuestSex.Location = new System.Drawing.Point(18, 195);
             this.cbGuestSex.Name = "cbGuestSex";
             this.cbGuestSex.Size = new System.Drawing.Size(100, 21);
             this.cbGuestSex.TabIndex = 10;
@@ -234,7 +232,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(15, 216);
+            this.label12.Location = new System.Drawing.Point(15, 179);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(26, 13);
             this.label12.TabIndex = 346;
@@ -243,7 +241,7 @@
             // txtGuestGolfId
             // 
             this.txtGuestGolfId.ForeColor = System.Drawing.Color.Silver;
-            this.txtGuestGolfId.Location = new System.Drawing.Point(18, 68);
+            this.txtGuestGolfId.Location = new System.Drawing.Point(18, 63);
             this.txtGuestGolfId.MaxLength = 9;
             this.txtGuestGolfId.Name = "txtGuestGolfId";
             this.txtGuestGolfId.Size = new System.Drawing.Size(100, 20);
@@ -253,14 +251,14 @@
             // 
             // txtGuestFirstName
             // 
-            this.txtGuestFirstName.Location = new System.Drawing.Point(18, 32);
+            this.txtGuestFirstName.Location = new System.Drawing.Point(18, 29);
             this.txtGuestFirstName.Name = "txtGuestFirstName";
             this.txtGuestFirstName.Size = new System.Drawing.Size(100, 20);
             this.txtGuestFirstName.TabIndex = 5;
             // 
             // btnRegisterGuest
             // 
-            this.btnRegisterGuest.Location = new System.Drawing.Point(43, 269);
+            this.btnRegisterGuest.Location = new System.Drawing.Point(43, 222);
             this.btnRegisterGuest.Name = "btnRegisterGuest";
             this.btnRegisterGuest.Size = new System.Drawing.Size(75, 23);
             this.btnRegisterGuest.TabIndex = 11;
@@ -270,7 +268,7 @@
             // 
             // txtGuestLastName
             // 
-            this.txtGuestLastName.Location = new System.Drawing.Point(18, 154);
+            this.txtGuestLastName.Location = new System.Drawing.Point(18, 127);
             this.txtGuestLastName.Name = "txtGuestLastName";
             this.txtGuestLastName.Size = new System.Drawing.Size(100, 20);
             this.txtGuestLastName.TabIndex = 8;
@@ -278,7 +276,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(15, 91);
+            this.label11.Location = new System.Drawing.Point(15, 82);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 13);
             this.label11.TabIndex = 42;
@@ -286,7 +284,7 @@
             // 
             // txtGuestMobilePhone
             // 
-            this.txtGuestMobilePhone.Location = new System.Drawing.Point(18, 190);
+            this.txtGuestMobilePhone.Location = new System.Drawing.Point(18, 161);
             this.txtGuestMobilePhone.Name = "txtGuestMobilePhone";
             this.txtGuestMobilePhone.Size = new System.Drawing.Size(100, 20);
             this.txtGuestMobilePhone.TabIndex = 9;
@@ -294,7 +292,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(15, 175);
+            this.label10.Location = new System.Drawing.Point(15, 146);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(43, 13);
             this.label10.TabIndex = 41;
@@ -302,7 +300,7 @@
             // 
             // txtGuestHandicap
             // 
-            this.txtGuestHandicap.Location = new System.Drawing.Point(18, 110);
+            this.txtGuestHandicap.Location = new System.Drawing.Point(18, 95);
             this.txtGuestHandicap.Name = "txtGuestHandicap";
             this.txtGuestHandicap.Size = new System.Drawing.Size(100, 20);
             this.txtGuestHandicap.TabIndex = 7;
@@ -310,7 +308,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 53);
+            this.label9.Location = new System.Drawing.Point(15, 48);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(37, 13);
             this.label9.TabIndex = 40;
@@ -319,7 +317,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 15);
+            this.label4.Location = new System.Drawing.Point(15, 14);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 38;
@@ -328,7 +326,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 137);
+            this.label8.Location = new System.Drawing.Point(15, 113);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 13);
             this.label8.TabIndex = 39;
@@ -339,11 +337,10 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.programToolStripMenuItem,
             this.medlemmarToolStripMenuItem,
-            this.tävlingarToolStripMenuItem,
-            this.lagToolStripMenuItem});
+            this.tävlingarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1151, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(926, 24);
             this.menuStrip1.TabIndex = 47;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -399,20 +396,6 @@
             this.tsmCompetitionAddPlayer.Text = "Hantera tävling";
             this.tsmCompetitionAddPlayer.Click += new System.EventHandler(this.tsmCompetitionAddPlayer_Click);
             // 
-            // lagToolStripMenuItem
-            // 
-            this.lagToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmTeamView});
-            this.lagToolStripMenuItem.Name = "lagToolStripMenuItem";
-            this.lagToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
-            this.lagToolStripMenuItem.Text = "Lag";
-            // 
-            // tsmTeamView
-            // 
-            this.tsmTeamView.Name = "tsmTeamView";
-            this.tsmTeamView.Size = new System.Drawing.Size(114, 22);
-            this.tsmTeamView.Text = "Visa lag";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button2);
@@ -421,7 +404,7 @@
             this.groupBox1.Controls.Add(this.txtSearchGolfId);
             this.groupBox1.Controls.Add(this.txtSearchLastName);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(36, 411);
+            this.groupBox1.Location = new System.Drawing.Point(36, 521);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(228, 92);
             this.groupBox1.TabIndex = 48;
@@ -448,9 +431,9 @@
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.txtMaintenanceDate);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Location = new System.Drawing.Point(779, 42);
+            this.groupBox3.Location = new System.Drawing.Point(732, 42);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(135, 210);
+            this.groupBox3.Size = new System.Drawing.Size(157, 258);
             this.groupBox3.TabIndex = 49;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Boka tid för banskötsel";
@@ -458,7 +441,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(7, 133);
+            this.label14.Location = new System.Drawing.Point(7, 142);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(60, 13);
             this.label14.TabIndex = 53;
@@ -466,7 +449,7 @@
             // 
             // btnMaintenance
             // 
-            this.btnMaintenance.Location = new System.Drawing.Point(24, 181);
+            this.btnMaintenance.Location = new System.Drawing.Point(57, 222);
             this.btnMaintenance.Name = "btnMaintenance";
             this.btnMaintenance.Size = new System.Drawing.Size(94, 23);
             this.btnMaintenance.TabIndex = 16;
@@ -476,15 +459,15 @@
             // 
             // txtStaffId
             // 
-            this.txtStaffId.Location = new System.Drawing.Point(6, 149);
+            this.txtStaffId.Location = new System.Drawing.Point(9, 158);
             this.txtStaffId.Name = "txtStaffId";
-            this.txtStaffId.Size = new System.Drawing.Size(112, 20);
+            this.txtStaffId.Size = new System.Drawing.Size(145, 20);
             this.txtStaffId.TabIndex = 15;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 94);
+            this.label13.Location = new System.Drawing.Point(6, 101);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(36, 13);
             this.label13.TabIndex = 38;
@@ -493,9 +476,9 @@
             // txtMaintenanceEnd
             // 
             this.txtMaintenanceEnd.ForeColor = System.Drawing.Color.Silver;
-            this.txtMaintenanceEnd.Location = new System.Drawing.Point(9, 110);
+            this.txtMaintenanceEnd.Location = new System.Drawing.Point(9, 117);
             this.txtMaintenanceEnd.Name = "txtMaintenanceEnd";
-            this.txtMaintenanceEnd.Size = new System.Drawing.Size(112, 20);
+            this.txtMaintenanceEnd.Size = new System.Drawing.Size(145, 20);
             this.txtMaintenanceEnd.TabIndex = 14;
             this.txtMaintenanceEnd.Text = "HH:MM";
             this.txtMaintenanceEnd.Click += new System.EventHandler(this.textBox3_Click);
@@ -503,9 +486,9 @@
             // txtMaintenanceStart
             // 
             this.txtMaintenanceStart.ForeColor = System.Drawing.Color.Silver;
-            this.txtMaintenanceStart.Location = new System.Drawing.Point(6, 68);
+            this.txtMaintenanceStart.Location = new System.Drawing.Point(6, 72);
             this.txtMaintenanceStart.Name = "txtMaintenanceStart";
-            this.txtMaintenanceStart.Size = new System.Drawing.Size(112, 20);
+            this.txtMaintenanceStart.Size = new System.Drawing.Size(145, 20);
             this.txtMaintenanceStart.TabIndex = 13;
             this.txtMaintenanceStart.Text = "HH:MM";
             this.txtMaintenanceStart.Click += new System.EventHandler(this.textBox2_Click);
@@ -513,7 +496,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 52);
+            this.label7.Location = new System.Drawing.Point(6, 56);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 38;
@@ -524,7 +507,7 @@
             this.txtMaintenanceDate.ForeColor = System.Drawing.Color.Silver;
             this.txtMaintenanceDate.Location = new System.Drawing.Point(6, 32);
             this.txtMaintenanceDate.Name = "txtMaintenanceDate";
-            this.txtMaintenanceDate.Size = new System.Drawing.Size(112, 20);
+            this.txtMaintenanceDate.Size = new System.Drawing.Size(145, 20);
             this.txtMaintenanceDate.TabIndex = 12;
             this.txtMaintenanceDate.Text = "YYYY-MM-DD";
             this.txtMaintenanceDate.Click += new System.EventHandler(this.textBox1_Click);
@@ -540,7 +523,7 @@
             // 
             // btnCancelMaintenance
             // 
-            this.btnCancelMaintenance.Location = new System.Drawing.Point(1047, 202);
+            this.btnCancelMaintenance.Location = new System.Drawing.Point(814, 480);
             this.btnCancelMaintenance.Name = "btnCancelMaintenance";
             this.btnCancelMaintenance.Size = new System.Drawing.Size(75, 23);
             this.btnCancelMaintenance.TabIndex = 17;
@@ -551,7 +534,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(945, 38);
+            this.label15.Location = new System.Drawing.Point(729, 311);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(106, 13);
             this.label15.TabIndex = 54;
@@ -560,16 +543,16 @@
             // lbUpcomingMaintenance
             // 
             this.lbUpcomingMaintenance.FormattingEnabled = true;
-            this.lbUpcomingMaintenance.Location = new System.Drawing.Point(948, 54);
+            this.lbUpcomingMaintenance.Location = new System.Drawing.Point(732, 327);
             this.lbUpcomingMaintenance.Name = "lbUpcomingMaintenance";
-            this.lbUpcomingMaintenance.Size = new System.Drawing.Size(174, 134);
+            this.lbUpcomingMaintenance.Size = new System.Drawing.Size(157, 134);
             this.lbUpcomingMaintenance.TabIndex = 53;
             // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1151, 522);
+            this.ClientSize = new System.Drawing.Size(926, 652);
             this.Controls.Add(this.btnCancelMaintenance);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.lbUpcomingMaintenance);
@@ -638,8 +621,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmPlayerChange;
         private System.Windows.Forms.ToolStripMenuItem tävlingarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmCompetitionAddPlayer;
-        private System.Windows.Forms.ToolStripMenuItem lagToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tsmTeamView;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label13;
