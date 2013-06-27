@@ -421,8 +421,28 @@ namespace Golfklubban
 
         private void lbCompetitionChart_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lbPlayerHasGolfround.Items.Clear();
             selectedCompetition = (Competition)lbCompetitionChart.SelectedItem;
             lbPlayersInCompetition.DataSource = Methods.GetPlayersInCompetition(selectedCompetition.Id);
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true;");
+            try
+            {
+                conn.Open();
+                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM player JOIN golfround ON player.golfid = golfround.player JOIN competition ON golfround.date = competition.startdate WHERE competition.startdate = '" + selectedCompetition.startDate + "'", conn);
+                NpgsqlDataReader dr = command.ExecuteReader();
+                while (dr.Read())
+                {
+                //    MessageBox.Show((dr["firstname"] + " " + dr["lastname"]));
+                    lbPlayerHasGolfround.Items.Add(dr["firstname"] + " " + dr["lastname"]);
+                }
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
@@ -635,10 +655,45 @@ namespace Golfklubban
 
         private void lbPassedCompetitionChart_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lbResults.Items.Clear();
             selectedCompetition = (Competition)lbPassedCompetitionChart.SelectedItem;
             lbGolfPlayers.DataSource = Methods.GetPlayersInPassedCompetition(selectedCompetition.Id);
         }
 
+        private void DropAllPlayers()
+        {
+            DialogResult dropAllPlayers = MessageBox.Show("Vänligen bekräfta om du önskar att avboka spelaranas golftid och skicka ett meddelande om detta till dem.", "Vill du avboka spelarna?", MessageBoxButtons.OKCancel);
+            if (dropAllPlayers == DialogResult.OK)
+            {
+                selectedCompetition = (Competition)lbCompetitionChart.SelectedItem;
+                NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+                try
+                {
+                    string sql = "UPDATE golfround SET player = null WHERE date = '" + selectedCompetition.startDate + "'";
+                    conn.Open();
+                    NpgsqlCommand command = new NpgsqlCommand(sql, conn);
+                    int antal = command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Det finns inga spelare att avboka");
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+            }
+            else if (dropAllPlayers == DialogResult.Cancel)
+            { }
+
+        }
+
+        private void btnDropPlayersDuringComp_Click(object sender, EventArgs e)
+        {
+            DropAllPlayers();
+            lbPlayerHasGolfround.Items.Clear();
+        }
         
        
            

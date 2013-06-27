@@ -43,7 +43,7 @@ namespace Golfklubban
             conn.Close();
             return playerList;        
         }
-        public static List<Player> GetNotGuestPlayers() //hämtar alla spelare i databasen
+        public static List<Player> GetNotGuestPlayers() //hämtar alla spelare i databasen som inte är gästspelare
         {
             List<Player> playerList = new List<Player>();
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
@@ -74,14 +74,13 @@ namespace Golfklubban
             return playerList;
         }
 
-        //***Hämtar Tävlingar***
-        public static List<Competition> GetSingleCompetitions() //hämtar alla tävlingar framåt i tiden
+        public static List<Competition> GetSingleCompetitions() //hämtar alla Singeltävlingar framåt i tiden
         {
             List<Competition> competitionList = new List<Competition>();
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
             NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
             conn.Open();
-            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM competition WHERE enddate >= NOW() AND competition.competitiontype = 1", conn);
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM competition WHERE enddate >= NOW() AND competition.competitiontype = 1 ORDER BY startdate", conn);
             NpgsqlDataReader dr = command.ExecuteReader();
             while (dr.Read())
             {
@@ -102,13 +101,13 @@ namespace Golfklubban
             conn.Close();
             return competitionList;
         }
-        public static List<Competition> GetCoupleCompetitions() //hämtar alla tävlingar framåt i tiden
+        public static List<Competition> GetCoupleCompetitions() //hämtar alla Partävlingar framåt i tiden
         {
             List<Competition> competitionList = new List<Competition>();
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
             NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
             conn.Open();
-            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM competition WHERE enddate >= NOW() AND competition.competitiontype = 2", conn);
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM competition WHERE enddate >= NOW() AND competition.competitiontype = 2 ORDER BY startdate", conn);
             NpgsqlDataReader dr = command.ExecuteReader();
             while (dr.Read())
             {
@@ -129,13 +128,13 @@ namespace Golfklubban
             conn.Close();
             return competitionList;
         }
-        public static List<Competition> GetTeamCompetitions() //hämtar alla tävlingar framåt i tiden
+        public static List<Competition> GetTeamCompetitions() //hämtar alla Teamtävlingar framåt i tiden
         {
             List<Competition> competitionList = new List<Competition>();
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
             NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
             conn.Open();
-            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM competition WHERE enddate >= NOW() AND competition.competitiontype = 3", conn);
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM competition WHERE enddate >= NOW() AND competition.competitiontype = 3 ORDER BY startdate", conn);
             NpgsqlDataReader dr = command.ExecuteReader();
             while (dr.Read())
             {
@@ -164,7 +163,7 @@ namespace Golfklubban
             ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
             NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
             conn.Open();
-            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM competition WHERE enddate <= NOW()", conn);
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM competition WHERE enddate <= NOW() ORDER BY startdate", conn);
             NpgsqlDataReader dr = command.ExecuteReader();
             while (dr.Read())
             {

@@ -100,6 +100,12 @@
             this.rbClassA = new System.Windows.Forms.RadioButton();
             this.label20 = new System.Windows.Forms.Label();
             this.lbGolfPlayers = new System.Windows.Forms.ListBox();
+            this.btnDropPlayersDuringComp = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.lbPlayerHasGolfround = new System.Windows.Forms.ListBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -119,7 +125,7 @@
             // lbCompetitionChart
             // 
             this.lbCompetitionChart.FormattingEnabled = true;
-            this.lbCompetitionChart.Location = new System.Drawing.Point(165, 38);
+            this.lbCompetitionChart.Location = new System.Drawing.Point(165, 123);
             this.lbCompetitionChart.Name = "lbCompetitionChart";
             this.lbCompetitionChart.Size = new System.Drawing.Size(200, 212);
             this.lbCompetitionChart.TabIndex = 1;
@@ -267,7 +273,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(265, 256);
+            this.button1.Location = new System.Drawing.Point(265, 341);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 23);
             this.button1.TabIndex = 18;
@@ -278,7 +284,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(162, 24);
+            this.label9.Location = new System.Drawing.Point(162, 109);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(103, 13);
             this.label9.TabIndex = 10;
@@ -286,6 +292,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label24);
+            this.groupBox1.Controls.Add(this.btnDropPlayersDuringComp);
+            this.groupBox1.Controls.Add(this.label21);
+            this.groupBox1.Controls.Add(this.lbPlayerHasGolfround);
+            this.groupBox1.Controls.Add(this.label22);
+            this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Controls.Add(this.rbLag);
             this.groupBox1.Controls.Add(this.rbPar);
             this.groupBox1.Controls.Add(this.rbSingel);
@@ -313,7 +325,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(387, 497);
+            this.groupBox1.Size = new System.Drawing.Size(387, 612);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lägg till tävlingar";
@@ -354,14 +366,14 @@
             // lbPlayersInCompetition
             // 
             this.lbPlayersInCompetition.FormattingEnabled = true;
-            this.lbPlayersInCompetition.Location = new System.Drawing.Point(165, 294);
+            this.lbPlayersInCompetition.Location = new System.Drawing.Point(165, 425);
             this.lbPlayersInCompetition.Name = "lbPlayersInCompetition";
             this.lbPlayersInCompetition.Size = new System.Drawing.Size(200, 147);
             this.lbPlayersInCompetition.TabIndex = 19;
             // 
             // btnDropPlayerFromComp
             // 
-            this.btnDropPlayerFromComp.Location = new System.Drawing.Point(265, 451);
+            this.btnDropPlayerFromComp.Location = new System.Drawing.Point(265, 582);
             this.btnDropPlayerFromComp.Name = "btnDropPlayerFromComp";
             this.btnDropPlayerFromComp.Size = new System.Drawing.Size(100, 23);
             this.btnDropPlayerFromComp.TabIndex = 20;
@@ -830,11 +842,65 @@
             this.lbGolfPlayers.Size = new System.Drawing.Size(200, 173);
             this.lbGolfPlayers.TabIndex = 251;
             // 
+            // btnDropPlayersDuringComp
+            // 
+            this.btnDropPlayersDuringComp.Location = new System.Drawing.Point(7, 578);
+            this.btnDropPlayersDuringComp.Name = "btnDropPlayersDuringComp";
+            this.btnDropPlayersDuringComp.Size = new System.Drawing.Size(129, 23);
+            this.btnDropPlayersDuringComp.TabIndex = 31;
+            this.btnDropPlayersDuringComp.Text = "Ta bort och meddela";
+            this.btnDropPlayersDuringComp.UseVisualStyleBackColor = true;
+            this.btnDropPlayersDuringComp.Click += new System.EventHandler(this.btnDropPlayersDuringComp_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(4, 426);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(110, 13);
+            this.label21.TabIndex = 33;
+            this.label21.Text = "som markerad tävling.";
+            // 
+            // lbPlayerHasGolfround
+            // 
+            this.lbPlayerHasGolfround.FormattingEnabled = true;
+            this.lbPlayerHasGolfround.Location = new System.Drawing.Point(7, 451);
+            this.lbPlayerHasGolfround.Name = "lbPlayerHasGolfround";
+            this.lbPlayerHasGolfround.Size = new System.Drawing.Size(129, 121);
+            this.lbPlayerHasGolfround.TabIndex = 29;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(4, 413);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(118, 13);
+            this.label22.TabIndex = 32;
+            this.label22.Text = "en golftid samma datum";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(4, 400);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(117, 13);
+            this.label23.TabIndex = 30;
+            this.label23.Text = "Obs! Dessa spelare har";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(162, 400);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(186, 13);
+            this.label24.TabIndex = 34;
+            this.label24.Text = "Avboka spelare från markerad tävling ";
+            // 
             // CompetitionChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1288, 545);
+            this.ClientSize = new System.Drawing.Size(1288, 673);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.lbGolfPlayers);
             this.Controls.Add(this.btnGetResult);
@@ -944,5 +1010,11 @@
         internal System.Windows.Forms.RadioButton rbClassA;
         internal System.Windows.Forms.Label label20;
         internal System.Windows.Forms.ListBox lbGolfPlayers;
+        private System.Windows.Forms.Button btnDropPlayersDuringComp;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ListBox lbPlayerHasGolfround;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
     }
 }

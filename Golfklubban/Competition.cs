@@ -19,7 +19,7 @@ namespace Golfklubban
 
         public override string ToString()
         {
-            return competitionName;
+            return competitionName + " " + startDate.ToShortDateString();
         }
     }
 }
