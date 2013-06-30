@@ -190,7 +190,7 @@ namespace Golfklubban
         private void btnRegister_Click(object sender, EventArgs e)
         {            
             string chosenStatus = cbMembershipStatus.GetItemText(cbMembershipStatus.SelectedItem); //hämtar info av valt item i comboboxen
-            int playerStatus = selectedPlayer.membershipStatus;
+            int playerStatus = 1;
             if (chosenStatus.Equals("Aktiv"))
             { playerStatus = 1; }
             else if (chosenStatus.Equals("Vilande"))
@@ -205,14 +205,14 @@ namespace Golfklubban
             //      { playerStatus = selectedPlayer.membershipStatus; }
             //liknande kod för att registrera om spelaren betalt avgift
             string payedFee = cbMembershipFee.GetItemText(cbMembershipFee.SelectedItem);
-            bool memberFee = selectedPlayer.membershipFee;
+            bool memberFee = true;
             if (payedFee.Equals("Betald"))
             { memberFee = true; }
             else
             {
                 memberFee = false;
             }
-            bool sex = selectedPlayer.sex;
+            bool sex = true;
             if (payedFee.Equals("Man"))
             { memberFee = true; }
             else
