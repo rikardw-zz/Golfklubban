@@ -570,7 +570,7 @@
             this.Controls.Add(this.lbTimes);
             this.Name = "MainPage";
             this.Text = "Golfklubban";
-            this.Load += new System.EventHandler(this.MainPage_Load);
+            this.Activated += new System.EventHandler(this.MainPage_Activated);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -636,6 +636,7 @@
         private System.Windows.Forms.Button btnCancelMaintenance;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ListBox lbUpcomingMaintenance;
+
 
 
     }

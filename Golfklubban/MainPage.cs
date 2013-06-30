@@ -137,7 +137,8 @@ namespace Golfklubban
                     MessageBox.Show("Om du lägger till denna spelare kommer det totala handikapsvärdet överstiga 100.\nDu kan ej lägga till fler spelare");
                 }
                 else
-                {                   
+                {
+                   
                     NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
                     try
                     {
@@ -385,9 +386,12 @@ namespace Golfklubban
             return maintenanceEndTime;
         }
 
-        private void MainPage_Load(object sender, EventArgs e)
+        private void MainPage_Activated(object sender, System.EventArgs e)
         {
+            lbMainPagePlayers.DataSource = Methods.GetUnbookedPlayers(monthCalendar1.SelectionStart, lbTimes.SelectedItem.ToString());
 
+           // DateTime pickedDate = monthCalendar1.SelectionStart; //vald i kalender
+            //string convPickedDate = pickedDate.ToShortDateString(); //konvert till endast datum
         }
 
         private void btnMaintenance_Click(object sender, EventArgs e)
