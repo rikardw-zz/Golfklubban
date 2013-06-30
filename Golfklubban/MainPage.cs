@@ -309,7 +309,7 @@ namespace Golfklubban
 
         private void stängToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void txtGuestGolfId_Click(object sender, EventArgs e)

@@ -36,6 +36,7 @@ namespace Golfklubban
                         {
                             MainPage mp = new MainPage();
                             mp.Show();
+                            this.Hide();
                         }
                         else
                         {
