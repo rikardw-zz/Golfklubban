@@ -137,9 +137,7 @@ namespace Golfklubban
                     MessageBox.Show("Om du lägger till denna spelare kommer det totala handikapsvärdet överstiga 100.\nDu kan ej lägga till fler spelare");
                 }
                 else
-                {
-                   
-
+                {                   
                     NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
                     try
                     {

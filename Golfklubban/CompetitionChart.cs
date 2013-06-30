@@ -694,8 +694,35 @@ namespace Golfklubban
             DropAllPlayers();
             lbPlayerHasGolfround.Items.Clear();
         }
-        
-       
-           
+
+        private void btnTimeLottery_Click(object sender, EventArgs e)
+        {
+            
+            List<Player> players = lbPlayersInCompetition.Items.Cast<Player>().ToList();
+            Competition comp = (Competition)lbCompetitionChart.SelectedItem;
+            DateTime time = new DateTime(comp.startDate.Date.Year, comp.startDate.Date.Month, comp.startDate.Date.Day, 8, 0, 0);
+            int numbPlayers = players.Count();
+            players.Shuffle();
+            foreach (Player p in players) 
+            {
+                NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+                try
+                {
+                    conn.Open();
+                    String cmd = "INSERT INTO golfround (date, startingtime, player) VALUES ('" + time.Date + "' , '" + time.TimeOfDay + "', '" + p.golfId + "')";
+                    NpgsqlCommand command = new NpgsqlCommand(cmd, conn);
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                time = time.AddMinutes(10);
+            }
+        }            
     }
 }

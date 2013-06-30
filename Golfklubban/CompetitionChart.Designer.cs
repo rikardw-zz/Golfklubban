@@ -49,6 +49,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnTimeLottery = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.btnDropPlayersDuringComp = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
@@ -292,6 +293,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnTimeLottery);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.btnDropPlayersDuringComp);
             this.groupBox1.Controls.Add(this.label21);
@@ -329,6 +331,16 @@
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lägg till tävlingar";
+            // 
+            // btnTimeLottery
+            // 
+            this.btnTimeLottery.Location = new System.Drawing.Point(165, 582);
+            this.btnTimeLottery.Name = "btnTimeLottery";
+            this.btnTimeLottery.Size = new System.Drawing.Size(94, 23);
+            this.btnTimeLottery.TabIndex = 35;
+            this.btnTimeLottery.Text = "Lotta ut tider";
+            this.btnTimeLottery.UseVisualStyleBackColor = true;
+            this.btnTimeLottery.Click += new System.EventHandler(this.btnTimeLottery_Click);
             // 
             // label24
             // 
@@ -1016,5 +1028,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button btnTimeLottery;
     }
 }
