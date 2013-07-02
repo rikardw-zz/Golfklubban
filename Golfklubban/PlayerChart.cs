@@ -49,10 +49,18 @@ namespace Golfklubban
             {
                 membershipFee = false;
             }
-            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
-            NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
-            conn.Open();
-            NpgsqlCommand command = new NpgsqlCommand(@"UPDATE player
+            if (int.Parse(txtHandicap.Text) >= 37)
+            {
+                MessageBox.Show("Aja baja, du får inte ange ett för högt handicap på spelaren.");
+            }
+            else
+            {
+
+
+                ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[conString];
+                NpgsqlConnection conn = new NpgsqlConnection(settings.ConnectionString);
+                conn.Open();
+                NpgsqlCommand command = new NpgsqlCommand(@"UPDATE player
                                                         SET firstname =:firstName,
                                                             lastname =:lastName,
                                                             playerstatus_id =:membershipStatus,
@@ -64,32 +72,33 @@ namespace Golfklubban
                                                             handicap =:handicap,
                                                             membershipfee =:membershipFee
                                                             WHERE golfid = :golfId", conn);
-            command.Parameters.Add(new NpgsqlParameter("firstName", DbType.String));
-            command.Parameters[0].Value = txtFirstName.Text;
-            command.Parameters.Add(new NpgsqlParameter("lastName", DbType.String));
-            command.Parameters[1].Value = txtLastName.Text;
-            command.Parameters.Add(new NpgsqlParameter("address", DbType.String));
-            command.Parameters[2].Value = txtAddress.Text;
-            command.Parameters.Add(new NpgsqlParameter("streetNumber", DbType.String));
-            command.Parameters[3].Value = txtStreetNumber.Text;
-            command.Parameters.Add(new NpgsqlParameter("zipCode", DbType.Int32));
-            command.Parameters[4].Value = Convert.ToInt32(txtZipCode.Text);
-            command.Parameters.Add(new NpgsqlParameter("mobilePhone", DbType.String));
-            command.Parameters[5].Value = txtMobile.Text;
-            command.Parameters.Add(new NpgsqlParameter("eMail", DbType.String));
-            command.Parameters[6].Value = txtEmail.Text;
-            command.Parameters.Add(new NpgsqlParameter("handicap", DbType.Double));
-            command.Parameters[7].Value = Convert.ToDouble(txtHandicap.Text);
-            command.Parameters.Add(new NpgsqlParameter("golfId", DbType.Int32));
-            command.Parameters[8].Value = Convert.ToInt32(txtGolfId.Text); //Ska GolfID gå att ändra?
-            command.Parameters.Add(new NpgsqlParameter("membershipStatus", DbType.Int32));
-            command.Parameters[9].Value = playerStatus;
-            command.Parameters.Add(new NpgsqlParameter("membershipFee", DbType.Boolean));
-            command.Parameters[10].Value = membershipFee;
+                command.Parameters.Add(new NpgsqlParameter("firstName", DbType.String));
+                command.Parameters[0].Value = txtFirstName.Text;
+                command.Parameters.Add(new NpgsqlParameter("lastName", DbType.String));
+                command.Parameters[1].Value = txtLastName.Text;
+                command.Parameters.Add(new NpgsqlParameter("address", DbType.String));
+                command.Parameters[2].Value = txtAddress.Text;
+                command.Parameters.Add(new NpgsqlParameter("streetNumber", DbType.String));
+                command.Parameters[3].Value = txtStreetNumber.Text;
+                command.Parameters.Add(new NpgsqlParameter("zipCode", DbType.Int32));
+                command.Parameters[4].Value = Convert.ToInt32(txtZipCode.Text);
+                command.Parameters.Add(new NpgsqlParameter("mobilePhone", DbType.String));
+                command.Parameters[5].Value = txtMobile.Text;
+                command.Parameters.Add(new NpgsqlParameter("eMail", DbType.String));
+                command.Parameters[6].Value = txtEmail.Text;
+                command.Parameters.Add(new NpgsqlParameter("handicap", DbType.Double));
+                command.Parameters[7].Value = Convert.ToDouble(txtHandicap.Text);
+                command.Parameters.Add(new NpgsqlParameter("golfId", DbType.Int32));
+                command.Parameters[8].Value = Convert.ToInt32(txtGolfId.Text); //Ska GolfID gå att ändra?
+                command.Parameters.Add(new NpgsqlParameter("membershipStatus", DbType.Int32));
+                command.Parameters[9].Value = playerStatus;
+                command.Parameters.Add(new NpgsqlParameter("membershipFee", DbType.Boolean));
+                command.Parameters[10].Value = membershipFee;
 
-            int numberOfRowsAffected = command.ExecuteNonQuery();
-            lbPlayerChart.DataSource = Methods.GetPlayers();
-            conn.Close();
+                int numberOfRowsAffected = command.ExecuteNonQuery();
+                lbPlayerChart.DataSource = Methods.GetPlayers();
+                conn.Close();
+            }
         }
 
         private void lbPlayerChart_SelectedIndexChanged(object sender, EventArgs e)
@@ -226,49 +235,55 @@ namespace Golfklubban
                 return;
             }
 
-
-            //Skapa GolfID
-            NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
-            selectedPlayer = (Player)lbPlayerChart.SelectedItem;                        
-            string stringGolfId = txtGolfId.Text + "001"; //Här har du golfID + 001           
-            int golfId = Convert.ToInt32(stringGolfId); //här får du ut det som int = 851217001 
-            
-            conn.Open();
-            string query = "SELECT max(golfid) FROM player WHERE golfid >= " + txtGolfId.Text + "001" + "AND golfid <= " + txtGolfId.Text + "999";
-            NpgsqlCommand command1 = new NpgsqlCommand(query, conn);
-            object objHighestGolfId = command1.ExecuteScalar(); //Tar ut högsta värdet i [valtpersonummer] + [xxx]
-            if (!string.IsNullOrEmpty("" + objHighestGolfId)) //Om värdet inte är null, utför detta:
+            if (int.Parse(txtHandicap.Text) >= 37)
             {
-                int highestGolfId = Convert.ToInt32(objHighestGolfId); //gör om object till typ int 851212003
-                while (golfId <= highestGolfId) //medan [personummer] + [xxx] är under valt värde:
+                MessageBox.Show("Spelaren måste ha 36 eller lägre i handicap för att få vara medlem.");
+            }
+            else
+            {
+
+                //Skapa GolfID
+                NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
+                selectedPlayer = (Player)lbPlayerChart.SelectedItem;
+                string stringGolfId = txtGolfId.Text + "001"; //Här har du golfID + 001           
+                int golfId = Convert.ToInt32(stringGolfId); //här får du ut det som int = 851217001 
+
+                conn.Open();
+                string query = "SELECT max(golfid) FROM player WHERE golfid >= " + txtGolfId.Text + "001" + "AND golfid <= " + txtGolfId.Text + "999";
+                NpgsqlCommand command1 = new NpgsqlCommand(query, conn);
+                object objHighestGolfId = command1.ExecuteScalar(); //Tar ut högsta värdet i [valtpersonummer] + [xxx]
+                if (!string.IsNullOrEmpty("" + objHighestGolfId)) //Om värdet inte är null, utför detta:
                 {
-                    golfId++; //lägg till ett nummer till på slutet
-                }    
-            }            
-                              
-            try
-            {                                
-                NpgsqlCommand command2 = new NpgsqlCommand("INSERT INTO player (golfid, playerstatus_id, firstname, lastname, address, streetnumber, zipcode, mobile, email, membershipfee, handicap, sex) VALUES (" + golfId + " , " + playerStatus + " , '" + txtFirstName.Text + "' , '" + txtLastName.Text + "' , '" + txtAddress.Text + "' , '" + txtStreetNumber.Text + "' , " + Convert.ToInt32(txtZipCode.Text) + " , '" + txtMobile.Text + "' , '" + txtEmail.Text + "' , '" + memberFee + "' ," + Convert.ToDouble(txtHandicap.Text) + " , " + sex + " )", conn);
-                int antal2 = command2.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Vänligen fyll i samtliga fält korrekt");
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                conn.Close();
-            }
-            lbPlayerChart.DataSource = Methods.GetPlayers();
-           // lbMainPagePlayers.DataSource = Methods.GetPlayers();
+                    int highestGolfId = Convert.ToInt32(objHighestGolfId); //gör om object till typ int 851212003
+                    while (golfId <= highestGolfId) //medan [personummer] + [xxx] är under valt värde:
+                    {
+                        golfId++; //lägg till ett nummer till på slutet
+                    }
+                }
 
-          //  label1.Text = ((Form1)frm1).textBox1.Text;
-  
+                try
+                {
+                    NpgsqlCommand command2 = new NpgsqlCommand("INSERT INTO player (golfid, playerstatus_id, firstname, lastname, address, streetnumber, zipcode, mobile, email, membershipfee, handicap, sex) VALUES (" + golfId + " , " + playerStatus + " , '" + txtFirstName.Text + "' , '" + txtLastName.Text + "' , '" + txtAddress.Text + "' , '" + txtStreetNumber.Text + "' , " + Convert.ToInt32(txtZipCode.Text) + " , '" + txtMobile.Text + "' , '" + txtEmail.Text + "' , '" + memberFee + "' ," + Convert.ToDouble(txtHandicap.Text) + " , " + sex + " )", conn);
+                    int antal2 = command2.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Vänligen fyll i samtliga fält korrekt");
+                    //     MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                lbPlayerChart.DataSource = Methods.GetPlayers();
+                // lbMainPagePlayers.DataSource = Methods.GetPlayers();
 
-            //Här bör även kod för att uppdatera mainsidan läggas in
-           // MainPage.lbMainPagePlayers.DataSource = l
+                //  label1.Text = ((Form1)frm1).textBox1.Text;
 
+
+                //Här bör även kod för att uppdatera mainsidan läggas in
+                // MainPage.lbMainPagePlayers.DataSource = l
+            }
         }
     }
 }
