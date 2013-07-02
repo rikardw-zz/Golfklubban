@@ -67,8 +67,7 @@ namespace Golfklubban
             {
                 int playerGolfID = Convert.ToInt32(txtSearchGolfId.Text);
                 lbMainPagePlayers.DataSource = Methods.SearchPlayer(playerGolfID);
-                txtSearchGolfId.Clear();
-                return;
+                txtSearchGolfId.Clear();  
             }
 
             if ((txtSearchLastName.Text.Trim().Length == 0))
@@ -78,18 +77,18 @@ namespace Golfklubban
                 string playerLastName = txtSearchLastName.Text;
                 lbMainPagePlayers.DataSource = Methods.SearchPlayerByLastName(playerLastName);
                 txtSearchLastName.Clear();
-                return;
+                
             }
 
             for (int x = 0; x < lbMainPagePlayers.Items.Count; x++) 
             {
                 lbMainPagePlayers.SetSelected(x, true);
             }
-            if (lbBookedPlayers.Items.Count < 1)
+            if (lbMainPagePlayers.Items.Count < 1) 
             {
                 MessageBox.Show("Ingen spelare hittas på angivet sökkriterie");
                 lbMainPagePlayers.DataSource = Methods.GetPlayers();
-            }
+            } 
         }
 
         private void txtBooking_Click(object sender, EventArgs e)
