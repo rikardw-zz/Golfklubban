@@ -219,6 +219,14 @@ namespace Golfklubban
             {
                 memberFee = false;
             }
+
+            if (txtGolfId.Text.Trim().Length != 6)
+            {
+                MessageBox.Show("Var vänlig ange de 6 första siffrorna i personnumret.");
+                return;
+            }
+
+
             //Skapa GolfID
             NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
             selectedPlayer = (Player)lbPlayerChart.SelectedItem;                        
