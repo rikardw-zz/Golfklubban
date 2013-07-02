@@ -77,7 +77,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(151, 161);
+            this.label21.Location = new System.Drawing.Point(151, 118);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(67, 13);
             this.label21.TabIndex = 351;
@@ -85,7 +85,7 @@
             // 
             // txtStreetNumber
             // 
-            this.txtStreetNumber.Location = new System.Drawing.Point(154, 177);
+            this.txtStreetNumber.Location = new System.Drawing.Point(154, 134);
             this.txtStreetNumber.Name = "txtStreetNumber";
             this.txtStreetNumber.Size = new System.Drawing.Size(100, 20);
             this.txtStreetNumber.TabIndex = 8;
@@ -131,7 +131,7 @@
             // Label4
             // 
             this.Label4.AutoSize = true;
-            this.Label4.Location = new System.Drawing.Point(151, 118);
+            this.Label4.Location = new System.Drawing.Point(151, 161);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(32, 13);
             this.Label4.TabIndex = 346;
@@ -189,7 +189,7 @@
             // 
             // txtMobile
             // 
-            this.txtMobile.Location = new System.Drawing.Point(154, 134);
+            this.txtMobile.Location = new System.Drawing.Point(154, 177);
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.Size = new System.Drawing.Size(100, 20);
             this.txtMobile.TabIndex = 6;

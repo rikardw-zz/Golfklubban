@@ -169,6 +169,7 @@ namespace Golfklubban
                     //  lbBookedPlayers.ClearSelected();
                     lbBookedPlayers.DataSource = Methods.GetBookedPlayers(pickedDate, pickedTime);
                     lbMainPagePlayers.DataSource = Methods.GetUnbookedPlayers(pickedDate, pickedTime);
+                    MessageBox.Show("En bokningsbekräftelse har skickats till spelaren.");
             }
         }
 

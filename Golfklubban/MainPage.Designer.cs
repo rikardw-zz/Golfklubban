@@ -212,7 +212,7 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Location = new System.Drawing.Point(568, 42);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(137, 258);
+            this.groupBox2.Size = new System.Drawing.Size(137, 282);
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Registrera gästspelare";
@@ -224,7 +224,7 @@
             this.cbGuestSex.Items.AddRange(new object[] {
             "Man",
             "Kvinna"});
-            this.cbGuestSex.Location = new System.Drawing.Point(18, 195);
+            this.cbGuestSex.Location = new System.Drawing.Point(18, 208);
             this.cbGuestSex.Name = "cbGuestSex";
             this.cbGuestSex.Size = new System.Drawing.Size(100, 21);
             this.cbGuestSex.TabIndex = 10;
@@ -232,7 +232,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(15, 179);
+            this.label12.Location = new System.Drawing.Point(15, 192);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(26, 13);
             this.label12.TabIndex = 346;
@@ -241,7 +241,7 @@
             // txtGuestGolfId
             // 
             this.txtGuestGolfId.ForeColor = System.Drawing.Color.Silver;
-            this.txtGuestGolfId.Location = new System.Drawing.Point(18, 63);
+            this.txtGuestGolfId.Location = new System.Drawing.Point(18, 107);
             this.txtGuestGolfId.MaxLength = 9;
             this.txtGuestGolfId.Name = "txtGuestGolfId";
             this.txtGuestGolfId.Size = new System.Drawing.Size(100, 20);
@@ -258,7 +258,7 @@
             // 
             // btnRegisterGuest
             // 
-            this.btnRegisterGuest.Location = new System.Drawing.Point(43, 222);
+            this.btnRegisterGuest.Location = new System.Drawing.Point(43, 235);
             this.btnRegisterGuest.Name = "btnRegisterGuest";
             this.btnRegisterGuest.Size = new System.Drawing.Size(75, 23);
             this.btnRegisterGuest.TabIndex = 11;
@@ -268,7 +268,7 @@
             // 
             // txtGuestLastName
             // 
-            this.txtGuestLastName.Location = new System.Drawing.Point(18, 127);
+            this.txtGuestLastName.Location = new System.Drawing.Point(18, 69);
             this.txtGuestLastName.Name = "txtGuestLastName";
             this.txtGuestLastName.Size = new System.Drawing.Size(100, 20);
             this.txtGuestLastName.TabIndex = 8;
@@ -276,7 +276,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(15, 82);
+            this.label11.Location = new System.Drawing.Point(15, 126);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 13);
             this.label11.TabIndex = 42;
@@ -284,7 +284,7 @@
             // 
             // txtGuestMobilePhone
             // 
-            this.txtGuestMobilePhone.Location = new System.Drawing.Point(18, 161);
+            this.txtGuestMobilePhone.Location = new System.Drawing.Point(18, 174);
             this.txtGuestMobilePhone.Name = "txtGuestMobilePhone";
             this.txtGuestMobilePhone.Size = new System.Drawing.Size(100, 20);
             this.txtGuestMobilePhone.TabIndex = 9;
@@ -292,7 +292,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(15, 146);
+            this.label10.Location = new System.Drawing.Point(15, 159);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(43, 13);
             this.label10.TabIndex = 41;
@@ -300,7 +300,7 @@
             // 
             // txtGuestHandicap
             // 
-            this.txtGuestHandicap.Location = new System.Drawing.Point(18, 95);
+            this.txtGuestHandicap.Location = new System.Drawing.Point(18, 139);
             this.txtGuestHandicap.Name = "txtGuestHandicap";
             this.txtGuestHandicap.Size = new System.Drawing.Size(100, 20);
             this.txtGuestHandicap.TabIndex = 7;
@@ -308,7 +308,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 48);
+            this.label9.Location = new System.Drawing.Point(15, 92);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(37, 13);
             this.label9.TabIndex = 40;
@@ -326,7 +326,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 113);
+            this.label8.Location = new System.Drawing.Point(15, 53);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 13);
             this.label8.TabIndex = 39;
