@@ -61,14 +61,24 @@ namespace Golfklubban
             if ((txtSearchGolfId.Text.Trim().Length == 0 && txtSearchLastName.Text.Trim().Length == 0))
             { MessageBox.Show("Du måste fylla i antingen Golf-ID eller efternamn innan du gör en sökning"); }
 
-            if ((txtSearchGolfId.Text.Trim().Length == 0))
-            { }
-            else
+            if (txtSearchGolfId.Text.Trim().Length != 9)
             {
-                int playerGolfID = Convert.ToInt32(txtSearchGolfId.Text);
+                MessageBox.Show("Var vänlig ange ett niosiffrigt Golf-Id.");
+                return;
+            }
+            
+            int number = 0;
+            if (int.TryParse(txtSearchGolfId.Text.Trim(), out number))
+            {
+            int playerGolfID = Convert.ToInt32(txtSearchGolfId.Text);
                 lbMainPagePlayers.DataSource = Methods.SearchPlayer(playerGolfID);
                 txtSearchGolfId.Clear();  
             }
+            else
+            {
+            MessageBox.Show("Var vänlig ange ett korrekt Golf-Id.");
+            }
+  
 
             if ((txtSearchLastName.Text.Trim().Length == 0))
             { }
