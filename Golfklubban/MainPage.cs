@@ -68,7 +68,9 @@ namespace Golfklubban
                 int playerGolfID = Convert.ToInt32(txtSearchGolfId.Text);
                 lbMainPagePlayers.DataSource = Methods.SearchPlayer(playerGolfID);
                 txtSearchGolfId.Clear();
+                return;
             }
+
             if ((txtSearchLastName.Text.Trim().Length == 0))
             { }
             else
@@ -76,9 +78,10 @@ namespace Golfklubban
                 string playerLastName = txtSearchLastName.Text;
                 lbMainPagePlayers.DataSource = Methods.SearchPlayerByLastName(playerLastName);
                 txtSearchLastName.Clear();
+                return;
             }
 
-            for (int x = 0; x < lbMainPagePlayers.Items.Count; x++) //ser till så att inte fler än 4 kan vara med i samma grupp
+            for (int x = 0; x < lbMainPagePlayers.Items.Count; x++) 
             {
                 lbMainPagePlayers.SetSelected(x, true);
             }
@@ -493,6 +496,13 @@ namespace Golfklubban
             else if (dropMaintenance == DialogResult.Cancel)
             { }
         }
+
+        private void btnGetAllPlayers_Click(object sender, EventArgs e)
+        {
+            lbMainPagePlayers.DataSource = Methods.GetPlayers();
+        }
+
+        
         }
     }     
 
