@@ -703,6 +703,7 @@ namespace Golfklubban
             DateTime time = new DateTime(comp.startDate.Date.Year, comp.startDate.Date.Month, comp.startDate.Date.Day, 8, 0, 0);
             int numbPlayers = players.Count();
             players.Shuffle();
+            int playerCounter = 1;
             foreach (Player p in players) 
             {
                 NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
@@ -721,7 +722,11 @@ namespace Golfklubban
                 {
                     conn.Close();
                 }
-                time = time.AddMinutes(10);
+                if (playerCounter % 3 == 0)
+                {
+                    time = time.AddMinutes(10);
+                }
+                playerCounter++;
             }
         }            
     }
