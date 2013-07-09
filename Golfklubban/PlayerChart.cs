@@ -235,13 +235,13 @@ namespace Golfklubban
                 return;
             }
 
-            if (int.Parse(txtHandicap.Text) >= 37)
+            int num;
+            if (!int.TryParse(txtHandicap.Text, out num) || int.Parse(txtHandicap.Text) >= 37)
             {
-                MessageBox.Show("Spelaren måste ha 36 eller lägre i handicap för att få vara medlem.");
+                MessageBox.Show("Du kan endast fylla i att medlemmar har mellan 1-36 i handicap");
             }
             else
             {
-
                 //Skapa GolfID
                 NpgsqlConnection conn = new NpgsqlConnection("Server=webblabb.miun.se;Port=5432;Database=grp3vt13;User Id=grp3vt13;Password=XmFGFwX6t;SSL=true");
                 selectedPlayer = (Player)lbPlayerChart.SelectedItem;
