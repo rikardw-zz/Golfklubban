@@ -120,7 +120,8 @@ namespace Golfklubban
             {
                 txtFirstName.Text = selectedPlayer.firstName;
                 txtLastName.Text = selectedPlayer.lastName;
-                txtGolfId.Text = selectedPlayer.golfId.ToString();
+                txtGolfId.Text = selectedPlayer.golfId.ToString().Substring(0,6);
+                txtGolfIdEnding.Text = selectedPlayer.golfId.ToString().Substring(6,3);
                 txtMobile.Text = selectedPlayer.mobilePhone;
                 txtStreetNumber.Text = selectedPlayer.streetNumber;
                 txtZipCode.Text = selectedPlayer.zipCode.ToString();

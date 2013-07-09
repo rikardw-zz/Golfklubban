@@ -56,6 +56,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lbPlayerChart = new System.Windows.Forms.ListBox();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.txtGolfIdEnding = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label22
@@ -205,7 +206,7 @@
             // 
             this.txtGolfId.Location = new System.Drawing.Point(12, 81);
             this.txtGolfId.Name = "txtGolfId";
-            this.txtGolfId.Size = new System.Drawing.Size(100, 20);
+            this.txtGolfId.Size = new System.Drawing.Size(62, 20);
             this.txtGolfId.TabIndex = 3;
             // 
             // txtLastName
@@ -307,11 +308,20 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // txtGolfIdEnding
+            // 
+            this.txtGolfIdEnding.Location = new System.Drawing.Point(81, 80);
+            this.txtGolfIdEnding.Name = "txtGolfIdEnding";
+            this.txtGolfIdEnding.ReadOnly = true;
+            this.txtGolfIdEnding.Size = new System.Drawing.Size(31, 20);
+            this.txtGolfIdEnding.TabIndex = 357;
+            // 
             // PlayerChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 394);
+            this.Controls.Add(this.txtGolfIdEnding);
             this.Controls.Add(this.lbPlayerChart);
             this.Controls.Add(this.cbMembershipFee);
             this.Controls.Add(this.cbMembershipStatus);
@@ -378,5 +388,6 @@
         internal System.Windows.Forms.Label label9;
         private System.Windows.Forms.ListBox lbPlayerChart;
         internal System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.TextBox txtGolfIdEnding;
     }
 }
