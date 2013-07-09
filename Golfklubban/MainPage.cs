@@ -127,10 +127,6 @@ namespace Golfklubban
                 MessageBox.Show("En tävling finns bokad på valt datum. Det går inte att boka en golfrunda på detta datum");
                 return;
             }
-            else
-            { }
-
-
 
             for (int x = 0; x < lbBookedPlayers.Items.Count; x++) //ser till så att inte fler än 4 kan vara med i samma grupp
             {
